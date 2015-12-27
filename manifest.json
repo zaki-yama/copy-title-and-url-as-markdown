@@ -10,7 +10,8 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+K"
+        "default": "Ctrl+Shift+C",
+        "mac": "MacCtrl+Shift+C"
       }
     }
   },
