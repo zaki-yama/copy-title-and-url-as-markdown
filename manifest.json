@@ -4,6 +4,9 @@
   "name": "Copy title and url as Markdown style",
   "description": "Copy the title and url of the page as Markdown style",
   "version": "1.0",
+  "icons": {
+    "128": "icon128.png"
+  },
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
