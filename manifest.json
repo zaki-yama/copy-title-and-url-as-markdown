@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Copy title and url as Markdown style",
+  "description": "Copy the title and url of the page as Markdown style",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
