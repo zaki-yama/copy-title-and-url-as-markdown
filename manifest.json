@@ -3,7 +3,7 @@
 
   "name": "Copy title and url as Markdown style",
   "description": "Copy the title and url of the page as Markdown style",
-  "version": "1.0",
+  "version": "1.1",
   "icons": {
     "128": "icon128.png"
   },
@@ -19,7 +19,9 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+  "options_page": "options.html",
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage"
   ]
 }
