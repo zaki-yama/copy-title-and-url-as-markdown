@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Copy title and url as Markdown style",
-  "description": "Copy the title and url of the page as Markdown style",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
   "version": "1.1",
   "icons": {
     "128": "icon128.png"
