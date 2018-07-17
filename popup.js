@@ -11,9 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.sync.get({
       customFormat: '[${title}](${url})',
     }, function (options) {
+      // Encode (, ), [, ]
+      var url = tab.url
+        .replace(/\(/g, escape)
+        .replace(/\)/g, escape)
+        .replace(/\[/g, escape)
+        .replace(/\]/g, escape);
       document.getElementById('title').innerHTML = tab.title;
-      document.getElementById('url').innerHTML = tab.url;
-      obj.value = options.customFormat.replace('${title}', tab.title).replace('${url}', tab.url);
+      document.getElementById('url').innerHTML = url;
+      obj.value = options.customFormat.replace('${title}', tab.title).replace('${url}', url);
       obj.select();
       document.execCommand('copy');
     });
