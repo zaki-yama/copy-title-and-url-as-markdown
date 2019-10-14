@@ -1,5 +1,5 @@
 function saveOptions() {
-  var customFormat = document.getElementById('customFormat').value;
+  var customFormat = (document.getElementById('customFormat') as HTMLTextAreaElement).value;
   chrome.storage.sync.set({
     customFormat: customFormat,
   }, function() {
@@ -16,7 +16,7 @@ function restoreOptions() {
   chrome.storage.sync.get({
     customFormat: '[${title}](${url})',
   }, function(options) {
-    document.getElementById('customFormat').value = options.customFormat;
+    (document.getElementById('customFormat') as HTMLTextAreaElement).value = options.customFormat;
   });
 }
 
