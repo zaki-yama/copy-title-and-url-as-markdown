@@ -3,6 +3,8 @@
   "version": "1.4.0",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues"
   },
-  "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme"
+  "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
+  "devDependencies": {
+    "@types/chrome": "0.0.89",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
+  }
 }
