@@ -1,0 +1,19 @@
+{
+  "name": "copy-title-and-url-as-markdown",
+  "version": "1.4.0",
+  "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaki-yama/copy-title-and-url-as-markdown.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues"
+  },
+  "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme"
+}
