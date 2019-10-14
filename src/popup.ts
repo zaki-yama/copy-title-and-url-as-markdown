@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   chrome.tabs.query(queryInfo, function(tabs) {
-    var tab = tabs[0];
-    var obj = document.getElementById('copied') as HTMLTextAreaElement;
+    const tab = tabs[0];
+    const obj = document.getElementById('copied') as HTMLTextAreaElement;
     chrome.storage.sync.get({
       customFormat: '[${title}](${url})',
     }, function (options) {
