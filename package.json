@@ -26,6 +26,7 @@
     "bestzip": "^2.1.5",
     "eslint": "^6.8.0",
     "prettier": "^1.19.1",
+    "standard-version": "^7.0.1",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
