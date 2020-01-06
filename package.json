@@ -6,6 +6,7 @@
     "build": "webpack",
     "watch": "webpack -w",
     "zip": "bestzip dist.zip dist/*",
+    "lint": "eslint --ext .ts src/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
