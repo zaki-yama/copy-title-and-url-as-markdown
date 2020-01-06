@@ -6,6 +6,7 @@
     "build": "webpack",
     "watch": "webpack -w",
     "zip": "bestzip dist.zip dist/*",
+    "lint": "eslint --ext .ts src/**",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +21,11 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
+    "@cybozu/eslint-config": "^9.0.1",
     "@types/chrome": "0.0.89",
     "bestzip": "^2.1.5",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
