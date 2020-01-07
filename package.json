@@ -30,5 +30,8 @@
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@salesforce-ux/design-system": "^2.10.2"
   }
 }
