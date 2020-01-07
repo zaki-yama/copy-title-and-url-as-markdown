@@ -3,6 +3,7 @@
   "version": "1.4.0",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "scripts": {
+    "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
     "build": "webpack",
     "watch": "webpack -w",
     "zip": "bestzip dist.zip dist/*",
