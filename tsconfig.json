@@ -3,7 +3,9 @@
     "target": "es5",
     "module": "commonjs",
     "lib": ["es2015", "dom"],
+    "jsx": "react",
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "esModuleInterop": true
   }
 }
