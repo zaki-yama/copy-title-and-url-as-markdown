@@ -4,8 +4,8 @@
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "scripts": {
     "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
-    "build": "webpack",
-    "watch": "webpack -w",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
