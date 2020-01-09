@@ -9,7 +9,7 @@
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts src/**",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s dist -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
