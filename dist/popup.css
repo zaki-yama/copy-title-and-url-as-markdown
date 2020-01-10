@@ -1,23 +1,12 @@
 body {
-  overflow: hidden;
-  padding: 0px;
   background: white;
 }
-div {
-  cursor: pointer;
-  text-align: left;
-  padding: 2px;
-  font-size: 0.9em;
-  width: 300px;
+
+.popupContainer {
+  width: 400px;
+  padding: 10px;
 }
-.message {
-  font-size: 1.2em;
-  background-color: #00FF3B;
-  text-align: center;
-  font-family: Verdana;
-  font-weight: bold;
-  padding: 5px;
-}
+
 #copied {
   position: absolute;
   top: -9999px;
