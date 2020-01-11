@@ -3,11 +3,14 @@
   "version": "1.4.0",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w",
+    "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts src/**",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -s dist -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -21,14 +24,29 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.7",
     "@cybozu/eslint-config": "^9.0.1",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/preset-typescript": "^1.2.0",
+    "@storybook/react": "^5.2.8",
     "@types/chrome": "0.0.89",
+    "babel-loader": "^8.0.6",
     "bestzip": "^2.1.5",
     "eslint": "^6.8.0",
+    "fork-ts-checker-webpack-plugin": "^3.1.1",
     "prettier": "^1.19.1",
-    "ts-loader": "^6.2.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@salesforce-ux/design-system": "^2.10.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-lightning-design-system": "^2.5.8"
   }
 }
