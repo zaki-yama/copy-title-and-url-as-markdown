@@ -1,11 +1,11 @@
 const path = require("path");
 
-module.exports = {
+module.exports = (_, argv) => ({
   entry: {
     popup: path.join(__dirname, "src/popup/index.tsx"),
     options: path.join(__dirname, "src/options/index.tsx")
   },
-  devtool: "inline-source-map",
+  devtool: argv.mode === 'production' ? "" : 'inline-source-map',
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js"
@@ -22,4 +22,4 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   }
-};
+});
