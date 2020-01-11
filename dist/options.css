@@ -2,6 +2,10 @@ html {
   background: #f3f2f2;
 }
 
+body {
+  font-family: "Salesforce Sans",Arial,sans-serif;
+}
+
 .optionsContainer {
   width: 300px;
   margin: 30px auto 0;
