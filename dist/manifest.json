@@ -4,7 +4,7 @@
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "1.6",
+  "version": "1.7",
   "icons": {
     "128": "icon128.png"
   },
