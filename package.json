@@ -38,6 +38,7 @@
     "fork-ts-checker-webpack-plugin": "^3.1.1",
     "prettier": "^1.19.1",
     "react-docgen-typescript-loader": "^3.6.0",
+    "standard-version": "^7.1.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "webpack": "^4.41.1",
