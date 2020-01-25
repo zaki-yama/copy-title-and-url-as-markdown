@@ -2,6 +2,7 @@
   "name": "copy-title-and-url-as-markdown",
   "version": "1.7.0",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
+  "private": true,
   "scripts": {
     "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
     "build": "webpack --mode=production",
