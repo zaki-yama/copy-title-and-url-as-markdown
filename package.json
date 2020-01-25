@@ -8,7 +8,7 @@
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
-    "lint": "eslint --ext .ts src/**",
+    "lint": "eslint --ext .ts,.tsx src/**",
     "release": "run-s lint build && standard-version",
     "release:dry-run": "standard-version --dry-run",
     "test": "echo \"Error: no test specified\" && exit 1",
