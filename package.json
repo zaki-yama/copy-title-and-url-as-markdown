@@ -8,6 +8,8 @@
     "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts src/**",
+    "release": "run-s lint build && standard-version",
+    "release:dry-run": "standard-version --dry-run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -s dist -p 6006",
     "build-storybook": "build-storybook"
