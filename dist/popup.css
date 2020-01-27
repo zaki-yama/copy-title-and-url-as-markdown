@@ -1,6 +1,4 @@
-html {
-  background: white;
-}
+@import url('./theme.css');
 
 body {
   font-family: "Salesforce Sans",Arial,sans-serif;

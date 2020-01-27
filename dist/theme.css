@@ -1,0 +1,21 @@
+@media (prefers-color-scheme: light) {
+  html {
+    /* Same as `.slds-theme_default` */
+    background-color: #fff;
+    color: #080707;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    /* Same as `.slds-theme_inverse` */
+    color: #fff;
+    background-color: #061c3f;
+  }
+
+  body {
+    border: 1px solid #061c3f;
+    background-color: #061c3f;
+  }
+}
