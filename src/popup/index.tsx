@@ -9,27 +9,24 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   chrome.tabs.query(queryInfo, function(tabs) {
-    chrome.storage.sync.get(
-      { customFormat: "[${title}](${url})" },
-      async function(options) {
-        const tab = tabs[0];
-        // Encode (, ), [, ]
-        const url = tab.url
-          .replace(/\(/g, escape)
-          .replace(/\)/g, escape)
-          .replace(/\[/g, escape)
-          .replace(/\]/g, escape);
-        await navigator.clipboard.writeText(
-          options.customFormat
-            .replace("${title}", tab.title)
-            .replace("${url}", url)
-        );
+    chrome.storage.local.get({ format: "[${title}](${url})" }, async function(
+      options
+    ) {
+      const tab = tabs[0];
+      // Encode (, ), [, ]
+      const url = tab.url
+        .replace(/\(/g, escape)
+        .replace(/\)/g, escape)
+        .replace(/\[/g, escape)
+        .replace(/\]/g, escape);
+      await navigator.clipboard.writeText(
+        options.format.replace("${title}", tab.title).replace("${url}", url)
+      );
 
-        ReactDOM.render(
-          <Popup title={tab.title} url={url} />,
-          document.getElementById("popup")
-        );
-      }
-    );
+      ReactDOM.render(
+        <Popup title={tab.title} url={url} />,
+        document.getElementById("popup")
+      );
+    });
   });
 });
