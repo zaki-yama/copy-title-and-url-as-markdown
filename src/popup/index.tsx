@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Popup } from "./Popup";
+import { escapeBrackets } from "../util";
 
 document.addEventListener("DOMContentLoaded", function() {
   const queryInfo = {
@@ -13,12 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
       options
     ) {
       const tab = tabs[0];
-      // Encode (, ), [, ]
-      const url = tab.url
-        .replace(/\(/g, escape)
-        .replace(/\)/g, escape)
-        .replace(/\[/g, escape)
-        .replace(/\]/g, escape);
+      const url = escapeBrackets(tab.url);
       await navigator.clipboard.writeText(
         options.format.replace("${title}", tab.title).replace("${url}", url)
       );
