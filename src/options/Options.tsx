@@ -44,7 +44,9 @@ export const Options: React.FC = () => {
           Successfully Saved.
         </Toast>
       ) : null}
-      <div className="slds-text-heading_medium">Options</div>
+      <div className="slds-text-heading_medium slds-m-bottom_small">
+        Options
+      </div>
       <Form className="form">
         <Input label="Format" onChange={handleChange} value={options.format} />
         <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
