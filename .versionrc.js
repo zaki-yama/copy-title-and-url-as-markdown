@@ -7,6 +7,10 @@ module.exports = {
     {
       filename: "dist/manifest.json",
       type: "json"
+    },
+    {
+      filename: "package-lock.json",
+      type: "json"
     }
   ]
 };
