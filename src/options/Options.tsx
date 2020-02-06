@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, Textarea, Button, Toast } from "react-lightning-design-system";
+import { Form, Input, Button, Toast } from "react-lightning-design-system";
+import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<{ format: string }>({
@@ -13,19 +14,22 @@ export const Options: React.FC = () => {
         format: "[${title}](${url})"
       },
       (savedOptions: { format: string }) => {
-        setOptions(savedOptions);
+        setOptions({ format: escapeTabsAndNewLines(savedOptions.format) });
       }
     );
   }, []);
 
   const handleChange = e => {
-    setOptions({ ...options, [e.target.name]: e.target.value });
+    setOptions({ format: e.target.value });
   };
 
   const onSave = e => {
-    chrome.storage.local.set(options, () => {
-      setShowToast(true);
-    });
+    chrome.storage.local.set(
+      { format: unescapeTabsAndNewLines(options.format) },
+      () => {
+        setShowToast(true);
+      }
+    );
   };
 
   return (
@@ -40,14 +44,14 @@ export const Options: React.FC = () => {
           Successfully Saved.
         </Toast>
       ) : null}
-      <div className="slds-text-heading_medium">Options</div>
+      <div className="slds-text-heading_medium slds-m-bottom_small">
+        Options
+      </div>
+      <div>
+        You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
+      </div>
       <Form className="form">
-        <Textarea
-          name="format"
-          label="Format"
-          onChange={handleChange}
-          value={options.format}
-        />
+        <Input label="Format" onChange={handleChange} value={options.format} />
         <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
           Save
         </Button>
