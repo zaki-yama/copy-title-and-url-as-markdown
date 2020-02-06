@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Textarea, Button, Toast } from "react-lightning-design-system";
+import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 
 export const Options: React.FC = () => {
@@ -20,7 +20,7 @@ export const Options: React.FC = () => {
   }, []);
 
   const handleChange = e => {
-    setOptions({ ...options, [e.target.name]: e.target.value });
+    setOptions({ format: e.target.value });
   };
 
   const onSave = e => {
@@ -46,12 +46,7 @@ export const Options: React.FC = () => {
       ) : null}
       <div className="slds-text-heading_medium">Options</div>
       <Form className="form">
-        <Textarea
-          name="format"
-          label="Format"
-          onChange={handleChange}
-          value={options.format}
-        />
+        <Input label="Format" onChange={handleChange} value={options.format} />
         <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
           Save
         </Button>
