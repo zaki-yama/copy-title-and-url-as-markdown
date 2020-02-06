@@ -4,5 +4,8 @@ module.exports = {
     "react": {
       "version": "detect"
     }
+  },
+  rules: {
+    "no-template-curly-in-string": 0
   }
 }
