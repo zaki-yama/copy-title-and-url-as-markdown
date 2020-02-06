@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Textarea, Button, Toast } from "react-lightning-design-system";
+import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<{ format: string }>({
@@ -13,7 +14,7 @@ export const Options: React.FC = () => {
         format: "[${title}](${url})"
       },
       (savedOptions: { format: string }) => {
-        setOptions(savedOptions);
+        setOptions({ format: escapeTabsAndNewLines(savedOptions.format) });
       }
     );
   }, []);
@@ -23,9 +24,12 @@ export const Options: React.FC = () => {
   };
 
   const onSave = e => {
-    chrome.storage.local.set(options, () => {
-      setShowToast(true);
-    });
+    chrome.storage.local.set(
+      { format: unescapeTabsAndNewLines(options.format) },
+      () => {
+        setShowToast(true);
+      }
+    );
   };
 
   return (
