@@ -13,6 +13,13 @@
         "default": "Ctrl+Shift+C",
         "mac": "MacCtrl+Shift+C"
       }
+    },
+    "copy_as_format_1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "MacCtrl+Shift+1"
+      },
+      "description": "Copy as format 1"
     }
   },
   "browser_action": {
