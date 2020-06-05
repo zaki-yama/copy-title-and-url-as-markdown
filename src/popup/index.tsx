@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Popup } from "./Popup";
-import { escapeBrackets } from "../util";
+import { escapeBrackets, copyToClipboard } from "../util";
 
 document.addEventListener("DOMContentLoaded", function () {
   const queryInfo = {
@@ -14,19 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
       { format: "[${title}](${url})" },
       async function (options) {
         const tab = tabs[0];
-        const url = escapeBrackets(tab.url);
-
-        const dummyEl = document.getElementById(
-          "copied"
-        ) as HTMLTextAreaElement;
-        dummyEl.value = options.format
-          .replace("${title}", tab.title)
-          .replace("${url}", url);
-        dummyEl.select();
-        document.execCommand("copy");
+        copyToClipboard(options.format, tab);
 
         ReactDOM.render(
-          <Popup title={tab.title} url={url} />,
+          <Popup title={tab.title} url={escapeBrackets(tab.url)} />,
           document.getElementById("popup")
         );
       }

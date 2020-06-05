@@ -1,4 +1,4 @@
-import { escapeBrackets } from "../util";
+import { escapeBrackets, copyToClipboard } from "../util";
 
 chrome.commands.onCommand.addListener(command => {
   console.log("Command:", command);
@@ -13,13 +13,7 @@ chrome.commands.onCommand.addListener(command => {
       options
     ) {
       const tab = tabs[0];
-      const url = escapeBrackets(tab.url);
-      const el = document.getElementById("dummy") as HTMLTextAreaElement;
-      el.value = options.format
-        .replace("${title}", tab.title)
-        .replace("${url}", url);
-      el.select();
-      document.execCommand("copy");
+      copyToClipboard(options.format, tab);
       // chrome.browserAction.setBadgeText({ text: "bar" });
 
       console.log("done!");
