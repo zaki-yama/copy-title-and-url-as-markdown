@@ -14,12 +14,9 @@ export function escapeBrackets(str: string) {
     .replace(/\]/g, escape);
 }
 
-export function copyToClipboard(
-  template: string,
-  params: { title?: string; url?: string }
-) {
-  const title = params.title;
-  const url = escapeBrackets(params.url);
+export function copyToClipboard(template: string, tab: chrome.tabs.Tab) {
+  const title = tab.title;
+  const url = escapeBrackets(tab.url);
   const el = document.getElementById("dummy") as HTMLTextAreaElement;
   const textToCopy = template.replace("${title}", title).replace("${url}", url);
 
