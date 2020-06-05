@@ -11,7 +11,7 @@ body {
   padding: 10px;
 }
 
-#copied {
+#dummy {
   position: absolute;
   top: -9999px;
 }

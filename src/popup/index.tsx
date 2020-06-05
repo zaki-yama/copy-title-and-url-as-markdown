@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const dummyEl = document.getElementById(
           "copied"
         ) as HTMLTextAreaElement;
-
         dummyEl.value = options.format
           .replace("${title}", tab.title)
           .replace("${url}", url);
