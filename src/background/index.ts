@@ -1,3 +1,4 @@
+import { DEFAULT_FORMAT } from "./../constant";
 import { escapeBrackets, copyToClipboard } from "../util";
 
 chrome.commands.onCommand.addListener(command => {
@@ -9,7 +10,7 @@ chrome.commands.onCommand.addListener(command => {
   };
 
   chrome.tabs.query(queryInfo, function(tabs) {
-    chrome.storage.local.get({ format: "[${title}](${url})" }, async function(
+    chrome.storage.local.get({ format: DEFAULT_FORMAT }, async function(
       options
     ) {
       const tab = tabs[0];

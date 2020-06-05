@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
+import { DEFAULT_FORMAT } from "../constant";
 
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<{ format: string }>({
@@ -11,7 +12,7 @@ export const Options: React.FC = () => {
   useEffect(() => {
     chrome.storage.local.get(
       {
-        format: "[${title}](${url})",
+        format: DEFAULT_FORMAT,
       },
       (savedOptions: { format: string }) => {
         setOptions({ format: escapeTabsAndNewLines(savedOptions.format) });
