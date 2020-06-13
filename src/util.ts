@@ -15,6 +15,7 @@ export function escapeBrackets(str: string) {
 }
 
 export function copyToClipboard(template: string, tab: chrome.tabs.Tab) {
+  console.log("copyToClipboard", template, tab.title, tab.url);
   const title = tab.title;
   const url = escapeBrackets(tab.url);
   const el = document.getElementById("dummy") as HTMLTextAreaElement;
