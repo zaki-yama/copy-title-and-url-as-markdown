@@ -15,7 +15,7 @@ chrome.commands.onCommand.addListener(command => {
     console.log("format: ", formatIndex);
 
     const key = `format${formatIndex}`;
-    chrome.storage.local.get(null, async function(options) {
+    chrome.storage.local.get(null, function(options) {
       const tab = tabs[0];
 
       // NOTE: fallback to `options.format` for backward compatibility
