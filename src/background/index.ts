@@ -21,7 +21,10 @@ chrome.commands.onCommand.addListener(command => {
 
       copyToClipboard(options[key], tab);
 
-      // chrome.browserAction.setBadgeText({ text: "bar" });
+      chrome.browserAction.setBadgeText({ text: formatIndex });
+      setTimeout(() => {
+        chrome.browserAction.setBadgeText({ text: "" });
+      }, 1000);
 
       console.log("done!");
     });
