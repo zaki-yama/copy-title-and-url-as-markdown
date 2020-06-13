@@ -1,5 +1,6 @@
 import { DEFAULT_FORMAT } from "./../constant";
 import { escapeBrackets, copyToClipboard } from "../util";
+import { OptionsType } from "../options/Options";
 
 chrome.commands.onCommand.addListener(command => {
   console.log("Command:", command);
@@ -14,12 +15,11 @@ chrome.commands.onCommand.addListener(command => {
     const formatIndex = command.slice(-1);
     console.log("format: ", formatIndex);
 
-    const key = `format${formatIndex}`;
-    chrome.storage.local.get(null, function(options) {
+    const key = `optionalFormat${formatIndex}`;
+    chrome.storage.local.get(null, function(options: OptionsType) {
       const tab = tabs[0];
 
-      // NOTE: fallback to `options.format` for backward compatibility
-      copyToClipboard(options[key] || options.format || DEFAULT_FORMAT, tab);
+      copyToClipboard(options[key], tab);
 
       // chrome.browserAction.setBadgeText({ text: "bar" });
 

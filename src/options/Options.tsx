@@ -3,7 +3,7 @@ import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 import { DEFAULT_FORMAT } from "../constant";
 
-type OptionsType = {
+export type OptionsType = {
   format: string;
   optionalFormat1: string;
   optionalFormat2: string;
