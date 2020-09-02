@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v1.9.0...v1.10.0) (2020-09-02)
+
+
+### Features
+
+* better icon for dark mode ([#27](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/27)) ([0213e0b](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/0213e0b090c80da8bab5d22eb22cf2a1a79c88c1))
+
+
+### Bug Fixes
+
+* fails to copy ([#32](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/32)) ([472e2d6](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/472e2d6d4797fd969ce19398ec0fd8ee8b5b0275))
+
 ## [1.9.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v1.8.0...v1.9.0) (2020-02-06)
 
 
