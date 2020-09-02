@@ -15,9 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
     ) {
       const tab = tabs[0];
       const url = escapeBrackets(tab.url);
-      await navigator.clipboard.writeText(
-        options.format.replace("${title}", tab.title).replace("${url}", url)
-      );
+
+      const dummyEl = document.getElementById("copied") as HTMLTextAreaElement;
+
+      dummyEl.value = options.format
+        .replace("${title}", tab.title)
+        .replace("${url}", url);
+      dummyEl.select();
+      document.execCommand("copy");
 
       ReactDOM.render(
         <Popup title={tab.title} url={url} />,
