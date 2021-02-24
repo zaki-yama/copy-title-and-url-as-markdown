@@ -4,6 +4,7 @@
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "private": true,
   "scripts": {
+    "start": "npm run watch",
     "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development -w",
