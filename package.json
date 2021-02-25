@@ -35,7 +35,7 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.2.8",
-    "@types/chrome": "0.0.89",
+    "@types/chrome": "0.0.133",
     "@types/jest": "^25.1.1",
     "babel-loader": "^8.0.6",
     "bestzip": "^2.1.7",
