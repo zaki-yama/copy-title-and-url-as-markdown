@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "@salesforce-ux/design-system": "2.10.2",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-lightning-design-system": "2.5.8"
   }
 }
