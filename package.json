@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
-    "@babel/core": "7.7.7",
+    "@babel/core": "7.14.0",
     "@cybozu/eslint-config": "9.0.1",
     "@storybook/addon-actions": "5.2.8",
     "@storybook/addon-links": "5.2.8",
@@ -37,7 +37,7 @@
     "@storybook/react": "6.1.20",
     "@types/chrome": "0.0.133",
     "@types/jest": "25.1.1",
-    "babel-loader": "8.0.6",
+    "babel-loader": "8.2.2",
     "bestzip": "2.1.7",
     "eslint": "6.8.0",
     "fork-ts-checker-webpack-plugin": "3.1.1",
