@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
-    "@babel/core": "7.14.0",
+    "@babel/core": "7.14.6",
     "@cybozu/eslint-config": "14.0.1",
     "@storybook/addon-actions": "5.3.21",
     "@storybook/addon-links": "5.3.21",
