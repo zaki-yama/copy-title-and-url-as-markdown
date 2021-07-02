@@ -33,7 +33,6 @@
     "@storybook/addon-actions": "6.3.2",
     "@storybook/addon-links": "6.3.2",
     "@storybook/addons": "6.3.2",
-    "@storybook/preset-typescript": "3.0.0",
     "@storybook/react": "6.3.2",
     "@types/chrome": "0.0.145",
     "@types/jest": "26.0.23",
