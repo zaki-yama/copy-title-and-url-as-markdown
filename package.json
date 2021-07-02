@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run watch",
     "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
+    "prebuild": "rm dist/*.js",
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
