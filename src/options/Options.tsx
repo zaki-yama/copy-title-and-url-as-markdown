@@ -4,14 +4,14 @@ import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<{ format: string }>({
-    format: ""
+    format: "",
   });
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     chrome.storage.local.get(
       {
-        format: "[${title}](${url})"
+        format: "[${title}](${url})",
       },
       (savedOptions: { format: string }) => {
         setOptions({ format: escapeTabsAndNewLines(savedOptions.format) });
@@ -19,11 +19,11 @@ export const Options: React.FC = () => {
     );
   }, []);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setOptions({ format: e.target.value });
   };
 
-  const onSave = e => {
+  const onSave = (e) => {
     chrome.storage.local.set(
       { format: unescapeTabsAndNewLines(options.format) },
       () => {
