@@ -2,11 +2,11 @@ import React from "react";
 import { Popup } from "./Popup";
 
 export default {
-  title: "Popup"
+  title: "Popup",
 };
 
 const style = {
-  width: "300px"
+  width: "300px",
 };
 export const standard = () => (
   <div style={style}>

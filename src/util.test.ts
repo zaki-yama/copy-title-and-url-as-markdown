@@ -1,7 +1,7 @@
 import {
   escapeTabsAndNewLines,
   unescapeTabsAndNewLines,
-  escapeBrackets
+  escapeBrackets,
 } from "./util";
 
 describe("escapeTabsAndNewLines", () => {
