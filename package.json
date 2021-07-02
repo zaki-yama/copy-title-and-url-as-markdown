@@ -41,7 +41,7 @@
     "bestzip": "2.2.0",
     "eslint": "7.29.0",
     "fork-ts-checker-webpack-plugin": "3.1.1",
-    "jest": "27.0.5",
+    "jest": "27.0.6",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.2",
     "react-docgen-typescript-loader": "3.7.2",
