@@ -2,10 +2,6 @@ html {
   background: white;
 }
 
-body {
-  font-family: "Salesforce Sans",Arial,sans-serif;
-}
-
 .popupContainer {
   width: 400px;
   padding: 10px;
