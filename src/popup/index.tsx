@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Popup } from "./Popup";
-import { escapeBrackets } from "../util";
+import { escapeBrackets, copyToClipboard } from "../util";
+import { DEFAULT_FORMAT } from "../constant";
 
 document.addEventListener("DOMContentLoaded", function () {
   const queryInfo = {
@@ -10,27 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   chrome.tabs.query(queryInfo, function (tabs) {
-    chrome.storage.local.get(
-      { format: "[${title}](${url})" },
-      async function (options) {
-        const tab = tabs[0];
-        const url = escapeBrackets(tab.url);
+    chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
+      const tab = tabs[0];
+      copyToClipboard(options.format, tab);
 
-        const dummyEl = document.getElementById(
-          "copied"
-        ) as HTMLTextAreaElement;
-
-        dummyEl.value = options.format
-          .replace("${title}", tab.title)
-          .replace("${url}", url);
-        dummyEl.select();
-        document.execCommand("copy");
-
-        ReactDOM.render(
-          <Popup title={tab.title} url={url} />,
-          document.getElementById("popup")
-        );
-      }
-    );
+      ReactDOM.render(
+        <Popup title={tab.title} url={escapeBrackets(tab.url)} />,
+        document.getElementById("popup")
+      );
+    });
   });
 });

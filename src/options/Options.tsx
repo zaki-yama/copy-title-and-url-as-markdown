@@ -1,31 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
+import { DEFAULT_FORMAT } from "../constant";
+
+export type OptionsType = {
+  format: string;
+  optionalFormat1: string;
+  optionalFormat2: string;
+};
+
+const initialValue: OptionsType = {
+  format: DEFAULT_FORMAT,
+  optionalFormat1: "",
+  optionalFormat2: "",
+};
 
 export const Options: React.FC = () => {
-  const [options, setOptions] = useState<{ format: string }>({
+  const [options, setOptions] = useState<OptionsType>({
     format: "",
+    optionalFormat1: "",
+    optionalFormat2: "",
   });
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    chrome.storage.local.get(
-      {
-        format: "[${title}](${url})",
-      },
-      (savedOptions: { format: string }) => {
-        setOptions({ format: escapeTabsAndNewLines(savedOptions.format) });
-      }
-    );
+    chrome.storage.local.get(initialValue, (savedOptions: OptionsType) => {
+      setOptions({
+        format: escapeTabsAndNewLines(savedOptions.format),
+        optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
+        optionalFormat2: escapeTabsAndNewLines(savedOptions.optionalFormat2),
+      });
+    });
   }, []);
 
-  const handleChange = (e) => {
-    setOptions({ format: e.target.value });
+  const handleChange = (key: keyof OptionsType, value: string) => {
+    setOptions({ ...options, [key]: value });
   };
 
   const onSave = (e) => {
     chrome.storage.local.set(
-      { format: unescapeTabsAndNewLines(options.format) },
+      {
+        format: unescapeTabsAndNewLines(options.format),
+        optionalFormat1: unescapeTabsAndNewLines(options.optionalFormat1),
+        optionalFormat2: unescapeTabsAndNewLines(options.optionalFormat2),
+      },
       () => {
         setShowToast(true);
       }
@@ -51,7 +69,21 @@ export const Options: React.FC = () => {
         You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
       </div>
       <Form className="form">
-        <Input label="Format" onChange={handleChange} value={options.format} />
+        <Input
+          label="Format"
+          onChange={(e) => handleChange("format", e.target.value)}
+          value={options.format}
+        />
+        <Input
+          label="Optional Format #1"
+          onChange={(e) => handleChange("optionalFormat1", e.target.value)}
+          value={options.optionalFormat1}
+        />
+        <Input
+          label="Optional Format #2"
+          onChange={(e) => handleChange("optionalFormat2", e.target.value)}
+          value={options.optionalFormat2}
+        />
         <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
           Save
         </Button>
