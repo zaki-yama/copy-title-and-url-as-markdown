@@ -32,7 +32,7 @@
     "@babel/core": "7.14.6",
     "@cybozu/eslint-config": "14.0.2",
     "@storybook/react": "6.3.4",
-    "@types/chrome": "0.0.147",
+    "@types/chrome": "0.0.148",
     "@types/jest": "26.0.24",
     "babel-loader": "8.2.2",
     "bestzip": "2.2.0",
