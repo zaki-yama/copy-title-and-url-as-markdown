@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
-    "@babel/core": "7.14.8",
+    "@babel/core": "7.15.0",
     "@cybozu/eslint-config": "14.0.2",
     "@storybook/react": "6.3.6",
     "@types/chrome": "0.0.149",
