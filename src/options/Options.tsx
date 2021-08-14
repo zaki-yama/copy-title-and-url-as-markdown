@@ -6,13 +6,13 @@ import {
   Toast,
   Radio,
   RadioGroup,
+  ButtonType,
 } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
-import { DEFAULT_FORMAT, Format, formats } from "../constant";
+import { Format, formats } from "../constant";
 import { cloneDeep } from "lodash";
 
-// TODO Add new format dialogue
-// TODO give radio a uuid
+// TODO Modify Template
 
 export type OptionsType = {
   selected_format: Format;
@@ -27,10 +27,15 @@ const initialValue: OptionsType = {
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<OptionsType>(initialValue);
   const [showToast, setShowToast] = useState(false);
+  // State for Create new Template
+  const [tempFormat, setTempFormat] = useState<Format>({
+    name: "",
+    template: "",
+  });
 
   useEffect(() => {
     chrome.storage.local.get(initialValue, (savedOptions: OptionsType) => {
-      console.log("Init", savedOptions);
+      // console.log("Init", savedOptions);
       if (savedOptions.selected_format.name) {
         setOptions(savedOptions);
       }
@@ -60,17 +65,14 @@ export const Options: React.FC = () => {
           Successfully Saved.
         </Toast>
       ) : null}
-      <div className="slds-text-heading_medium slds-m-bottom_small">
-        Options
-      </div>
-      <div>
-        You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
-      </div>
+      <h1 className="slds-text-heading_large slds-m-bottom_small">Options</h1>
+      <h2 className="slds-text-heading_medium slds-m-bottom_small">
+        Select Default Template
+      </h2>
       <RadioGroup>
         {options.formats.map((format) => (
           <Radio
             key={format.name}
-            id={format.name}
             checked={options.selected_format.name === format.name}
             onChange={(e) => {
               setOptions(
@@ -90,6 +92,61 @@ export const Options: React.FC = () => {
           />
         ))}
       </RadioGroup>
+      <h2 className="slds-text-heading_medium slds-m-bottom_small">
+        Create Custom Template
+      </h2>
+      <Form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          ((opts: OptionsType, format: Format) => {
+            const modified_opts = cloneDeep(opts);
+            modified_opts.formats.push({
+              name: format.name,
+              template: unescapeTabsAndNewLines(format.template),
+            });
+            setOptions(modified_opts);
+            onSave(modified_opts);
+            return modified_opts;
+          })(options, tempFormat);
+          setTempFormat({ name: "", template: "" });
+        }}
+      >
+        <div>
+          You can use <code>\n</code> for new lines, and <code>\t</code> for
+          tabs.
+        </div>
+        <div>You can not have the same name in template</div>
+
+        <Input
+          label="Custom Format Template Name"
+          placeholder="My Custom"
+          value={tempFormat.name}
+          onChange={(e) =>
+            setTempFormat({ ...tempFormat, name: e.target.value })
+          }
+          required
+        />
+        <Input
+          label="Format Template"
+          placeholder="[${title}](${url})"
+          value={tempFormat.template}
+          onChange={(e) =>
+            setTempFormat({ ...tempFormat, template: e.target.value })
+          }
+          required
+        />
+        <Button label="Submit" htmlType="submit" type="brand" />
+        <Button
+          label="Reset"
+          type="destructive"
+          onClick={(e) => {
+            setOptions(initialValue);
+            onSave(initialValue);
+            setTempFormat({ name: "", template: "" });
+          }}
+        />
+      </Form>
     </div>
   );
 };

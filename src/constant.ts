@@ -4,7 +4,6 @@ export type Format = {
 };
 
 // markdown style
-export const DEFAULT_FORMAT = "[${title}](${url})";
 const MARKDOWN_FORMAT = "[${title}](${url})";
 const ADOC_FORMAT = "${url}[${title}]";
 const ORG_MODE_FORMAT = "[[${title}][${url}]]";
@@ -21,9 +20,5 @@ export const formats: Format[] = [
   {
     template: ORG_MODE_FORMAT,
     name: "Org Mode",
-  },
-  {
-    template: DEFAULT_FORMAT,
-    name: "Custom",
   },
 ];
