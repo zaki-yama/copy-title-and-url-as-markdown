@@ -1,4 +1,3 @@
-import { DEFAULT_FORMAT } from "./../constant";
 import { escapeBrackets, copyToClipboard } from "../util";
 import { OptionsType } from "../options/Options";
 
