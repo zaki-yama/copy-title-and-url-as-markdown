@@ -1,11 +1,14 @@
 module.exports = {
-  extends: "@cybozu/eslint-config/presets/react-typescript-prettier",
+  extends: [
+    "plugin:react/recommended",
+    "@cybozu/eslint-config/presets/react-typescript-prettier",
+  ],
   settings: {
     react: {
-      version: "detect"
-    }
+      version: "detect",
+    },
   },
   rules: {
-    "no-template-curly-in-string": 0
-  }
+    "no-template-curly-in-string": 0,
+  },
 };

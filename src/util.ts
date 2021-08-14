@@ -27,3 +27,19 @@ export function copyToClipboard(template: string, tab: chrome.tabs.Tab) {
 
   console.log("Successfully copied to clipboard: " + textToCopy);
 }
+
+export function copyToClipboardFromUrl(
+  template: string,
+  title: string,
+  url: string
+) {
+  console.log("copyToClipboard", template, title, url);
+  const el = document.getElementById("dummy") as HTMLTextAreaElement;
+  const textToCopy = template.replace("${title}", title).replace("${url}", url);
+
+  el.value = textToCopy;
+  el.select();
+  document.execCommand("copy");
+
+  console.log("Successfully copied to clipboard: " + textToCopy);
+}

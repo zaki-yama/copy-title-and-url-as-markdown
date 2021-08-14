@@ -14,8 +14,7 @@
     "release": "run-s lint build && standard-version",
     "release:dry-run": "standard-version --dry-run",
     "test": "jest",
-    "storybook": "start-storybook -s dist -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -s dist -p 6006"
   },
   "repository": {
     "type": "git",
@@ -33,7 +32,10 @@
     "@cybozu/eslint-config": "14.0.2",
     "@storybook/react": "6.3.6",
     "@types/chrome": "0.0.154",
-    "@types/jest": "26.0.24",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
     "babel-loader": "8.2.2",
     "bestzip": "2.2.0",
     "eslint": "7.30.0",

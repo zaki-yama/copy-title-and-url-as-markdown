@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
-import { DEFAULT_FORMAT } from "../constant";
+import { DEFAULT_FORMAT, Format, formats} from "../constant";
 
 export type OptionsType = {
-  format: string;
-  optionalFormat1: string;
-  optionalFormat2: string;
+  format_template: string;
+  default_formal: Format;
 };
 
 const initialValue: OptionsType = {
-  format: DEFAULT_FORMAT,
-  optionalFormat1: "",
-  optionalFormat2: "",
+  format_template: DEFAULT_FORMAT,
+  default_formal: formats[0],
 };
 
 export const Options: React.FC = () => {
