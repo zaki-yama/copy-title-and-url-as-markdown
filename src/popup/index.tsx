@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Popup } from "./Popup";
 import { escapeBrackets, copyToClipboard } from "../util";
 import { OptionsType } from "../options/Options";
-import { DEFAULT_FORMAT, formats, Format } from "../constant";
+import { formats, Format } from "../constant";
 
 document.addEventListener("DOMContentLoaded", function () {
   const queryInfo = {
