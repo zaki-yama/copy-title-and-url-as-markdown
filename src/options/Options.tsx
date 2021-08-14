@@ -9,6 +9,7 @@ import {
 } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 import { DEFAULT_FORMAT, Format, formats } from "../constant";
+import { cloneDeep } from "lodash";
 
 // TODO Add new format dialogue
 // TODO give radio a uuid
@@ -35,13 +36,14 @@ export const Options: React.FC = () => {
       }
     });
   }, []);
+  // This second param make it only run once
 
   const findFormatByName = (name: string, format_list: Format[]): Format => {
     return format_list.filter((format) => format.name === name)[0];
   };
 
-  const onSave = () => {
-    chrome.storage.local.set(options, () => {
+  const onSave = (opts: OptionsType) => {
+    chrome.storage.local.set(opts, () => {
       setShowToast(true);
     });
   };
@@ -72,19 +74,18 @@ export const Options: React.FC = () => {
             checked={options.selected_format.name === format.name}
             onChange={(e) => {
               setOptions(
-                ((opt: OptionsType, name: string) => {
-                  const temp_opt = { ...opt };
-                  temp_opt.selected_format = findFormatByName(
+                ((opts: OptionsType, name: string) => {
+                  const modified_opts = cloneDeep(opts);
+                  modified_opts.selected_format = findFormatByName(
                     name,
-                    temp_opt.formats
+                    modified_opts.formats
                   );
-                  console.log("What I clicked", temp_opt.selected_format);
-                  return temp_opt;
+                  console.log("What I clicked", modified_opts.selected_format);
+                  onSave(modified_opts);
+                  return modified_opts;
                 })(options, e.currentTarget.value)
               );
               // options still not be set in this time (strangely the last time will be set)
-              console.log("What changes", options.selected_format);
-              onSave();
             }}
             label={format.name}
             value={format.name}
