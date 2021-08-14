@@ -2544,6 +2544,11 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
+"@types/uuid@^8.3.1":
+  version "8.3.1"
+  resolved "https://registry.nlark.com/@types/uuid/download/@types/uuid-8.3.1.tgz?cache=0&sync_timestamp=1625249983950&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fuuid%2Fdownload%2F%40types%2Fuuid-8.3.1.tgz#1a32969cf8f0364b3d8c8af9cc3555b7805df14f"
+  integrity sha1-GjKWnPjwNks9jIr5zDVVt4Bd8U8=
+
 "@types/webpack-env@^1.16.0":
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.16.1.tgz#e47cdbf49df97f98114e61ac71b26096a10239ab"
@@ -12059,6 +12064,11 @@ uuid@^3.1.0, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.nlark.com/uuid/download/uuid-8.3.2.tgz?cache=0&sync_timestamp=1622213136953&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fuuid%2Fdownload%2Fuuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha1-gNW1ztJxu5r2xEXyGhoExgbO++I=
 
 v8-compile-cache@^2.0.3, v8-compile-cache@^2.2.0:
   version "2.3.0"

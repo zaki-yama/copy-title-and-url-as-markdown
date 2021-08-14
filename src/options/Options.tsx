@@ -80,12 +80,10 @@ export const Options: React.FC = () => {
                     name,
                     modified_opts.formats
                   );
-                  console.log("What I clicked", modified_opts.selected_format);
                   onSave(modified_opts);
                   return modified_opts;
                 })(options, e.currentTarget.value)
               );
-              // options still not be set in this time (strangely the last time will be set)
             }}
             label={format.name}
             value={format.name}
