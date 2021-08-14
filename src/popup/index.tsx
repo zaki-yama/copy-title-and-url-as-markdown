@@ -20,15 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
       { selected_format: formats[0], formats: formats } as OptionsType,
       (options) => {
         // TypeScript Assertion
-        const opt = options as OptionsType;
+        const opts = options as OptionsType;
         const tab = tabs[0];
-        copyToClipboard(opt.selected_format.template, tab);
+        copyToClipboard(opts.selected_format.template, tab);
 
         ReactDOM.render(
           <Popup
             title={tab.title}
             url={escapeBrackets(tab.url)}
-            formats={opt.formats}
+            formats={opts.formats}
+            selected_format={opts.selected_format}
           />,
           document.getElementById("popup")
         );

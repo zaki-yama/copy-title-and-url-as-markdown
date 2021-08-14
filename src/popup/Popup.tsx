@@ -6,14 +6,17 @@ type Props = {
   title: string;
   url: string;
   formats: Format[];
+  selected_format?: Format;
 };
 
-export const Popup: React.FC<Props> = ({ title, url, formats }) => {
+export const Popup: React.FC<Props> = ({
+  title,
+  url,
+  formats,
+  selected_format,
+}) => {
   return (
     <Grid className="slds-gutters">
-      <Row cols={1} align="center">
-        <Icon category="action" icon="approval" container="circle" />
-      </Row>
       <Row cols={1}>
         <div className="slds-text-heading_small">{title}</div>
       </Row>
