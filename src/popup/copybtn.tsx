@@ -10,7 +10,12 @@ type Props = {
 
 export const CopyButton: React.FC<Props> = ({ title, url, format }) => {
   return (
-    <Button onClick={() => copyToClipboardFromUrl(format.template, title, url)}>
+    <Button
+      onClick={(e) => {
+        copyToClipboardFromUrl(format.template, title, url);
+        window.close();
+      }}
+    >
       Copy as {format.name} Format
     </Button>
   );
