@@ -1,51 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Toast } from "react-lightning-design-system";
+import {
+  Form,
+  Input,
+  Button,
+  Toast,
+  Radio,
+  RadioGroup,
+} from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
-import { DEFAULT_FORMAT, Format, formats} from "../constant";
+import { DEFAULT_FORMAT, Format, formats } from "../constant";
+
+// TODO Add new format dialogue
+// TODO give radio a uuid
 
 export type OptionsType = {
-  format_template: string;
-  default_formal: Format;
+  selected_format: Format;
+  formats: Format[];
 };
 
 const initialValue: OptionsType = {
-  format_template: DEFAULT_FORMAT,
-  default_formal: formats[0],
+  selected_format: formats[0],
+  formats: formats,
 };
 
 export const Options: React.FC = () => {
-  const [options, setOptions] = useState<OptionsType>({
-    format: "",
-    optionalFormat1: "",
-    optionalFormat2: "",
-  });
+  const [options, setOptions] = useState<OptionsType>(initialValue);
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     chrome.storage.local.get(initialValue, (savedOptions: OptionsType) => {
-      setOptions({
-        format: escapeTabsAndNewLines(savedOptions.format),
-        optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
-        optionalFormat2: escapeTabsAndNewLines(savedOptions.optionalFormat2),
-      });
+      console.log("Init", savedOptions);
+      if (savedOptions.selected_format.name) {
+        setOptions(savedOptions);
+      }
     });
   }, []);
 
-  const handleChange = (key: keyof OptionsType, value: string) => {
-    setOptions({ ...options, [key]: value });
+  const findFormatByName = (name: string, format_list: Format[]): Format => {
+    return format_list.filter((format) => format.name === name)[0];
   };
 
-  const onSave = (e) => {
-    chrome.storage.local.set(
-      {
-        format: unescapeTabsAndNewLines(options.format),
-        optionalFormat1: unescapeTabsAndNewLines(options.optionalFormat1),
-        optionalFormat2: unescapeTabsAndNewLines(options.optionalFormat2),
-      },
-      () => {
-        setShowToast(true);
-      }
-    );
+  const onSave = () => {
+    chrome.storage.local.set(options, () => {
+      setShowToast(true);
+    });
   };
 
   return (
@@ -66,26 +64,33 @@ export const Options: React.FC = () => {
       <div>
         You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
       </div>
-      <Form className="form">
-        <Input
-          label="Format"
-          onChange={(e) => handleChange("format", e.target.value)}
-          value={options.format}
-        />
-        <Input
-          label="Optional Format #1"
-          onChange={(e) => handleChange("optionalFormat1", e.target.value)}
-          value={options.optionalFormat1}
-        />
-        <Input
-          label="Optional Format #2"
-          onChange={(e) => handleChange("optionalFormat2", e.target.value)}
-          value={options.optionalFormat2}
-        />
-        <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
-          Save
-        </Button>
-      </Form>
+      <RadioGroup>
+        {options.formats.map((format) => (
+          <Radio
+            key={format.name}
+            id={format.name}
+            checked={options.selected_format.name === format.name}
+            onChange={(e) => {
+              setOptions(
+                ((opt: OptionsType, name: string) => {
+                  const temp_opt = { ...opt };
+                  temp_opt.selected_format = findFormatByName(
+                    name,
+                    temp_opt.formats
+                  );
+                  console.log("What I clicked", temp_opt.selected_format);
+                  return temp_opt;
+                })(options, e.currentTarget.value)
+              );
+              // options still not be set in this time (strangely the last time will be set)
+              console.log("What changes", options.selected_format);
+              onSave();
+            }}
+            label={format.name}
+            value={format.name}
+          />
+        ))}
+      </RadioGroup>
     </div>
   );
 };

@@ -8,6 +8,7 @@
     "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
     "prebuild": "rm dist/*.js",
     "build": "webpack --mode=production",
+    "dev-build": "webpack --mode=development",
     "watch": "webpack --mode=development -w",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts,.tsx src/**",

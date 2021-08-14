@@ -11,10 +11,6 @@ const ORG_MODE_FORMAT = "[[${title}][${url}]]";
 
 export const formats: Format[] = [
   {
-    template: DEFAULT_FORMAT,
-    name: "Custom",
-  },
-  {
     template: MARKDOWN_FORMAT,
     name: "Markdown",
   },
@@ -25,5 +21,9 @@ export const formats: Format[] = [
   {
     template: ORG_MODE_FORMAT,
     name: "Org Mode",
+  },
+  {
+    template: DEFAULT_FORMAT,
+    name: "Custom",
   },
 ];
