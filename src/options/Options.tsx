@@ -13,6 +13,8 @@ import { Format, formats } from "../constant";
 import { cloneDeep } from "lodash";
 
 // TODO Modify Template
+// TODO Keyboard Shortcut
+// TODO
 
 export type OptionsType = {
   selected_format: Format;
@@ -112,6 +114,10 @@ export const Options: React.FC = () => {
           setTempFormat({ name: "", template: "" });
         }}
       >
+        <div>
+          <code>{"${title}"}</code> will be the title of website, and{" "}
+          <code>{"${url}"}</code> is the Uniform Resource Locator of website.
+        </div>
         <div>
           You can use <code>\n</code> for new lines, and <code>\t</code> for
           tabs.
