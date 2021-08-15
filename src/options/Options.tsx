@@ -6,7 +6,7 @@ import {
   Toast,
   Radio,
   RadioGroup,
-  ButtonType,
+  Checkbox,
 } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 import { Format, formats } from "../constant";
@@ -14,16 +14,18 @@ import { cloneDeep } from "lodash";
 
 // TODO Modify Template
 // TODO Keyboard Shortcut
-// TODO
+// COMPLETE DecodeUri
 
 export type OptionsType = {
   selected_format: Format;
   formats: Format[];
+  isDecoded?: boolean;
 };
 
 const initialValue: OptionsType = {
   selected_format: formats[0],
   formats: formats,
+  isDecoded: false,
 };
 
 export const Options: React.FC = () => {
@@ -37,7 +39,6 @@ export const Options: React.FC = () => {
 
   useEffect(() => {
     chrome.storage.local.get(initialValue, (savedOptions: OptionsType) => {
-      // console.log("Init", savedOptions);
       if (savedOptions.selected_format.name) {
         setOptions(savedOptions);
       }
@@ -77,6 +78,7 @@ export const Options: React.FC = () => {
             key={format.name}
             checked={options.selected_format.name === format.name}
             onChange={(e) => {
+              // TODO Refactor this ugly function
               setOptions(
                 ((opts: OptionsType, name: string) => {
                   const modified_opts = cloneDeep(opts);
@@ -94,6 +96,14 @@ export const Options: React.FC = () => {
           />
         ))}
       </RadioGroup>
+      <Checkbox
+        label="Default decode URL"
+        checked={options.isDecoded}
+        onChange={(e) => {
+          setOptions({ ...options, isDecoded: e.currentTarget.checked });
+          onSave({ ...options, isDecoded: e.currentTarget.checked });
+        }}
+      />
       <h2 className="slds-text-heading_medium slds-m-bottom_small">
         Create Custom Template
       </h2>
@@ -101,6 +111,7 @@ export const Options: React.FC = () => {
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
+          // TODO Refactor this ugly function
           ((opts: OptionsType, format: Format) => {
             const modified_opts = cloneDeep(opts);
             modified_opts.formats.push({
