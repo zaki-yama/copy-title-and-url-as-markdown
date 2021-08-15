@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Copy Title and Url as Markdown Style",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "复制现在所打开的页面的标题和 URL 到剪贴板",
+    "description":"The description of the application, displayed in the web store."
+  }
+}
