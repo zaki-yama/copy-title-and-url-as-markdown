@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Popup } from "./Popup";
-import { escapeBrackets, copyToClipboard } from "../util";
+import {
+  escapeBrackets,
+  copyToClipboard,
+  copyToClipboardFromUrl,
+} from "../util";
 import { OptionsType } from "../options/Options";
 import { formats, Format } from "../constant";
 
@@ -26,15 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // TypeScript Assertion
         const opts = options as OptionsType;
         const tab = tabs[0];
-        copyToClipboard(opts.selected_format.template, tab, options.isDecoded);
+        copyToClipboardFromUrl(
+          opts.selected_format.template,
+          tab.title,
+          tab.url,
+          opts.isDecoded
+        );
 
         ReactDOM.render(
-          <Popup
-            title={tab.title}
-            url={escapeBrackets(tab.url)}
-            formats={opts.formats}
-            selected_format={opts.selected_format}
-          />,
+          <Popup title={tab.title} url={escapeBrackets(tab.url)} opts={opts} />,
           document.getElementById("popup")
         );
       }
