@@ -21,7 +21,7 @@ export const Popup: React.FC<Props> = ({ title, url, opts }) => {
           className="slds-text-body_small"
           style={{ wordBreak: "break-all" }}
         >
-          {url}
+          {`${opts.isDecoded ? decodeURI(url) : url}`}
         </div>
       </Row>
       <Row cols={1}>
