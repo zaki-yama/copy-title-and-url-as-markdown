@@ -15,10 +15,18 @@ export const formats: Format[] = [
   },
   {
     template: ADOC_FORMAT,
-    name: "ASCII Doc",
+    name: "AsciiDoc",
   },
   {
     template: ORG_MODE_FORMAT,
     name: "Org Mode",
+  },
+  {
+    template: "`${title} <${url}>`_",
+    name: "reStructuredText",
+  },
+  {
+    template: "\\href{${url}}{${title}}",
+    name: "LaTex",
   },
 ];
