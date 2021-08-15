@@ -14,12 +14,22 @@ export function escapeBrackets(str: string) {
     .replace(/\]/g, escape);
 }
 
-export function copyToClipboard(template: string, tab: chrome.tabs.Tab) {
+// COMMENT Maybe it's better to pass a hook (a callback function) from template
+export function copyToClipboard(
+  template: string,
+  tab: chrome.tabs.Tab,
+  isDecode = false
+) {
   console.log("copyToClipboard", template, tab.title, tab.url);
   const title = tab.title;
-  const url = escapeBrackets(tab.url);
+  let escapedUrl = escapeBrackets(tab.url);
+  if (isDecode) {
+    escapedUrl = decodeURI(escapedUrl);
+  }
   const el = document.getElementById("dummy") as HTMLTextAreaElement;
-  const textToCopy = template.replace("${title}", title).replace("${url}", url);
+  const textToCopy = template
+    .replace("${title}", title)
+    .replace("${url}", escapedUrl);
 
   el.value = textToCopy;
   el.select();
@@ -31,11 +41,18 @@ export function copyToClipboard(template: string, tab: chrome.tabs.Tab) {
 export function copyToClipboardFromUrl(
   template: string,
   title: string,
-  url: string
+  url: string,
+  isDecode = false
 ) {
   console.log("copyToClipboard", template, title, url);
+  let escapedUrl = escapeBrackets(url);
+  if (isDecode) {
+    escapedUrl = decodeURI(escapedUrl);
+  }
   const el = document.getElementById("dummy") as HTMLTextAreaElement;
-  const textToCopy = template.replace("${title}", title).replace("${url}", url);
+  const textToCopy = template
+    .replace("${title}", title)
+    .replace("${url}", escapedUrl);
 
   el.value = textToCopy;
   el.select();

@@ -17,12 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
      * default value
      */
     chrome.storage.local.get(
-      { selected_format: formats[0], formats: formats } as OptionsType,
+      {
+        selected_format: formats[0],
+        formats: formats,
+        isDecoded: false,
+      } as OptionsType,
       (options) => {
         // TypeScript Assertion
         const opts = options as OptionsType;
         const tab = tabs[0];
-        copyToClipboard(opts.selected_format.template, tab);
+        copyToClipboard(opts.selected_format.template, tab, options.isDecoded);
 
         ReactDOM.render(
           <Popup

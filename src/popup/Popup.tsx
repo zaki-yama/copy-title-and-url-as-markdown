@@ -9,6 +9,7 @@ type Props = {
   selected_format?: Format;
 };
 
+// TODO Default Template Indicator
 export const Popup: React.FC<Props> = ({
   title,
   url,
@@ -28,10 +29,12 @@ export const Popup: React.FC<Props> = ({
           {url}
         </div>
       </Row>
+      <hr />
+      <Row cols={1}>
+        <div className="slds-text-heading_small">Copy as</div>
+      </Row>
       {formats.map((format) => (
-        <Row key={format.name}>
-          <CopyButton title={title} url={url} format={format} />
-        </Row>
+        <CopyButton key={format.name} title={title} url={url} format={format} />
       ))}
     </Grid>
   );
