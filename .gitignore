@@ -1,4 +1,5 @@
 .DS_Store
 node_modules
-dist
-dist/*
+dist/*.js
+dist/*.js.LICENSE.txt
+dist/assets
