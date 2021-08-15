@@ -153,9 +153,9 @@ export const Options: React.FC = () => {
           }
           required
         />
-        <Button label="Submit" htmlType="submit" type="brand" />
+        <Button label="Create Template" htmlType="submit" type="brand" />
         <Button
-          label="Reset"
+          label="Reset Settings"
           type="destructive"
           onClick={(e) => {
             setOptions(initialValue);
