@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "7.15.8",
     "@cybozu/eslint-config": "14.0.3",
-    "@storybook/react": "6.3.10",
+    "@storybook/react": "6.3.11",
     "@types/chrome": "0.0.159",
     "@types/jest": "27.0.2",
     "babel-loader": "8.2.2",
