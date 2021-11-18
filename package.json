@@ -33,7 +33,7 @@
     "@cybozu/eslint-config": "14.0.3",
     "@storybook/react": "6.3.12",
     "@types/chrome": "0.0.164",
-    "@types/jest": "27.0.2",
+    "@types/jest": "27.0.3",
     "babel-loader": "8.2.3",
     "bestzip": "2.2.0",
     "eslint": "7.32.0",
