@@ -30,7 +30,7 @@
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "devDependencies": {
     "@babel/core": "7.15.8",
-    "@cybozu/eslint-config": "14.0.3",
+    "@cybozu/eslint-config": "17.0.0",
     "@storybook/react": "6.4.14",
     "@types/chrome": "0.0.177",
     "@types/jest": "27.0.3",
