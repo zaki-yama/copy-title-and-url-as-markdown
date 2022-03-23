@@ -34,7 +34,7 @@
     "@storybook/react": "6.4.19",
     "@types/chrome": "0.0.180",
     "@types/jest": "27.0.3",
-    "babel-loader": "8.2.3",
+    "babel-loader": "8.2.4",
     "bestzip": "2.2.0",
     "eslint": "7.32.0",
     "jest": "27.0.6",
