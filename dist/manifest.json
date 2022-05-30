@@ -35,12 +35,12 @@
   },
   "options_page": "options.html",
   "background": {
-    "page": "background.html",
-    "persistent": false
+    "service_worker": "background.js"
   },
   "permissions": [
     "activeTab",
     "clipboardWrite",
+    "scripting",
     "storage"
   ]
 }

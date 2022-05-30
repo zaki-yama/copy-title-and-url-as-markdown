@@ -18,8 +18,14 @@ chrome.commands.onCommand.addListener((command) => {
     const key = `optionalFormat${formatIndex}`;
     chrome.storage.local.get(null, function (options: OptionsType) {
       const tab = tabs[0];
+      console.log(tab.url, tab.title);
+      console.log(options);
 
-      copyToClipboard(options[key], tab);
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: copyToClipboard,
+        args: [options[key], tab.title, escapeBrackets(tab.url)],
+      });
 
       chrome.action.setBadgeText({ text: formatIndex });
       setTimeout(() => {
