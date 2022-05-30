@@ -1,6 +1,6 @@
-import { DEFAULT_FORMAT } from "./../constant";
-import { escapeBrackets, copyToClipboard } from "../util";
-import { OptionsType } from "../options/Options";
+import { DEFAULT_FORMAT } from "./constant";
+import { escapeBrackets, copyToClipboard } from "./util";
+import { OptionsType } from "./options/Options";
 
 chrome.commands.onCommand.addListener((command) => {
   console.log("Command:", command);
