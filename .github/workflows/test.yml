@@ -8,19 +8,16 @@ on:
 
 jobs:
   build:
-    name: Node.js ${{ matrix.node-version }}
+    name: Node.js latest
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: latest
+          cache: 'yarn'
       - name: test
         run: |
           yarn install
