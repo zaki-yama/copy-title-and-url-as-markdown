@@ -1,6 +1,6 @@
-import { DEFAULT_FORMAT } from "./../constant";
-import { escapeBrackets, copyToClipboard } from "../util";
-import { OptionsType } from "../options/Options";
+import { DEFAULT_FORMAT } from "./constant";
+import { escapeBrackets, copyToClipboard } from "./util";
+import { OptionsType } from "./options/Options";
 
 chrome.commands.onCommand.addListener((command) => {
   console.log("Command:", command);
@@ -18,12 +18,18 @@ chrome.commands.onCommand.addListener((command) => {
     const key = `optionalFormat${formatIndex}`;
     chrome.storage.local.get(null, function (options: OptionsType) {
       const tab = tabs[0];
+      console.log(tab.url, tab.title);
+      console.log(options);
 
-      copyToClipboard(options[key], tab);
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: copyToClipboard,
+        args: [options[key], tab.title, escapeBrackets(tab.url)],
+      });
 
-      chrome.browserAction.setBadgeText({ text: formatIndex });
+      chrome.action.setBadgeText({ text: formatIndex });
       setTimeout(() => {
-        chrome.browserAction.setBadgeText({ text: "" });
+        chrome.action.setBadgeText({ text: "" });
       }, 1000);
 
       console.log("done!");
