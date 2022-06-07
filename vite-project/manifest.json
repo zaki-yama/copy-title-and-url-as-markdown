@@ -30,6 +30,12 @@
     }
   },
   "action": {
-    "default_popup": "index.html"
-  }
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "scripting",
+    "storage"
+  ]
 }
