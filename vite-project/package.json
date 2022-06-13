@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets public"
   },
   "dependencies": {
+    "@salesforce-ux/design-system": "^2.18.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-lightning-design-system": "^5.2.4"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.3",

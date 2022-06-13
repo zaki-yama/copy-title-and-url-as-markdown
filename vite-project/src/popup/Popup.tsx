@@ -1,13 +1,14 @@
 import React from "react";
 import { Icon, Grid, Row } from "react-lightning-design-system";
 
+import './Popup.css';
+
 type Props = {
   title: string;
   url: string;
 };
 
 export const Popup: React.FC<Props> = ({ title, url }) => {
-  console.log("foo");
   return (
     <Grid className="slds-gutters">
       <Row cols={1} align="center">
