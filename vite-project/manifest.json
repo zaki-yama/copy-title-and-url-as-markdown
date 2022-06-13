@@ -33,6 +33,9 @@
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
+  "background": {
+    "service_worker": "src/background.ts"
+  },
   "permissions": [
     "activeTab",
     "clipboardWrite",
