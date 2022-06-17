@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Toast } from "react-lightning-design-system";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
-import { DEFAULT_FORMAT } from "../constant";
+import { INITIAL_OPTION_VALUES } from "../constant";
 
 import "./Options.css";
 
@@ -9,12 +9,6 @@ export type OptionsType = {
   format: string;
   optionalFormat1: string;
   optionalFormat2: string;
-};
-
-const initialValue: OptionsType = {
-  format: DEFAULT_FORMAT,
-  optionalFormat1: "",
-  optionalFormat2: "",
 };
 
 export const Options: React.FC = () => {
@@ -26,7 +20,7 @@ export const Options: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    chrome.storage.local.get(initialValue, (savedOptions: OptionsType) => {
+    chrome.storage.local.get(INITIAL_OPTION_VALUES, (savedOptions) => {
       setOptions({
         format: escapeTabsAndNewLines(savedOptions.format),
         optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
@@ -39,7 +33,7 @@ export const Options: React.FC = () => {
     setOptions({ ...options, [key]: value });
   };
 
-  const onSave = (e) => {
+  const onSave = () => {
     chrome.storage.local.set(
       {
         format: unescapeTabsAndNewLines(options.format),
