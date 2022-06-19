@@ -1,24 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Popup } from "./Popup";
 import { escapeBrackets, copyToClipboard } from "../util";
 import { DEFAULT_FORMAT } from "../constant";
 
-document.addEventListener("DOMContentLoaded", function () {
-  const queryInfo = {
-    active: true,
-    currentWindow: true,
-  };
+const queryInfo = {
+  active: true,
+  currentWindow: true,
+};
 
-  chrome.tabs.query(queryInfo, function (tabs) {
-    chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
-      const tab = tabs[0];
-      copyToClipboard(options.format, tab.title, escapeBrackets(tab.url));
+chrome.tabs.query(queryInfo, function (tabs) {
+  chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
+    const tab = tabs[0];
+    const title = tab.title || "";
+    const url = tab.url || "";
+    copyToClipboard(options.format, title, escapeBrackets(url));
 
-      ReactDOM.render(
-        <Popup title={tab.title} url={escapeBrackets(tab.url)} />,
-        document.getElementById("popup")
-      );
-    });
+    ReactDOM.createRoot(document.getElementById("root")!).render(
+      <React.StrictMode>
+        <Popup title={title} url={escapeBrackets(url)} />
+      </React.StrictMode>
+    );
   });
 });

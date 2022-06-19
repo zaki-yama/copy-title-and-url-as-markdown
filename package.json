@@ -4,18 +4,17 @@
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "private": true,
   "scripts": {
-    "start": "npm run watch",
-    "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets dist",
-    "prebuild": "rm dist/*.js",
-    "build": "webpack --mode=production",
-    "watch": "webpack --mode=development -w",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "postinstall": "cp -r node_modules/@salesforce-ux/design-system/assets public",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts,.tsx src/**",
     "release": "run-s lint build && standard-version",
-    "release:dry-run": "standard-version --dry-run",
-    "test": "jest",
-    "storybook": "start-storybook -s dist -p 6006",
-    "build-storybook": "build-storybook"
+    "release:dry-run": "standard-version --dry-run"
   },
   "repository": {
     "type": "git",
@@ -28,30 +27,26 @@
     "url": "https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues"
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
-  "devDependencies": {
-    "@babel/core": "7.15.8",
-    "@cybozu/eslint-config": "17.0.1",
-    "@storybook/react": "6.4.19",
-    "@types/chrome": "0.0.180",
-    "@types/jest": "27.0.3",
-    "babel-loader": "8.2.4",
-    "bestzip": "2.2.0",
-    "eslint": "7.32.0",
-    "jest": "27.0.6",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.3.2",
-    "react-docgen-typescript-loader": "3.7.2",
-    "standard-version": "9.3.2",
-    "ts-jest": "27.1.4",
-    "ts-loader": "9.2.8",
-    "typescript": "4.5.5",
-    "webpack": "5.50.0",
-    "webpack-cli": "4.7.2"
-  },
   "dependencies": {
-    "@salesforce-ux/design-system": "2.15.9",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-lightning-design-system": "4.3.3"
+    "@salesforce-ux/design-system": "^2.18.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-lightning-design-system": "^5.2.4"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.3",
+    "@cybozu/eslint-config": "^17.0.1",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/builder-vite": "^0.1.36",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "bestzip": "^2.2.1",
+    "eslint": "^8.18.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.7",
+    "vitest": "^0.14.2"
   }
 }
