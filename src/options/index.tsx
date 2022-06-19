@@ -1,5 +1,9 @@
 import React from "react";
-import ReactDOM, { render } from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Options } from "./Options";
 
-ReactDOM.render(<Options />, document.getElementById("options"));
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Options />
+  </React.StrictMode>
+);

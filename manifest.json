@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
-  "default_locale": "en",
   "version": "1.10.0",
+  "default_locale": "en",
   "icons": {
     "128": "icon128.png"
   },
@@ -30,12 +30,11 @@
     }
   },
   "action": {
-    "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.ts"
   },
   "permissions": [
     "activeTab",

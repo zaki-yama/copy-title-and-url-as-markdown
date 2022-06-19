@@ -1,6 +1,8 @@
 import React from "react";
 import { Icon, Grid, Row } from "react-lightning-design-system";
 
+import "./Popup.css";
+
 type Props = {
   title: string;
   url: string;

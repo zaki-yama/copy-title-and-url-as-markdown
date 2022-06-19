@@ -6,8 +6,3 @@ html {
   width: 400px;
   padding: 10px;
 }
-
-#dummy {
-  position: absolute;
-  top: -9999px;
-}
