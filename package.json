@@ -46,6 +46,7 @@
     "@vitejs/plugin-react": "^1.3.0",
     "bestzip": "^2.2.1",
     "eslint": "^8.18.0",
+    "standard-version": "^9.5.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.7",
     "vitest": "^0.14.2"
