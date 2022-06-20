@@ -34,7 +34,7 @@
     "react-lightning-design-system": "^5.2.4"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^1.0.3",
+    "@crxjs/vite-plugin": "1.0.12",
     "@cybozu/eslint-config": "^17.0.1",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/builder-vite": "^0.1.36",
