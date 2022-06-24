@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "dependencies": {
-    "@salesforce-ux/design-system": "^2.18.0",
+    "@salesforce-ux/design-system": "2.18.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-lightning-design-system": "^5.2.4"
