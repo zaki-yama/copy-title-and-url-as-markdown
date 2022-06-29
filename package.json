@@ -37,7 +37,7 @@
     "@crxjs/vite-plugin": "1.0.12",
     "@cybozu/eslint-config": "^17.0.1",
     "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/builder-vite": "0.1.37",
+    "@storybook/builder-vite": "0.1.38",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@types/chrome": "0.0.191",
