@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "1.0.12",
-    "@cybozu/eslint-config": "^17.0.1",
+    "@cybozu/eslint-config": "17.0.2",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/builder-vite": "0.1.38",
     "@storybook/react": "^6.5.9",
