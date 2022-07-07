@@ -1810,10 +1810,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/builder-vite@0.1.38":
-  version "0.1.38"
-  resolved "https://registry.yarnpkg.com/@storybook/builder-vite/-/builder-vite-0.1.38.tgz#e549155b3e4a6b498bca4fa688d0b2c6962fe436"
-  integrity sha512-aCBuVP3phWGpT4548dCjSWC9X4TOhzVOt+jq8BVbzZ/Cyou8UFN45Z5kMxtpVsVnJEQ0abC/BdkRuRtGEL/vJQ==
+"@storybook/builder-vite@0.1.39":
+  version "0.1.39"
+  resolved "https://registry.yarnpkg.com/@storybook/builder-vite/-/builder-vite-0.1.39.tgz#cdc77f8f2da6ad0a25f9e3764616b9ad5e73a8b6"
+  integrity sha512-lLRbB2Ut8/LT0U/D6hVu+gyalMzMNyhDAm04ik6FuNASn/roBML5G1NTvzt4zrsYTNpZoeCic7IKpe1NHsSfhQ==
   dependencies:
     "@joshwooding/vite-plugin-react-docgen-typescript" "0.0.4"
     "@storybook/mdx1-csf" "^0.0.4"
