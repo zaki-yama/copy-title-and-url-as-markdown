@@ -45,7 +45,7 @@
     "@types/react-dom": "18.0.6",
     "@vitejs/plugin-react": "^1.3.0",
     "bestzip": "^2.2.1",
-    "eslint": "^8.18.0",
+    "eslint": "8.19.0",
     "standard-version": "^9.5.0",
     "typescript": "4.7.4",
     "vite": "2.9.14",
