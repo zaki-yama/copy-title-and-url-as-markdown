@@ -9696,10 +9696,10 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lightning-design-system@^5.2.4:
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/react-lightning-design-system/-/react-lightning-design-system-5.2.4.tgz#494d092d7cc9203e85feb5da51fb545f1ca71f0b"
-  integrity sha512-iQzgOuz/p2mC3BBIT4vo9FY400lPTxlQCn9UG2tZ0hLiZwZ7VqAtmig/vFMX7qEsCAQaGx6PKPVJUR73gwZibQ==
+react-lightning-design-system@5.2.5:
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/react-lightning-design-system/-/react-lightning-design-system-5.2.5.tgz#4a005551df4c179049da062fc392432aac367503"
+  integrity sha512-xmDkueUBqI3p+RDomKEt5lD13XKE3bWJW86sHrAZNkSKZfLYo2KOk+seWQycaT1zZhOhNS+1vMh14eUT93leqA==
   dependencies:
     "@babel/runtime" "^7.17.9"
     classnames "^2.3.1"
