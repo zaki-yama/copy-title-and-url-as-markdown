@@ -1509,10 +1509,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@crxjs/vite-plugin@1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@crxjs/vite-plugin/-/vite-plugin-1.0.13.tgz#c7f685219ee1308e3e17d86c9998ef7543bee21b"
-  integrity sha512-wfpnHycX1syoLE18XdYMYV3aTM0RGvJq2PQ81izAfaeiHIQqZsokTUdZZcKaccru0hF9nfenJfixSSMdeeLmXQ==
+"@crxjs/vite-plugin@1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@crxjs/vite-plugin/-/vite-plugin-1.0.14.tgz#b0f6e2bdcdfbc090b2f3765408cc8743af382ade"
+  integrity sha512-emOueVCqFRFmpcfT80Xsm4mfuFw9VSp5GY4eh5qeLDeiP81g0hddlobVQCo0pE2ZvNnWbyhLrXEYAaMAXjNL6A==
   dependencies:
     "@rollup/pluginutils" "^4.1.2"
     "@webcomponents/custom-elements" "^1.5.0"
