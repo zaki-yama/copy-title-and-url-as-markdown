@@ -43,7 +43,7 @@
     "@types/chrome": "0.0.200",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "@vitejs/plugin-react": "1.3.2",
+    "@vitejs/plugin-react": "2.2.0",
     "bestzip": "2.2.1",
     "eslint": "8.19.0",
     "standard-version": "9.5.0",
