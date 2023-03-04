@@ -2,6 +2,7 @@ import {
   escapeTabsAndNewLines,
   unescapeTabsAndNewLines,
   escapeBrackets,
+  removeZeroWidthWhiteSpace,
 } from "./util";
 import { describe, test, expect } from "vitest";
 
@@ -37,5 +38,13 @@ describe("escapeBrackets", () => {
     ["https://example.com/[foo]", "https://example.com/%5Bfoo%5D"],
   ])("escape brackets", (arg, expected) => {
     expect(escapeBrackets(arg)).toBe(expected);
+  });
+});
+
+describe("removeZeroWidthWhiteSpace", () => {
+  test.each([
+    ["[before ⁡⁡⁣⁣​⁤⁢⁤⁡﻿‬​​​​﻿⁤⁤​﻿⁤⁡‌⁤⁢‬‌‬​‍⁡​​⁤‬‬⁡‌​⁡‬​‍​⁤﻿⁢​﻿ after]", "[before  after]"],
+  ])("remove zero width whitespace", (arg, expected) => {
+    expect(removeZeroWidthWhiteSpace(arg)).toBe(expected);
   });
 });

@@ -7,7 +7,7 @@ export function unescapeTabsAndNewLines(str: string) {
 }
 
 export function removeZeroWidthWhiteSpace(str: string) {
-  return str.replace(/[\u200c\u200b\u200d\u202c\u2060\u2061\u2062\u2063\u2064\ufeff]/, '');
+  return str.replace(/[\u200c\u200b\u200d\u202c\u2060\u2061\u2062\u2063\u2064\ufeff]+/g, '');
 }
 
 export function escapeBrackets(str: string) {
