@@ -1,5 +1,5 @@
 import { INITIAL_OPTION_VALUES } from "./constant";
-import { escapeBrackets, copyToClipboard } from "./util";
+import { escapeBrackets, removeZeroWidthWhiteSpace, copyToClipboard } from "./util";
 
 chrome.commands.onCommand.addListener((command) => {
   console.log("Command:", command);
@@ -27,7 +27,7 @@ chrome.commands.onCommand.addListener((command) => {
       chrome.scripting.executeScript({
         target: { tabId },
         func: copyToClipboard,
-        args: [options[key], title, escapeBrackets(url)],
+        args: [options[key], removeZeroWidthWhiteSpace(title), escapeBrackets(url)],
       });
 
       chrome.action.setBadgeText({ text: formatIndex });

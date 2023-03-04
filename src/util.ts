@@ -6,6 +6,10 @@ export function unescapeTabsAndNewLines(str: string) {
   return str.replace(/\\n/g, "\n").replace(/\\t/g, "\t");
 }
 
+export function removeZeroWidthWhiteSpace(str: string) {
+  return str.replace(/[\u200c\u200b\u200d\u202c\u2060\u2061\u2062\u2063\u2064\ufeff]/, '');
+}
+
 export function escapeBrackets(str: string) {
   return str
     .replace(/\(/g, escape)
