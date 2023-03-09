@@ -13,6 +13,6 @@ Chrome Web Store: https://chrome.google.com/webstore/detail/copy-title-and-url-a
 
 ## Contributing
 
-Thank you for taking an interest in this repository.
-Since the source code also serves as my programming learning purpose, **I generally do not accept Pull Requests**.
+Thank you for taking an interest in this repository.  
+Since the source code also serves as my programming learning purpose, **I generally do not accept Pull Requests**.  
 However, I welcome issues related to feature requests and bug reports.
