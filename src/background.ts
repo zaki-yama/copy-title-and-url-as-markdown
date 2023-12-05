@@ -1,5 +1,5 @@
 import { INITIAL_OPTION_VALUES } from "./constant";
-import { escapeBrackets, copyToClipboard } from "./util";
+import { escapeBrackets, removeZeroWidthWhiteSpace, copyToClipboard } from "./util";
 
 chrome.commands.onCommand.addListener((command) => {
   console.log("Command:", command);
@@ -17,8 +17,8 @@ chrome.commands.onCommand.addListener((command) => {
     const key = `optionalFormat${formatIndex}`;
     chrome.storage.local.get(INITIAL_OPTION_VALUES, function (options) {
       const tab = tabs[0];
-      const title = tab.title || "";
-      const url = tab.url || "";
+      const title = removeZeroWidthWhiteSpace(tab.title || "");
+      const url = escapeBrackets(tab.url || "");
       const tabId = tab.id || 0;
 
       console.log(tab.url, tab.title);
@@ -27,7 +27,7 @@ chrome.commands.onCommand.addListener((command) => {
       chrome.scripting.executeScript({
         target: { tabId },
         func: copyToClipboard,
-        args: [options[key], title, escapeBrackets(url)],
+        args: [options[key], title, url],
       });
 
       chrome.action.setBadgeText({ text: formatIndex });

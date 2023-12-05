@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Popup } from "./Popup";
-import { escapeBrackets, copyToClipboard } from "../util";
+import { escapeBrackets, removeZeroWidthWhiteSpace, copyToClipboard } from "../util";
 import { DEFAULT_FORMAT } from "../constant";
 
 const queryInfo = {
@@ -12,13 +12,13 @@ const queryInfo = {
 chrome.tabs.query(queryInfo, function (tabs) {
   chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
     const tab = tabs[0];
-    const title = tab.title || "";
-    const url = tab.url || "";
-    copyToClipboard(options.format, title, escapeBrackets(url));
+    const title = removeZeroWidthWhiteSpace(tab.title || "");
+    const url = escapeBrackets(tab.url || "");
+    copyToClipboard(options.format, title, url);
 
     ReactDOM.createRoot(document.getElementById("root")!).render(
       <React.StrictMode>
-        <Popup title={title} url={escapeBrackets(url)} />
+        <Popup title={title} url={url} />
       </React.StrictMode>
     );
   });
