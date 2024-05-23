@@ -29,8 +29,8 @@
   "homepage": "https://github.com/zaki-yama/copy-title-and-url-as-markdown#readme",
   "dependencies": {
     "@salesforce-ux/design-system": "2.18.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-lightning-design-system": "5.2.5"
   },
   "devDependencies": {
@@ -41,8 +41,8 @@
     "@storybook/react": "6.5.16",
     "@storybook/testing-library": "0.0.13",
     "@types/chrome": "0.0.267",
-    "@types/react": "18.0.38",
-    "@types/react-dom": "18.0.11",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
     "@vitejs/plugin-react": "1.3.2",
     "bestzip": "2.2.1",
     "eslint": "8.35.0",
