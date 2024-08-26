@@ -6,14 +6,16 @@ import { INITIAL_OPTION_VALUES } from "../constant";
 import "./Options.css";
 
 export type OptionsType = {
-  format: string;
+  mdFormat: string;
+  htmlFormat: string;
   optionalFormat1: string;
   optionalFormat2: string;
 };
 
 export const Options: React.FC = () => {
   const [options, setOptions] = useState<OptionsType>({
-    format: "",
+    mdFormat: "",
+    htmlFormat: "",
     optionalFormat1: "",
     optionalFormat2: "",
   });
@@ -22,7 +24,8 @@ export const Options: React.FC = () => {
   useEffect(() => {
     chrome.storage.local.get(INITIAL_OPTION_VALUES, (savedOptions) => {
       setOptions({
-        format: escapeTabsAndNewLines(savedOptions.format),
+        mdFormat: escapeTabsAndNewLines(savedOptions.mdFormat || savedOptions.format),
+        htmlFormat: escapeTabsAndNewLines(savedOptions.htmlFormat || savedOptions.format),
         optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
         optionalFormat2: escapeTabsAndNewLines(savedOptions.optionalFormat2),
       });
@@ -36,9 +39,10 @@ export const Options: React.FC = () => {
   const onSave = () => {
     chrome.storage.local.set(
       {
-        format: unescapeTabsAndNewLines(options.format),
-        optionalFormat1: unescapeTabsAndNewLines(options.optionalFormat1),
-        optionalFormat2: unescapeTabsAndNewLines(options.optionalFormat2),
+        mdFormat: escapeTabsAndNewLines(options.mdFormat),
+        htmlFormat: escapeTabsAndNewLines(options.htmlFormat),
+        optionalFormat1: escapeTabsAndNewLines(options.optionalFormat1),
+        optionalFormat2: escapeTabsAndNewLines(options.optionalFormat2),
       },
       () => {
         setShowToast(true);
@@ -67,8 +71,13 @@ export const Options: React.FC = () => {
       <Form className="form">
         <Input
           label="Format"
-          onChange={(e) => handleChange("format", e.target.value)}
-          value={options.format}
+          onChange={(e) => handleChange("mdFormat", e.target.value)}
+          value={options.mdFormat}
+        />
+        <Input
+          label="Rich Format (HTML)"
+          onChange={(e) => handleChange("htmlFormat", e.target.value)}
+          value={options.htmlFormat}
         />
         <Input
           label="Optional Format #1"

@@ -33,7 +33,7 @@ chrome.commands.onCommand.addListener((command) => {
       chrome.scripting.executeScript({
         target: { tabId },
         func: copyToClipboard,
-        args: [options[key], title, escapeBrackets(url), host],
+        args: [options[key], options.htmlFormat, title, escapeBrackets(url), host],
       });
 
       chrome.action.setBadgeText({ text: formatIndex });

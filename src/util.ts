@@ -14,13 +14,16 @@ export function escapeBrackets(str: string) {
     .replace(/\]/g, escape);
 }
 
-export function copyToClipboard(template: string, title: string, url: string, host: string) {
-  console.log("copyToClipboard", template, title, url, host);
+export function copyToClipboard(plainTemplate: string, htmlTemplate: string, title: string, url: string, host: string) {
+  console.log("copyToClipboard", plainTemplate, htmlTemplate, title, url, host);
 
-  const textToCopy = template.replace("${title}", title).replace("${url}", url).replace("${host}", host);
+  const textToCopy = plainTemplate.replace("${title}", title).replace("${url}", url).replace("${host}", host);
+  const htmlToCopy = htmlTemplate.replace("${title}", title).replace("${url}", url).replace("${host}", host);
+
 
   const listener = (event: any) => {
     event.clipboardData.setData("text/plain", `${textToCopy}`);
+    event.clipboardData.setData("text/html", `${htmlToCopy}`);
     event.preventDefault();
   };
   document.addEventListener("copy", listener);
