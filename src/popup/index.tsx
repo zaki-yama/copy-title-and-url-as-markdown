@@ -14,7 +14,13 @@ chrome.tabs.query(queryInfo, function (tabs) {
     const tab = tabs[0];
     const title = tab.title || "";
     const url = tab.url || "";
-    copyToClipboard(options.format, title, escapeBrackets(url));
+    let host = "";
+
+    const elms = url.split('/');
+    if (elms.length > 2) {
+      host = elms[2];
+    }
+    copyToClipboard(options.format, title, escapeBrackets(url), host);
 
     ReactDOM.createRoot(document.getElementById("root")!).render(
       <React.StrictMode>

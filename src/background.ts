@@ -20,14 +20,20 @@ chrome.commands.onCommand.addListener((command) => {
       const title = tab.title || "";
       const url = tab.url || "";
       const tabId = tab.id || 0;
+      let host = "";
 
+      const elms = url.split('/');
+      if (elms.length > 2) {
+        host = elms[2];
+      }
+      
       console.log(tab.url, tab.title);
       console.log(options);
 
       chrome.scripting.executeScript({
         target: { tabId },
         func: copyToClipboard,
-        args: [options[key], title, escapeBrackets(url)],
+        args: [options[key], title, escapeBrackets(url), host],
       });
 
       chrome.action.setBadgeText({ text: formatIndex });
