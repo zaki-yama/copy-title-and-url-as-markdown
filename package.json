@@ -13,7 +13,7 @@
     "build-storybook": "build-storybook",
     "zip": "bestzip dist.zip dist/*",
     "lint": "eslint --ext .ts,.tsx src/**",
-    "release": "run-s lint build && standard-version",
+    "release": "npm run lint && npm run build && standard-version",
     "release:dry-run": "standard-version --dry-run"
   },
   "repository": {
