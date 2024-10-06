@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v1.10.0...v2.0.0) (2024-10-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* release manifest v3 (#346)
+
+### Features
+
+* Support multiple formats ([#25](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/25)) ([77b92f3](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/77b92f36937a53049536abbf30148a5756c94cda)), closes [#2](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/2)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @salesforce-ux/design-system to v2.15.8 ([#54](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/54)) ([f3b7eb1](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/f3b7eb1801fe5273fde1fcb3f281bc0d95125429))
+* **deps:** update dependency @salesforce-ux/design-system to v2.15.9 ([08feeaa](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/08feeaa4ed311d2c92a8888a4bb1f7287f1e7129))
+* **deps:** update dependency @salesforce-ux/design-system to v2.18.1 ([039dc50](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/039dc50a76a95a047d9915a818c5048b68e51aea))
+* **deps:** update dependency react-lightning-design-system to v5.2.5 ([4a86771](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/4a86771cf587dc25dcba18638e3984a6de4b5e74))
+* **deps:** update react monorepo to v16.14.0 ([#55](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/55)) ([0cda572](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/0cda572c5d551c0e0fdb2594da93a3c4d00d2121))
+* **deps:** update react monorepo to v18.2.0 ([#223](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/223)) ([5fbdba7](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/5fbdba765d8b3499872a0adfdd5c07f6321f628f))
+
+
+* release manifest v3 ([#346](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/346)) ([494102a](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/494102a286d37725b4720ebece4ab4da24164d41))
+
 ## [1.10.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v1.9.0...v1.10.0) (2020-09-02)
 
 
