@@ -1585,10 +1585,10 @@
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
   integrity sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==
 
-"@salesforce-ux/design-system@2.18.1":
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.18.1.tgz#568a5d1d528c92fca0e1226af2c3ddbdaf04218f"
-  integrity sha512-yrnzHkafWRPDSAwyXrLjehbJIkLNTXJ61sOjorHQiExTopwcY+K6as3aFjHGpKzPS8OPXCzz9pQ8a34urcBmQg==
+"@salesforce-ux/design-system@2.25.3":
+  version "2.25.3"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.25.3.tgz#f805180909061c988b1179cf6ebb7189b77cdd49"
+  integrity sha512-OeEvGlij84crJgWCBWUOkuJFvHUISt+EGTfob7qg2xTcDwt+DACxe8MZhrDXcnHqcaBTTmJvgnBPhavwL3y2UA==
 
 "@storybook/addon-actions@6.5.16":
   version "6.5.16"
