@@ -2,6 +2,7 @@ import {
   escapeTabsAndNewLines,
   unescapeTabsAndNewLines,
   escapeBrackets,
+  buildTemplate,
 } from "./util";
 import { describe, test, expect } from "vitest";
 
@@ -37,5 +38,33 @@ describe("escapeBrackets", () => {
     ["https://example.com/[foo]", "https://example.com/%5Bfoo%5D"],
   ])("escape brackets", (arg, expected) => {
     expect(escapeBrackets(arg)).toBe(expected);
+  });
+});
+
+describe("buildTemplate", () => {
+  test.each([
+    {
+      template: "[${title}](${url})",
+      title: "dummy title",
+      url: "https://example.com",
+      expected: "[dummy title](https://example.com)",
+    },
+    // multiple titles
+    // ref. #348
+    {
+      template: "${title} - [${title}](${url})",
+      title: "dummy title",
+      url: "https://example.com",
+      expected: "dummy title - [dummy title](https://example.com)",
+    },
+    // multiple urls
+    {
+      template: "${url} - [${title}](${url})",
+      title: "dummy title",
+      url: "https://example.com",
+      expected: "https://example.com - [dummy title](https://example.com)",
+    },
+  ])("build templates", ({ template, title, url, expected }) => {
+    expect(buildTemplate(template, title, url)).toBe(expected);
   });
 });
