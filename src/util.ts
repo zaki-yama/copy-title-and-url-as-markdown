@@ -15,7 +15,7 @@ export function escapeBrackets(str: string) {
 }
 
 export function buildTemplate(template: string, title: string, url: string) {
-  return template.replace("${title}", title).replace("${url}", url);
+  return template.replaceAll("${title}", title).replaceAll("${url}", url);
 }
 
 export function copyToClipboard(template: string, title: string, url: string) {
