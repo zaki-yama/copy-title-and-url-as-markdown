@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v2.0.0...v2.0.1) (2024-11-19)
+
+
+### Bug Fixes
+
+* multiple titles/urls doesn't work properly ([#349](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/349)) ([934ecc4](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/934ecc4ad0d230984f64154232fd4bc7c61c2440))
+
 ## [2.0.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v1.10.0...v2.0.0) (2024-10-06)
 
 
