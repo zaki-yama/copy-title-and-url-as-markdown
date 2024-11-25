@@ -9082,7 +9082,7 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.20.0.tgz#08c5ea813dd54ed16e5bd6505bf42af4f7838ca3"
   integrity sha512-bk3gXBZDGILuuo/6sKtr0DQmSThYHLtNCdSdXk9YkxD/jK6X2vmCyyXBBxyqZ4XcnzTyYEAThfX3DCEnLf6igw==
 
-nanoid@^3.3.1, nanoid@^3.3.4, nanoid@^3.3.7:
+nanoid@^3.3.1, nanoid@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
   integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
@@ -10249,16 +10249,15 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lightning-design-system@5.2.5:
-  version "5.2.5"
-  resolved "https://registry.yarnpkg.com/react-lightning-design-system/-/react-lightning-design-system-5.2.5.tgz#4a005551df4c179049da062fc392432aac367503"
-  integrity sha512-xmDkueUBqI3p+RDomKEt5lD13XKE3bWJW86sHrAZNkSKZfLYo2KOk+seWQycaT1zZhOhNS+1vMh14eUT93leqA==
+react-lightning-design-system@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/react-lightning-design-system/-/react-lightning-design-system-5.9.1.tgz#f2a10b687aadb132ab54a8c5dd33c663e3fdd5c4"
+  integrity sha512-jtC/cGDXmPHiEnPovvHwI0/GrQR64mnWwyeiuJ0Gu4LKlwcJBzIl7vIfQDYIKtURbo1KrT3ALSQwrmvlJ1EPGw==
   dependencies:
     "@babel/runtime" "^7.17.9"
     classnames "^2.3.1"
     dayjs "^1.11.2"
     keycoder "^1.1.1"
-    nanoid "^3.3.4"
     react-merge-refs "^1.1.0"
     react-relative-portal "github:stomita/react-relative-portal#dist"
     svg4everybody "^2.1.9"
