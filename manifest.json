@@ -41,5 +41,9 @@
     "clipboardWrite",
     "scripting",
     "storage"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
   ]
 }
