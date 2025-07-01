@@ -16,10 +16,27 @@ $ yarn release
 $ git push --follow-tags
 ```
 
-3. create zip file and upload to Chrome marketplace and Edge store.
+3. Publish the extension to browser marketplaces.
+
+### Automated Publishing (Recommended)
+
+If you have set up marketplace credentials (see [README.md](./README.md#publishing-to-browser-marketplaces) for setup instructions):
+
+```bash
+# Publish to all configured marketplaces
+$ yarn submit
+```
+
+### Manual Publishing
+
+Alternatively, create zip files for manual upload:
 
 ```bash
 $ yarn zip
 ```
 
-The zip file will be created in `.output/copy-title-and-url-as-markdown-{version}-chrome.zip`.
+This creates platform-specific zip files in the `.output/` directory:
+- `.output/copy-title-and-url-as-markdown-{version}-chrome.zip` (Chrome Web Store)
+- `.output/copy-title-and-url-as-markdown-{version}-firefox.zip` (Firefox Add-ons)
+
+Then manually upload these files to the respective browser marketplaces.
