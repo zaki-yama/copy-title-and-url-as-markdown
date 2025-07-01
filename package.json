@@ -12,6 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "zip": "wxt zip",
+    "submit": "wxt submit",
     "lint": "eslint --ext .ts,.tsx src/** entrypoints/**/*.{ts,tsx}",
     "release": "npm run lint && npm run build && standard-version",
     "release:dry-run": "standard-version --dry-run"
