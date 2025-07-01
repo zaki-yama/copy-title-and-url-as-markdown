@@ -5,7 +5,7 @@ module.exports = {
       type: "json",
     },
     {
-      filename: "dist/manifest.json",
+      filename: ".output/chrome-mv3/manifest.json",
       type: "json",
     },
   ],

@@ -1,8 +1,8 @@
 # How to Release
 
-This repository uses [standard-version](https://github.com/conventional-changelog/standard-version) to manage versions and generate `CHANGELOG.md`.
+This repository uses [WXT](https://wxt.dev/) for building web extensions and [standard-version](https://github.com/conventional-changelog/standard-version) to manage versions and generate `CHANGELOG.md`.
 
-1. Update manifest.json's version
+1. The manifest version is automatically managed by WXT
 2. Run the following command
 
 ```bash
@@ -16,8 +16,10 @@ $ yarn release
 $ git push --follow-tags
 ```
 
-3. create zip file and upload to Chrome marketplace.
+3. create zip file and upload to Chrome marketplace and Edge store.
 
 ```bash
 $ yarn zip
 ```
+
+The zip file will be created in `.output/copy-title-and-url-as-markdown-{version}-chrome.zip`.
