@@ -2,8 +2,7 @@
 
 This repository uses [standard-version](https://github.com/conventional-changelog/standard-version) to manage versions and generate `CHANGELOG.md`.
 
-1. Update manifest.json's version
-2. Run the following command
+1. Run the following command
 
 ```bash
 # Check if the content of CHANGELOG is expected.
@@ -16,8 +15,16 @@ $ yarn release
 $ git push --follow-tags
 ```
 
-3. create zip file and upload to Chrome marketplace.
+2. Create zip files for Chrome and Edge stores (Firefox support is also available).
 
 ```bash
+# Build and create zip for Chrome/Edge
 $ yarn zip
+
+# Build and create zip for Firefox (optional)
+$ yarn zip:firefox
 ```
+
+3. Upload the generated zip files to the respective browser extension stores:
+   - Chrome Web Store
+   - Microsoft Edge Add-ons
