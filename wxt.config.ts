@@ -1,8 +1,18 @@
 import { defineConfig } from "wxt";
+import tailwindcss from "@tailwindcss/vite";
+import { fileURLToPath, URL } from "node:url";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   modules: ["@wxt-dev/module-react"],
+  vite: () => ({
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+      },
+    },
+  }),
   manifest: {
     name: "__MSG_appName__",
     description: "__MSG_appDesc__",

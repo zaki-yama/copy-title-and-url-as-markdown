@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Toast } from "react-lightning-design-system";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 import { INITIAL_OPTION_VALUES } from "../constant";
 
@@ -47,43 +50,52 @@ export const Options: React.FC = () => {
   };
 
   return (
-    <div className="optionsContainer">
-      {showToast ? (
-        <Toast
-          className="toast"
-          level="success"
-          icon="success"
-          onClose={() => setShowToast(false)}
-        >
-          Successfully Saved.
-        </Toast>
-      ) : null}
-      <div className="slds-text-heading_medium slds-m-bottom_small">
-        Options
+    <div className="w-[300px] mx-auto mt-8 flex flex-col gap-4">
+      {showToast && (
+        <Alert variant="success" className="relative">
+          <AlertDescription>
+            Successfully Saved.
+            <button
+              onClick={() => setShowToast(false)}
+              className="absolute top-2 right-2 text-green-600 hover:text-green-800"
+            >
+              ×
+            </button>
+          </AlertDescription>
+        </Alert>
+      )}
+      <h1 className="text-xl font-semibold">Options</h1>
+      <p className="text-sm text-muted-foreground">
+        You can use <code className="font-mono text-xs">\n</code> for new
+        lines, and <code className="font-mono text-xs">\t</code> for tabs.
+      </p>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="format">Format</Label>
+          <Input
+            id="format"
+            onChange={(e) => handleChange("format", e.target.value)}
+            value={options.format}
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="optionalFormat1">Optional Format #1</Label>
+          <Input
+            id="optionalFormat1"
+            onChange={(e) => handleChange("optionalFormat1", e.target.value)}
+            value={options.optionalFormat1}
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="optionalFormat2">Optional Format #2</Label>
+          <Input
+            id="optionalFormat2"
+            onChange={(e) => handleChange("optionalFormat2", e.target.value)}
+            value={options.optionalFormat2}
+          />
+        </div>
+        <Button onClick={onSave}>Save</Button>
       </div>
-      <div>
-        You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
-      </div>
-      <Form className="form">
-        <Input
-          label="Format"
-          onChange={(e) => handleChange("format", e.target.value)}
-          value={options.format}
-        />
-        <Input
-          label="Optional Format #1"
-          onChange={(e) => handleChange("optionalFormat1", e.target.value)}
-          value={options.optionalFormat1}
-        />
-        <Input
-          label="Optional Format #2"
-          onChange={(e) => handleChange("optionalFormat2", e.target.value)}
-          value={options.optionalFormat2}
-        />
-        <Button className="slds-m-top_medium" type="brand" onClick={onSave}>
-          Save
-        </Button>
-      </Form>
     </div>
   );
 };
