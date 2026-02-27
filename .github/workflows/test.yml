@@ -13,17 +13,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: latest
-          cache: 'pnpm'
+          cache: 'yarn'
       - name: test
         run: |
-          pnpm install
-          pnpm test
+          yarn install
+          yarn test
         env:
           CI: true
