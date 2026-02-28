@@ -61,9 +61,9 @@ Shared code used by entrypoints:
 - **Clipboard copy** in the popup happens in the page context (not the background), using `document.execCommand('copy')`. The background script uses `chrome.scripting.executeScript` to inject `copyToClipboard` into the active tab.
 - **UI library**: `react-lightning-design-system` (Salesforce SLDS) with `@salesforce-ux/design-system` CSS assets. The `postinstall` script copies these assets into `public/`.
 
-### pnpm & `.npmrc`
+### pnpm
 
-The project uses pnpm (`packageManager: pnpm@9.15.4`). `.npmrc` sets `shamefully-hoist=true` for Storybook 6.x compatibility.
+The project uses pnpm (`packageManager: pnpm@10.30.3`).
 
 ### Tests
 
