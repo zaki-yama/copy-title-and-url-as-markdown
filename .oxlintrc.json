@@ -1,9 +1,8 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react"],
+  "plugins": ["react", "vitest"],
   "categories": {},
   "rules": {
-    "no-template-curly-in-string": "off"
   },
   "settings": {
     "jsx-a11y": {
