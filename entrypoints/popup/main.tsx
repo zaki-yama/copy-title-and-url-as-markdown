@@ -1,3 +1,4 @@
+import "@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Popup } from "../../src/popup/Popup";
