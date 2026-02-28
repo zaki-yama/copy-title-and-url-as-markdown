@@ -3,6 +3,7 @@
   "version": "2.0.2",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "private": true,
+  "packageManager": "pnpm@10.30.3",
   "scripts": {
     "dev": "wxt",
     "build": "wxt build",

@@ -6,10 +6,10 @@ This repository uses [standard-version](https://github.com/conventional-changelo
 
 ```bash
 # Check if the content of CHANGELOG is expected.
-$ yarn release:dry-run
+$ pnpm release:dry-run
 
 # Generate CHANGELOG, bump up version, generate new tag
-$ yarn release
+$ pnpm release
 
 # Push new tag
 $ git push --follow-tags
@@ -19,10 +19,10 @@ $ git push --follow-tags
 
 ```bash
 # Build and create zip for Chrome/Edge
-$ yarn zip
+$ pnpm zip
 
 # Build and create zip for Firefox (optional)
-$ yarn zip:firefox
+$ pnpm zip:firefox
 ```
 
 3. Upload the generated zip files to the respective browser extension stores:
