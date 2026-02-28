@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@salesforce-ux/design-system':
-        specifier: 2.18.1
-        version: 2.18.1(postcss@8.5.6)
+        specifier: 2.29.0
+        version: 2.29.0(postcss@8.5.6)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -1517,8 +1517,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@salesforce-ux/design-system@2.18.1':
-    resolution: {integrity: sha512-yrnzHkafWRPDSAwyXrLjehbJIkLNTXJ61sOjorHQiExTopwcY+K6as3aFjHGpKzPS8OPXCzz9pQ8a34urcBmQg==}
+  '@salesforce-ux/design-system@2.29.0':
+    resolution: {integrity: sha512-5Dt5BDAhjWMq01z9ire04MA4CSGe+indhfH/LvESK06e3Si3EuEcL6TTnDYejXttcLntAQVxn/+p+L1LwxCN4A==}
     peerDependencies:
       postcss: ^8.3.5
 
@@ -9078,7 +9078,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.59.0':
     optional: true
 
-  '@salesforce-ux/design-system@2.18.1(postcss@8.5.6)':
+  '@salesforce-ux/design-system@2.29.0(postcss@8.5.6)':
     dependencies:
       postcss: 8.5.6
 
@@ -9374,7 +9374,7 @@ snapshots:
       case-sensitive-paths-webpack-plugin: 2.4.0
       core-js: 3.48.0
       css-loader: 3.6.0(webpack@4.47.0)
-      file-loader: 6.2.0(webpack@4.47.0)
+      file-loader: 6.2.0(webpack@5.105.3)
       find-up: 5.0.0
       fork-ts-checker-webpack-plugin: 4.1.6(eslint@8.4.1)(typescript@5.9.3)(webpack@4.47.0)
       glob: 7.2.3
@@ -9750,7 +9750,7 @@ snapshots:
       core-js: 3.48.0
       css-loader: 3.6.0(webpack@4.47.0)
       express: 4.22.1
-      file-loader: 6.2.0(webpack@5.105.3)
+      file-loader: 6.2.0(webpack@4.47.0)
       find-up: 5.0.0
       fs-extra: 9.1.0
       html-webpack-plugin: 4.5.2(webpack@4.47.0)
