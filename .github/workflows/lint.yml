@@ -23,5 +23,6 @@ jobs:
         run: |
           pnpm install
           pnpm lint
+          pnpm typecheck
         env:
           CI: true
