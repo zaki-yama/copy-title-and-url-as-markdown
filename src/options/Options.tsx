@@ -42,25 +42,18 @@ export const Options: React.FC = () => {
       },
       () => {
         setShowToast(true);
-      }
+      },
     );
   };
 
   return (
     <div className="optionsContainer">
       {showToast ? (
-        <Toast
-          className="toast"
-          level="success"
-          icon="success"
-          onClose={() => setShowToast(false)}
-        >
+        <Toast className="toast" level="success" icon="success" onClose={() => setShowToast(false)}>
           Successfully Saved.
         </Toast>
       ) : null}
-      <div className="slds-text-heading_medium slds-m-bottom_small">
-        Options
-      </div>
+      <div className="slds-text-heading_medium slds-m-bottom_small">Options</div>
       <div>
         You can use <code>\n</code> for new lines, and <code>\t</code> for tabs.
       </div>

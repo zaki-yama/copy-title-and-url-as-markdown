@@ -18,10 +18,7 @@ export const Popup: React.FC<Props> = ({ title, url }) => {
         <div className="slds-text-heading_small">{title}</div>
       </Row>
       <Row cols={1}>
-        <div
-          className="slds-text-body_small"
-          style={{ wordBreak: "break-all" }}
-        >
+        <div className="slds-text-body_small" style={{ wordBreak: "break-all" }}>
           {url}
         </div>
       </Row>
