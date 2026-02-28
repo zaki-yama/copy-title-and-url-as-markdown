@@ -18,8 +18,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-lightning-design-system:
-        specifier: 5.2.5
-        version: 5.2.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 5.9.1
+        version: 5.9.1(@types/react@18.3.26)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@cybozu/eslint-config':
         specifier: 17.0.3
@@ -6239,11 +6239,12 @@ packages:
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
-  react-lightning-design-system@5.2.5:
-    resolution: {integrity: sha512-xmDkueUBqI3p+RDomKEt5lD13XKE3bWJW86sHrAZNkSKZfLYo2KOk+seWQycaT1zZhOhNS+1vMh14eUT93leqA==}
+  react-lightning-design-system@5.9.1:
+    resolution: {integrity: sha512-jtC/cGDXmPHiEnPovvHwI0/GrQR64mnWwyeiuJ0Gu4LKlwcJBzIl7vIfQDYIKtURbo1KrT3ALSQwrmvlJ1EPGw==}
     peerDependencies:
-      react: ^17.0.2
-      react-dom: ^17.0.2
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
 
   react-merge-refs@1.1.0:
     resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
@@ -15566,13 +15567,13 @@ snapshots:
 
   react-is@17.0.2: {}
 
-  react-lightning-design-system@5.2.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  react-lightning-design-system@5.9.1(@types/react@18.3.26)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.28.6
+      '@types/react': 18.3.26
       classnames: 2.5.1
       dayjs: 1.11.19
       keycoder: 1.1.1
-      nanoid: 3.3.11
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-merge-refs: 1.1.0
