@@ -1,13 +1,6 @@
 import { defineConfig } from "vitest/config";
+import { WxtVitest } from "wxt/testing/vitest-plugin";
 
 export default defineConfig({
-  esbuild: {
-    tsconfigRaw: {
-      compilerOptions: {
-        jsx: "react-jsx",
-        strict: true,
-        esModuleInterop: true,
-      },
-    },
-  },
+  plugins: [WxtVitest()],
 });
