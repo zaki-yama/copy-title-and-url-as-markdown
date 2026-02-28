@@ -20,7 +20,7 @@ chrome.tabs.query(queryInfo, function (tabs) {
     ReactDOM.createRoot(document.getElementById("root")!).render(
       <React.StrictMode>
         <Popup title={title} url={escapeBrackets(url)} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
   });
 });
