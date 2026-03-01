@@ -10,7 +10,7 @@
     "build:firefox": "wxt build -b firefox",
     "preview": "wxt",
     "test": "vitest",
-    "postinstall": "wxt prepare && cp -r node_modules/@salesforce-ux/design-system/assets public",
+    "postinstall": "wxt prepare",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "zip": "wxt zip",
