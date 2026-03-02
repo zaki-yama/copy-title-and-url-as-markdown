@@ -1,3 +1,10 @@
 @import "tailwindcss";
 @source ".";
 @source "../entrypoints";
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply dark:bg-gray-900;
+  }
+}
