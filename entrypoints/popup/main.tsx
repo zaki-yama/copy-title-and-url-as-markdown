@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Popup } from "../../src/popup/Popup";
 import { escapeBrackets, copyToClipboard } from "../../src/util";
 import { DEFAULT_FORMAT } from "../../src/constant";
-import { applyTheme } from "../../src/theme";
+import { applyTheme, resolveIsDark, updateActionIcon } from "../../src/theme";
 
 const queryInfo = {
   active: true,
@@ -13,7 +13,11 @@ const queryInfo = {
 
 chrome.tabs.query(queryInfo, function (tabs) {
   chrome.storage.local.get({ format: DEFAULT_FORMAT, theme: "system" }, function (options) {
-    applyTheme(options.theme ?? "system");
+    const theme = options.theme ?? "system";
+    applyTheme(theme);
+    const isDark = resolveIsDark(theme);
+    updateActionIcon(isDark);
+    chrome.storage.local.set({ resolvedDark: isDark });
 
     const tab = tabs[0];
     const title = tab.title || "";

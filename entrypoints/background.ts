@@ -1,7 +1,14 @@
 import { INITIAL_OPTION_VALUES } from "../src/constant";
 import { escapeBrackets, copyToClipboard } from "../src/util";
+import { updateActionIcon } from "../src/theme";
 
 export default defineBackground(() => {
+  chrome.storage.onChanged.addListener((changes) => {
+    if (changes.resolvedDark !== undefined) {
+      updateActionIcon(changes.resolvedDark.newValue);
+    }
+  });
+
   chrome.commands.onCommand.addListener((command) => {
     console.log("Command:", command);
 
