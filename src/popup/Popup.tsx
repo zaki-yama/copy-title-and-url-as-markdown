@@ -1,7 +1,5 @@
+import { CheckCircle2 } from "lucide-react";
 import React from "react";
-import { Icon, Grid, Row } from "react-lightning-design-system";
-
-import "./Popup.css";
 
 type Props = {
   title: string;
@@ -10,18 +8,12 @@ type Props = {
 
 export const Popup: React.FC<Props> = ({ title, url }) => {
   return (
-    <Grid className="slds-gutters">
-      <Row cols={1} align="center">
-        <Icon category="action" icon="approval" container="circle" />
-      </Row>
-      <Row cols={1}>
-        <div className="slds-text-heading_small">{title}</div>
-      </Row>
-      <Row cols={1}>
-        <div className="slds-text-body_small" style={{ wordBreak: "break-all" }}>
-          {url}
-        </div>
-      </Row>
-    </Grid>
+    <div className="flex flex-col gap-2 p-4 w-[400px]">
+      <div className="flex justify-center">
+        <CheckCircle2 className="text-green-500" size={32} />
+      </div>
+      <div className="text-sm font-semibold">{title}</div>
+      <div className="text-xs break-all text-gray-500">{url}</div>
+    </div>
   );
 };
