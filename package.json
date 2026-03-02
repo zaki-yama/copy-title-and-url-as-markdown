@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@storybook/addon-essentials": "6.5.16",
-    "@storybook/builder-vite": "0.1.41",
+    "@storybook/builder-vite": "0.4.2",
     "@storybook/react": "6.5.16",
     "@storybook/testing-library": "0.0.13",
     "@types/chrome": "0.0.332",
