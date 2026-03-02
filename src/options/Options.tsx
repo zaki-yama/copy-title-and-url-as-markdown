@@ -83,7 +83,11 @@ export const Options: React.FC = () => {
       )}
       <h1 className="text-lg font-semibold mb-2 dark:text-white">Options</h1>
       <p className="text-sm mb-4 text-gray-700 dark:text-gray-300">
-        You can use <code className="rounded bg-gray-100 px-1 dark:bg-gray-700 dark:text-gray-200">\n</code> for new lines, and <code className="rounded bg-gray-100 px-1 dark:bg-gray-700 dark:text-gray-200">\t</code> for tabs.
+        You can use{" "}
+        <code className="rounded bg-gray-100 px-1 dark:bg-gray-700 dark:text-gray-200">\n</code> for
+        new lines, and{" "}
+        <code className="rounded bg-gray-100 px-1 dark:bg-gray-700 dark:text-gray-200">\t</code> for
+        tabs.
       </p>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
