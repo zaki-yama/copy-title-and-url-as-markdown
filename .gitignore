@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .output
 .wxt
+build
+screenshots
 
 # Editor directories and files
 .vscode/*
