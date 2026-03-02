@@ -49,8 +49,8 @@ importers:
         specifier: 6.5.16
         version: 6.5.16(@babel/core@7.29.0)(@types/webpack@4.41.40)(eslint@8.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(require-from-string@2.0.2)(type-fest@4.41.0)(typescript@5.9.3)(webpack-hot-middleware@2.26.1)
       '@storybook/testing-library':
-        specifier: 0.0.13
-        version: 0.0.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.2.2
+        version: 0.2.2
       '@types/chrome':
         specifier: 0.0.332
         version: 0.0.332
@@ -1984,9 +1984,6 @@ packages:
   '@storybook/docs-tools@6.5.16':
     resolution: {integrity: sha512-o+rAWPRGifjBF5xZzTKOqnHN3XQWkl0QFJYVDIiJYJrVll7ExCkpEq/PahOGzIBBV+tpMstJgmKM3lr/lu/jmg==}
 
-  '@storybook/instrumenter@6.5.16':
-    resolution: {integrity: sha512-q8/GaBk8PA/cL7m5OW+ec5t63+Zja9YvYSPGXrYtW17koSv7OnNPmk6RvI7tIHHO0mODBYnaHjF4zQfEGoyR5Q==}
-
   '@storybook/manager-webpack4@6.5.16':
     resolution: {integrity: sha512-5VJZwmQU6AgdsBPsYdu886UKBHQ9SJEnFMaeUxKEclXk+iRsmbzlL4GHKyVd6oGX/ZaecZtcHPR6xrzmA4Ziew==}
     peerDependencies:
@@ -2075,8 +2072,9 @@ packages:
   '@storybook/telemetry@6.5.16':
     resolution: {integrity: sha512-CWr5Uko1l9jJW88yTXsZTj/3GTabPvw0o7pDPOXPp8JRZiJTxv1JFaFCafhK9UzYbgcRuGfCC8kEWPZims7iKA==}
 
-  '@storybook/testing-library@0.0.13':
-    resolution: {integrity: sha512-vRMeIGer4EjJkTgI8sQyK9W431ekPWYCWL//OmSDJ64IT3h7FnW7Xg6p+eqM3oII98/O5pcya5049GxnjaPtxw==}
+  '@storybook/testing-library@0.2.2':
+    resolution: {integrity: sha512-L8sXFJUHmrlyU2BsWWZGuAjv39Jl1uAqUHdxmN42JY15M4+XCMjGlArdCCjDe1wpTSW6USYISA9axjZojgtvnw==}
+    deprecated: In Storybook 8, this package functionality has been integrated to a new package called @storybook/test, which uses Vitest APIs for an improved experience. When upgrading to Storybook 8 with 'npx storybook@latest upgrade', you will get prompted and will get an automigration for the new package. Please migrate when you can.
 
   '@storybook/theming@6.5.16':
     resolution: {integrity: sha512-hNLctkjaYLRdk1+xYTkC1mg4dYz2wSv6SqbLpcKMbkPHTE0ElhddGPHQqB362md/w9emYXNkt1LSMD8Xk9JzVQ==}
@@ -2184,13 +2182,13 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@testing-library/dom@8.20.1':
-    resolution: {integrity: sha512-/DiOQ5xBxgdYRC8LNk7U+RWat0S3qRLeIw3ZIkMQ9kkVlRmwD/Eg8k8CqIpD6GW7u20JIUOfMKbxtiLutpjQ4g==}
-    engines: {node: '>=12'}
+  '@testing-library/dom@9.3.4':
+    resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
+    engines: {node: '>=14'}
 
-  '@testing-library/user-event@13.5.0':
-    resolution: {integrity: sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==}
-    engines: {node: '>=10', npm: '>=6'}
+  '@testing-library/user-event@14.6.1':
+    resolution: {integrity: sha512-vq7fv0rnt+QTXgPxr5Hjc210p6YKq2kmdziLgnsZGgLJ9e6VAShx1pACLuRjd/AS/sr7phAR58OIIpf0LlmQNw==}
+    engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
@@ -4403,6 +4401,7 @@ packages:
   git-raw-commits@2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-remote-origin-url@2.0.0:
@@ -4412,6 +4411,7 @@ packages:
   git-semver-tags@4.1.1:
     resolution: {integrity: sha512-OWyMt5zBe7xFs8vglMmhM9lRQzCWL3WjHtxNNfJTMngGym7pC1kh8sP6jevfydJ6LP3ZvGxfb6ABYgPUM0mtsA==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   gitconfiglocal@1.0.0:
@@ -9807,7 +9807,7 @@ snapshots:
       case-sensitive-paths-webpack-plugin: 2.4.0
       core-js: 3.48.0
       css-loader: 3.6.0(webpack@4.47.0)
-      file-loader: 6.2.0(webpack@4.47.0)
+      file-loader: 6.2.0(webpack@5.105.3)
       find-up: 5.0.0
       fork-ts-checker-webpack-plugin: 4.1.6(eslint@8.4.1)(typescript@5.9.3)(webpack@4.47.0)
       glob: 7.2.3
@@ -10153,17 +10153,6 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@storybook/instrumenter@6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@storybook/addons': 6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/client-logger': 6.5.16
-      '@storybook/core-events': 6.5.16
-      core-js: 3.48.0
-      global: 4.4.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
-
   '@storybook/manager-webpack4@6.5.16(eslint@8.4.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.9.3)':
     dependencies:
       '@babel/core': 7.29.0
@@ -10183,7 +10172,7 @@ snapshots:
       core-js: 3.48.0
       css-loader: 3.6.0(webpack@4.47.0)
       express: 4.22.1
-      file-loader: 6.2.0(webpack@5.105.3)
+      file-loader: 6.2.0(webpack@4.47.0)
       find-up: 5.0.0
       fs-extra: 9.1.0
       html-webpack-plugin: 4.5.2(webpack@4.47.0)
@@ -10436,16 +10425,11 @@ snapshots:
       - webpack-cli
       - webpack-command
 
-  '@storybook/testing-library@0.0.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@storybook/testing-library@0.2.2':
     dependencies:
-      '@storybook/client-logger': 6.5.16
-      '@storybook/instrumenter': 6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@testing-library/dom': 8.20.1
-      '@testing-library/user-event': 13.5.0(@testing-library/dom@8.20.1)
+      '@testing-library/dom': 9.3.4
+      '@testing-library/user-event': 14.6.1(@testing-library/dom@9.3.4)
       ts-dedent: 2.2.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
 
   '@storybook/theming@6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
@@ -10543,7 +10527,7 @@ snapshots:
       tailwindcss: 4.2.1
       vite: 5.4.21(@types/node@25.3.2)(lightningcss@1.31.1)(terser@5.46.0)
 
-  '@testing-library/dom@8.20.1':
+  '@testing-library/dom@9.3.4':
     dependencies:
       '@babel/code-frame': 7.29.0
       '@babel/runtime': 7.28.6
@@ -10554,10 +10538,9 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/user-event@13.5.0(@testing-library/dom@8.20.1)':
+  '@testing-library/user-event@14.6.1(@testing-library/dom@9.3.4)':
     dependencies:
-      '@babel/runtime': 7.28.6
-      '@testing-library/dom': 8.20.1
+      '@testing-library/dom': 9.3.4
 
   '@types/aria-query@5.0.4': {}
 
