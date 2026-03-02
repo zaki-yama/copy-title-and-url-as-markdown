@@ -4,7 +4,7 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { unescapeTabsAndNewLines, escapeTabsAndNewLines } from "../util";
 import { INITIAL_OPTION_VALUES } from "../constant";
-import { type Theme, applyTheme } from "../theme";
+import { type Theme, applyTheme, resolveIsDark, updateActionIcon } from "../theme";
 
 export type OptionsType = {
   format: string;
@@ -41,10 +41,18 @@ export const Options: React.FC = () => {
 
   useEffect(() => {
     applyTheme(options.theme);
+    const isDark = resolveIsDark(options.theme);
+    updateActionIcon(isDark);
+    chrome.storage.local.set({ resolvedDark: isDark });
 
     if (options.theme === "system") {
       const mq = window.matchMedia("(prefers-color-scheme: dark)");
-      const handler = () => applyTheme("system");
+      const handler = () => {
+        const resolvedDark = resolveIsDark("system");
+        applyTheme("system");
+        updateActionIcon(resolvedDark);
+        chrome.storage.local.set({ resolvedDark });
+      };
       mq.addEventListener("change", handler);
       return () => mq.removeEventListener("change", handler);
     }
