@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="manifest.open_in_tab" content="true" />
     <title>Options</title>
+    <script>
+      chrome.storage.local.get({ theme: "system" }, function (r) {
+        if (
+          r.theme === "dark" ||
+          (r.theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
