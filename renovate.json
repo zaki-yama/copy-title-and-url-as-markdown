@@ -3,5 +3,12 @@
     "config:base",
     ":automergePatch",
     ":automergeBranch"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["pnpm"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    }
   ]
 }
