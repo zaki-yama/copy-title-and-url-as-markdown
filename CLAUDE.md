@@ -65,6 +65,18 @@ Shared code used by entrypoints:
 
 The project uses pnpm (`packageManager: pnpm@10.30.3`).
 
+## Development Guidelines
+
+- **Language**: All issues, commit messages, PRs, and code comments must be written in English.
+- **Commit messages and PR titles**: Follow [Conventional Commits](https://www.conventionalcommits.org/) (e.g. `feat:`, `fix:`, `chore:`, `build:`, `docs:`).
+- **Before completing any task**, verify all of the following pass:
+  ```bash
+  pnpm lint
+  pnpm typecheck
+  pnpm fmt
+  pnpm test
+  ```
+
 ### Tests
 
 Tests are in `src/util.test.ts` using Vitest. Only `src/util.ts` functions are tested (pure functions with no browser API dependencies).
