@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Popup } from "../../src/popup/Popup";
 import { escapeBrackets, copyToClipboard } from "../../src/util";
 import { DEFAULT_FORMAT } from "../../src/constant";
+import { applyTheme } from "../../src/theme";
 
 const queryInfo = {
   active: true,
@@ -11,7 +12,9 @@ const queryInfo = {
 };
 
 chrome.tabs.query(queryInfo, function (tabs) {
-  chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
+  chrome.storage.local.get({ format: DEFAULT_FORMAT, theme: "system" }, function (options) {
+    applyTheme(options.theme ?? "system");
+
     const tab = tabs[0];
     const title = tab.title || "";
     const url = tab.url || "";
