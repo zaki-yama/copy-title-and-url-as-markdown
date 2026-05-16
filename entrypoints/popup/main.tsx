@@ -15,7 +15,7 @@ chrome.tabs.query(queryInfo, function (tabs) {
     const tab = tabs[0];
     const title = tab.title || "";
     const url = tab.url || "";
-    copyToClipboard(options.format, title, escapeBrackets(url));
+    copyToClipboard(options.format as string, title, escapeBrackets(url));
 
     ReactDOM.createRoot(document.getElementById("root")!).render(
       <React.StrictMode>

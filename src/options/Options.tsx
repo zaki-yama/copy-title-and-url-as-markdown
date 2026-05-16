@@ -22,9 +22,13 @@ export const Options: React.FC = () => {
   useEffect(() => {
     chrome.storage.local.get(INITIAL_OPTION_VALUES, (savedOptions) => {
       setOptions({
-        format: escapeTabsAndNewLines(savedOptions.format),
-        optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
-        optionalFormat2: escapeTabsAndNewLines(savedOptions.optionalFormat2),
+        format: escapeTabsAndNewLines(savedOptions.format as string),
+        optionalFormat1: escapeTabsAndNewLines(
+          savedOptions.optionalFormat1 as string,
+        ),
+        optionalFormat2: escapeTabsAndNewLines(
+          savedOptions.optionalFormat2 as string,
+        ),
       });
     });
   }, []);

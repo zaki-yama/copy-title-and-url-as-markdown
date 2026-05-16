@@ -28,7 +28,7 @@ export default defineBackground(() => {
         chrome.scripting.executeScript({
           target: { tabId },
           func: copyToClipboard,
-          args: [options[key], title, escapeBrackets(url)],
+          args: [options[key] as string, title, escapeBrackets(url)],
         });
 
         chrome.action.setBadgeText({ text: formatIndex });
