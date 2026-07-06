@@ -1,43 +1,51 @@
 import { INITIAL_OPTION_VALUES } from "../src/constant";
+import type { OptionsType } from "../src/options/Options";
 import { escapeBrackets, copyToClipboard } from "../src/util";
 
 export default defineBackground(() => {
-  chrome.commands.onCommand.addListener((command) => {
+  browser.commands.onCommand.addListener(async (command, tab) => {
     console.log("Command:", command);
 
-    const queryInfo = {
-      active: true,
-      currentWindow: true,
-    };
+    // The tab argument can be missing (e.g. on Firefox < 126), so fall
+    // back to querying the last focused window. Don't use
+    // `currentWindow: true` here: when a DevTools window has focus it
+    // matches that window, which has no tabs.
+    const activeTab =
+      tab ??
+      (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
+    if (!activeTab?.id) {
+      console.warn("No active tab found for command:", command);
+      return;
+    }
 
-    chrome.tabs.query(queryInfo, function (tabs) {
-      // All commands are like `copy_as_format_*` (*: 1 or 2 or 3)
-      const formatIndex = command.slice(-1);
-      console.log("format: ", formatIndex);
+    // All commands are like `copy_as_format_*` (*: 1 or 2 or 3)
+    const formatIndex = command.slice(-1);
+    console.log("format: ", formatIndex);
 
-      const key = `optionalFormat${formatIndex}`;
-      chrome.storage.local.get(INITIAL_OPTION_VALUES, function (options) {
-        const tab = tabs[0];
-        const title = tab.title || "";
-        const url = tab.url || "";
-        const tabId = tab.id || 0;
+    const key = `optionalFormat${formatIndex}` as keyof OptionsType;
+    const options = (await browser.storage.local.get(
+      INITIAL_OPTION_VALUES,
+    )) as OptionsType;
 
-        console.log(tab.url, tab.title);
-        console.log(options);
+    const title = activeTab.title || "";
+    const url = activeTab.url || "";
 
-        chrome.scripting.executeScript({
-          target: { tabId },
-          func: copyToClipboard,
-          args: [options[key], title, escapeBrackets(url)],
-        });
+    console.log(url, title);
+    console.log(options);
 
-        chrome.action.setBadgeText({ text: formatIndex });
-        setTimeout(() => {
-          chrome.action.setBadgeText({ text: "" });
-        }, 1000);
-
-        console.log("done!");
-      });
+    await browser.scripting.executeScript({
+      target: { tabId: activeTab.id },
+      func: copyToClipboard,
+      args: [options[key], title, escapeBrackets(url)],
     });
+
+    // MV2 (Firefox) uses browserAction instead of action
+    const action = browser.action ?? browser.browserAction;
+    action.setBadgeText({ text: formatIndex });
+    setTimeout(() => {
+      action.setBadgeText({ text: "" });
+    }, 1000);
+
+    console.log("done!");
   });
 });
