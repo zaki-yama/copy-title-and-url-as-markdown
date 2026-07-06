@@ -15,7 +15,6 @@ export default defineConfig({
       "128": "/icon128.png",
     },
     permissions: ["activeTab", "clipboardWrite", "scripting", "storage"],
-    host_permissions: ["https://*/*", "http://*/*"],
     commands: {
       _execute_action: {
         suggested_key: {
