@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Copy the title and URL of the current tab as a Markdown link — in one shortcut.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
+---
+
+<html lang="en" class="grain bg-paper text-ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={`${base}/icon128.png`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="font-mono text-[15px] leading-relaxed">
+    <header class="border-b border-line">
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
+        <a href={`${base}/`} class="flex items-center gap-3 no-underline">
+          <img src={`${base}/icon128.png`} alt="" width="28" height="28" class="h-7 w-7" />
+          <span class="hidden text-sm font-medium tracking-tight sm:inline">
+            Copy Title and Url as Markdown Style
+          </span>
+          <span class="text-sm font-medium tracking-tight sm:hidden">Copy as Markdown</span>
+        </a>
+        <nav class="flex items-center gap-5 text-sm">
+          <a href={`${base}/`} class="text-ink-soft transition-colors hover:text-link">Home</a>
+          <a href={`${base}/release-notes/`} class="text-ink-soft transition-colors hover:text-link">
+            Release Notes
+          </a>
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener"
+            class="text-ink-soft transition-colors hover:text-link"
+          >
+            GitHub&nbsp;↗
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="border-t border-line">
+      <div
+        class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-3 px-5 py-8 text-sm text-ink-soft sm:flex-row sm:items-center"
+      >
+        <p>
+          <span class="text-ink-faint">[</span>Copy Title and Url as Markdown Style<span
+            class="text-ink-faint">](</span
+          ><a href={repoUrl} target="_blank" rel="noopener" class="text-link hover:underline"
+            >github.com/zaki-yama</a
+          ><span class="text-ink-faint">)</span>
+        </p>
+        <p class="text-ink-faint">MIT License · Shingo Yamazaki</p>
+      </div>
+    </footer>
+  </body>
+</html>
