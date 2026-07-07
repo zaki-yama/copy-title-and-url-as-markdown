@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v2.0.2...v2.1.0) (2026-07-07)
+
+
+### Features
+
+* Introduce WXT framework for web extension development ([#369](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/369)) ([4a75ce2](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/4a75ce23869065a4427883a743df1d158d6b7a6a)), closes [#362](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/362)
+* migrate UI from SLDS to shadcn/ui + Tailwind CSS ([#389](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/389)) ([e8ace34](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/e8ace34a0c8b86ab7df0e68a2b8204ef793e4516))
+
+
+### Bug Fixes
+
+* **deps:** update dependency lucide-react to ^0.576.0 ([#394](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/394)) ([10dc46b](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/10dc46b44732c1521d0db2ac725f6e5c86f8cd82))
+* **deps:** update dependency lucide-react to ^0.577.0 ([#400](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/400)) ([8942bff](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/8942bffe990f91a47974ecb85b25a3daeeac8350))
+* **deps:** update react monorepo ([#450](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/450)) ([d6ff70e](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/d6ff70ee7755e7c1e7da7c3c06f8167e66df02e1))
+* **deps:** update react monorepo to v19 ([#392](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/392)) ([0dfc618](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/0dfc618a185924f4abd6552fef53fe24c986d3fe))
+* **deps:** update react monorepo to v19.2.5 ([#425](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/425)) ([70a6760](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/70a6760b9aaf88621a8b3ba9e9f7ea80f3edd352))
+* **deps:** update react monorepo to v19.2.6 ([#434](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/434)) ([87466b6](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/87466b688edab4e68a86f511b34f947c70f5bde1))
+* open options page in a new tab instead of inline popup ([#399](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/399)) ([7084e12](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/7084e128cf246858dd381b6cfdf650f8a51e0649)), closes [#369](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/369) [#397](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/397)
+* rework shortcut clipboard copy (offscreen document) and drop broad host permissions ([#459](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/459)) ([a46246c](https://github.com/zaki-yama/copy-title-and-url-as-markdown/commit/a46246c1ec72568af4208514789688d08fe23eb6)), closes [#441](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/441) [#361](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/361) [#349](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/349) [#441](https://github.com/zaki-yama/copy-title-and-url-as-markdown/issues/441)
+
 ### [2.0.2](https://github.com/zaki-yama/copy-title-and-url-as-markdown/compare/v2.0.1...v2.0.2) (2025-03-12)
 
 
