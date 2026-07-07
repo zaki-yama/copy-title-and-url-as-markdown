@@ -1,43 +1,70 @@
 import { INITIAL_OPTION_VALUES } from "../src/constant";
-import { escapeBrackets, copyToClipboard } from "../src/util";
+import type { CopyToClipboardMessage } from "../src/messages";
+import type { OptionsType } from "../src/options/Options";
+import { buildTemplate, escapeBrackets } from "../src/util";
+
+const OFFSCREEN_URL = "/offscreen.html";
+
+// The service worker has no DOM and Chrome doesn't expose
+// navigator.clipboard to extension service workers, so the actual
+// clipboard write happens in an offscreen document.
+// https://developer.chrome.com/docs/extensions/reference/api/offscreen
+async function copyViaOffscreen(text: string) {
+  const contexts = await browser.runtime.getContexts({
+    contextTypes: ["OFFSCREEN_DOCUMENT"],
+    documentUrls: [browser.runtime.getURL(OFFSCREEN_URL)],
+  });
+  if (contexts.length === 0) {
+    await browser.offscreen.createDocument({
+      url: OFFSCREEN_URL,
+      reasons: ["CLIPBOARD"],
+      justification:
+        "Write the formatted tab title and URL to the clipboard when a keyboard shortcut is pressed.",
+    });
+  }
+
+  const message: CopyToClipboardMessage = {
+    target: "offscreen",
+    type: "copy-to-clipboard",
+    text,
+  };
+  await browser.runtime.sendMessage(message);
+}
 
 export default defineBackground(() => {
-  chrome.commands.onCommand.addListener((command) => {
+  browser.commands.onCommand.addListener(async (command, tab) => {
     console.log("Command:", command);
 
-    const queryInfo = {
-      active: true,
-      currentWindow: true,
-    };
+    // Fall back to a query in case the tab argument is missing. Don't
+    // use `currentWindow: true` here: when a DevTools window has focus
+    // it matches that window, which has no tabs.
+    const activeTab =
+      tab ?? (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
+    if (!activeTab) {
+      console.warn("No active tab found for command:", command);
+      return;
+    }
 
-    chrome.tabs.query(queryInfo, function (tabs) {
-      // All commands are like `copy_as_format_*` (*: 1 or 2 or 3)
-      const formatIndex = command.slice(-1);
-      console.log("format: ", formatIndex);
+    // All commands are like `copy_as_format_*` (*: 1 or 2 or 3)
+    const formatIndex = command.slice(-1);
+    console.log("format: ", formatIndex);
 
-      const key = `optionalFormat${formatIndex}`;
-      chrome.storage.local.get(INITIAL_OPTION_VALUES, function (options) {
-        const tab = tabs[0];
-        const title = tab.title || "";
-        const url = tab.url || "";
-        const tabId = tab.id || 0;
+    const key = `optionalFormat${formatIndex}` as keyof OptionsType;
+    const options = (await browser.storage.local.get(INITIAL_OPTION_VALUES)) as OptionsType;
 
-        console.log(tab.url, tab.title);
-        console.log(options);
+    const title = activeTab.title || "";
+    const url = activeTab.url || "";
 
-        chrome.scripting.executeScript({
-          target: { tabId },
-          func: copyToClipboard,
-          args: [options[key], title, escapeBrackets(url)],
-        });
+    console.log(url, title);
+    console.log(options);
 
-        chrome.action.setBadgeText({ text: formatIndex });
-        setTimeout(() => {
-          chrome.action.setBadgeText({ text: "" });
-        }, 1000);
+    await copyViaOffscreen(buildTemplate(options[key], title, escapeBrackets(url)));
 
-        console.log("done!");
-      });
-    });
+    browser.action.setBadgeText({ text: formatIndex });
+    setTimeout(() => {
+      browser.action.setBadgeText({ text: "" });
+    }, 1000);
+
+    console.log("done!");
   });
 });
