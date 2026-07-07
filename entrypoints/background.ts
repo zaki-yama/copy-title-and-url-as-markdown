@@ -39,8 +39,7 @@ export default defineBackground(() => {
     // use `currentWindow: true` here: when a DevTools window has focus
     // it matches that window, which has no tabs.
     const activeTab =
-      tab ??
-      (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
+      tab ?? (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
     if (!activeTab) {
       console.warn("No active tab found for command:", command);
       return;
@@ -51,9 +50,7 @@ export default defineBackground(() => {
     console.log("format: ", formatIndex);
 
     const key = `optionalFormat${formatIndex}` as keyof OptionsType;
-    const options = (await browser.storage.local.get(
-      INITIAL_OPTION_VALUES,
-    )) as OptionsType;
+    const options = (await browser.storage.local.get(INITIAL_OPTION_VALUES)) as OptionsType;
 
     const title = activeTab.title || "";
     const url = activeTab.url || "";
@@ -61,9 +58,7 @@ export default defineBackground(() => {
     console.log(url, title);
     console.log(options);
 
-    await copyViaOffscreen(
-      buildTemplate(options[key], title, escapeBrackets(url)),
-    );
+    await copyViaOffscreen(buildTemplate(options[key], title, escapeBrackets(url)));
 
     browser.action.setBadgeText({ text: formatIndex });
     setTimeout(() => {
