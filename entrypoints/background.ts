@@ -1,19 +1,47 @@
 import { INITIAL_OPTION_VALUES } from "../src/constant";
+import type { CopyToClipboardMessage } from "../src/messages";
 import type { OptionsType } from "../src/options/Options";
-import { escapeBrackets, copyToClipboard } from "../src/util";
+import { buildTemplate, escapeBrackets } from "../src/util";
+
+const OFFSCREEN_URL = "/offscreen.html";
+
+// The service worker has no DOM and Chrome doesn't expose
+// navigator.clipboard to extension service workers, so the actual
+// clipboard write happens in an offscreen document.
+// https://developer.chrome.com/docs/extensions/reference/api/offscreen
+async function copyViaOffscreen(text: string) {
+  const contexts = await browser.runtime.getContexts({
+    contextTypes: ["OFFSCREEN_DOCUMENT"],
+    documentUrls: [browser.runtime.getURL(OFFSCREEN_URL)],
+  });
+  if (contexts.length === 0) {
+    await browser.offscreen.createDocument({
+      url: OFFSCREEN_URL,
+      reasons: ["CLIPBOARD"],
+      justification:
+        "Write the formatted tab title and URL to the clipboard when a keyboard shortcut is pressed.",
+    });
+  }
+
+  const message: CopyToClipboardMessage = {
+    target: "offscreen",
+    type: "copy-to-clipboard",
+    text,
+  };
+  await browser.runtime.sendMessage(message);
+}
 
 export default defineBackground(() => {
   browser.commands.onCommand.addListener(async (command, tab) => {
     console.log("Command:", command);
 
-    // The tab argument can be missing (e.g. on Firefox < 126), so fall
-    // back to querying the last focused window. Don't use
-    // `currentWindow: true` here: when a DevTools window has focus it
-    // matches that window, which has no tabs.
+    // Fall back to a query in case the tab argument is missing. Don't
+    // use `currentWindow: true` here: when a DevTools window has focus
+    // it matches that window, which has no tabs.
     const activeTab =
       tab ??
       (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
-    if (!activeTab?.id) {
+    if (!activeTab) {
       console.warn("No active tab found for command:", command);
       return;
     }
@@ -33,17 +61,13 @@ export default defineBackground(() => {
     console.log(url, title);
     console.log(options);
 
-    await browser.scripting.executeScript({
-      target: { tabId: activeTab.id },
-      func: copyToClipboard,
-      args: [options[key], title, escapeBrackets(url)],
-    });
+    await copyViaOffscreen(
+      buildTemplate(options[key], title, escapeBrackets(url)),
+    );
 
-    // MV2 (Firefox) uses browserAction instead of action
-    const action = browser.action ?? browser.browserAction;
-    action.setBadgeText({ text: formatIndex });
+    browser.action.setBadgeText({ text: formatIndex });
     setTimeout(() => {
-      action.setBadgeText({ text: "" });
+      browser.action.setBadgeText({ text: "" });
     }, 1000);
 
     console.log("done!");
