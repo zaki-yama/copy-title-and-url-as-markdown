@@ -6,156 +6,123 @@ import screenshot from "../assets/screenshot.png";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const storeUrl =
   "https://chrome.google.com/webstore/detail/copy-title-and-url-as-mar/fpmbiocnfbjpajgeaicmnjnnokmkehil";
+const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
 
 const features = [
   {
-    n: "01",
-    title: "Markdown by default",
-    body: "One click or one shortcut turns the current tab into [title](url) — ready to paste into README files, issues, Obsidian, or anywhere Markdown lives.",
+    icon: "⌘",
+    title: "One shortcut",
+    body: "Press Ctrl+Shift+C and the current tab becomes [title](url) in your clipboard. No selecting, no retyping.",
   },
   {
-    n: "02",
-    title: "Your format, your rules",
-    body: "Not a Markdown person? Compose any template with ${title} and ${url} placeholders — plain text, HTML links, wiki syntax, whatever you paste most.",
+    icon: "{ }",
+    title: "Custom templates",
+    body: "Compose any format with ${title} and ${url} placeholders — Markdown, HTML, plain text, wiki syntax.",
   },
   {
-    n: "03",
-    title: "Three formats, three shortcuts",
-    body: "Keep up to three templates and fire each one from its own keyboard shortcut. Markdown for notes, HTML for docs, plain text for chat.",
+    icon: "≡",
+    title: "Three formats",
+    body: "Keep up to three templates, each bound to its own shortcut: Ctrl+Shift+C, +1, and +2.",
   },
   {
-    n: "04",
-    title: "Copy tabs in bulk",
-    body: "Select multiple tabs (Ctrl/Cmd-click in the tab bar) and copy them all at once — one formatted line per tab.",
+    icon: "◐",
+    title: "Dark mode ready",
+    body: "The toolbar icon is designed to stay legible in both light and dark browser themes.",
   },
   {
-    n: "05",
-    title: "Keyboard first",
-    body: "Ctrl+Shift+C copies without touching the mouse. Ctrl+Shift+1 and Ctrl+Shift+2 trigger your optional formats. All remappable in the browser.",
-  },
-  {
-    n: "06",
-    title: "Small and quiet",
-    body: "No accounts, no tracking, no cloud. It reads the active tab only when you ask it to copy, and looks right in dark mode too.",
+    icon: "○",
+    title: "Private by design",
+    body: "No accounts, no tracking, no network calls. It reads the active tab only when you copy.",
   },
 ];
 
 const steps = [
-  {
-    n: "1",
-    title: "Install the extension",
-    body: "Add it to your browser from the Chrome Web Store. It works on Chrome and Edge.",
-  },
-  {
-    n: "2",
-    title: "Copy a page",
-    body: "Click the toolbar icon or press Ctrl+Shift+C on any page. The title and URL land in your clipboard as a Markdown link.",
-  },
-  {
-    n: "3",
-    title: "Make it yours",
-    body: "Open the options page to edit the format template — or add two more formats and bind them to Ctrl+Shift+1 / Ctrl+Shift+2.",
-  },
+  ["Install", "Add the extension to Chrome or Edge from the Chrome Web Store."],
+  ["Copy", "Click the toolbar icon or press Ctrl+Shift+C on any page."],
+  ["Customize", "Edit your format templates on the options page."],
 ];
 ---
 
 <Layout title="Copy Title and Url as Markdown Style — Chrome Extension">
   <!-- Hero -->
-  <section class="border-b border-line">
-    <div class="mx-auto max-w-5xl px-5 pt-16 pb-14 sm:pt-24 sm:pb-20">
-      <p class="rise rise-1 text-sm text-ink-faint">
-        [ Chrome Extension ]<span class="text-link">(</span>for people who write in Markdown<span
-          class="text-link">)</span
-        >
-      </p>
-      <h1
-        class="rise rise-2 mt-5 max-w-3xl font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-6xl"
+  <section class="relative overflow-hidden text-center">
+    <div
+      class="pointer-events-none absolute -top-44 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(13,147,115,0.09),transparent_65%)]"
+    >
+    </div>
+    <div class="mx-auto max-w-5xl px-6 pt-26 pb-22">
+      <span
+        class="rise rise-1 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3.5 py-1.5 text-[13px] font-medium text-accent"
       >
-        Copy any page as a <span class="italic text-link">Markdown link</span>.
+        ✦ Free Chrome &amp; Edge extension
+      </span>
+      <h1
+        class="rise rise-2 mx-auto mt-6 max-w-[680px] text-[clamp(38px,6vw,58px)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance"
+      >
+        The fastest way to copy a page as a <span class="text-accent">Markdown link</span>
       </h1>
-      <p class="rise rise-3 mt-6 max-w-xl text-base text-ink-soft">
-        Grab the title and URL of the current tab as
-        <code class="rounded bg-paper-deep px-1.5 py-0.5 text-[0.9em] text-ink">[title](url)</code>
-        — in one keyboard shortcut. No selecting, no switching, no retyping.
+      <p class="rise rise-3 mx-auto mt-5 max-w-[540px] text-lg text-muted">
+        Turn the current tab into
+        <code class="rounded-md border border-line bg-soft px-1.5 py-0.5 font-mono text-[0.85em] text-ink"
+          >[title](url)</code
+        >
+        with a single keyboard shortcut. Built for people who live in Markdown.
       </p>
-
-      <div class="rise rise-4 mt-8 flex flex-wrap items-center gap-4">
+      <div class="rise rise-4 mt-9 flex flex-wrap items-center justify-center gap-3.5">
         <a
           href={storeUrl}
           target="_blank"
           rel="noopener"
-          class="group inline-flex items-center gap-2 border-2 border-ink bg-ink px-5 py-3 text-sm font-medium text-paper shadow-[4px_4px_0_0_var(--color-link)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-link)] active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0_0_var(--color-link)]"
+          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
-          Add to Chrome — it's free
-          <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
+          Add to Chrome — free
         </a>
-        <p class="text-sm text-ink-faint">
-          or press
-          <kbd class="rounded border border-line bg-paper-deep px-1.5 py-0.5 text-xs text-ink"
-            >Ctrl</kbd
-          >+<kbd class="rounded border border-line bg-paper-deep px-1.5 py-0.5 text-xs text-ink"
-            >Shift</kbd
-          >+<kbd class="rounded border border-line bg-paper-deep px-1.5 py-0.5 text-xs text-ink"
-            >C</kbd
-          > once installed
-        </p>
+        <a
+          href={repoUrl}
+          target="_blank"
+          rel="noopener"
+          class="rounded-[10px] border border-line bg-white px-5.5 py-3 text-[15px] font-medium transition-colors hover:bg-soft"
+        >
+          View on GitHub
+        </a>
       </div>
 
       <!-- Clipboard demo -->
-      <div class="rise rise-5 relative mt-14 max-w-3xl">
-        <div class="rounded-lg border border-line bg-white shadow-[0_2px_24px_-8px_rgba(33,29,22,0.18)]">
-          <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
-            <span class="h-2.5 w-2.5 rounded-full bg-[#eb5545]"></span>
-            <span class="h-2.5 w-2.5 rounded-full bg-[#f5b02e]"></span>
-            <span class="h-2.5 w-2.5 rounded-full bg-[#53b158]"></span>
-            <span class="ml-3 truncate text-xs text-ink-faint">notes.md — your clipboard</span>
-          </div>
-          <div class="overflow-x-auto px-5 py-6 text-sm leading-7 sm:text-[15px]">
-            <p class="whitespace-nowrap">
-              <span class="text-ink-faint">## Reading list</span>
-            </p>
-            <p class="whitespace-nowrap">
-              <span class="text-ink-faint">-</span>
-              <span class="text-ink">[</span><span class="font-medium"
-                >Astro Docs — Build faster websites</span
-              ><span class="text-ink">](</span><span class="text-link underline decoration-link/40"
-                >https://docs.astro.build/</span
-              ><span class="text-ink">)</span>
-            </p>
-            <p class="whitespace-nowrap">
-              <span class="text-ink-faint">-</span>
-              <span class="text-ink">[</span><span class="font-medium"
-                >Copy Title and Url as Markdown Style</span
-              ><span class="text-ink">](</span><span class="text-link underline decoration-link/40"
-                >https://chrome.google.com/webstore/…</span
-              ><span class="text-ink">)</span><span
-                class="caret ml-0.5 inline-block h-[1.1em] w-[2px] translate-y-[3px] bg-link"
-              ></span>
-            </p>
-          </div>
-        </div>
-        <span
-          class="copied-badge absolute -top-3 right-4 rounded-full border border-ink bg-mark px-3 py-1 text-xs font-semibold text-ink shadow-[2px_2px_0_0_var(--color-ink)]"
+      <div
+        class="rise rise-5 mx-auto mt-16 max-w-[640px] overflow-hidden rounded-xl border border-line bg-white text-left shadow-[0_1px_2px_rgba(14,17,22,0.04),0_12px_40px_-12px_rgba(14,17,22,0.12)]"
+      >
+        <div
+          class="flex items-center justify-between border-b border-line bg-soft px-4 py-2.5 text-[12.5px] text-faint"
         >
-          ✓ Copied!
-        </span>
+          <span>clipboard</span>
+          <span class="text-xs font-semibold text-accent">✓ Copied</span>
+        </div>
+        <pre
+          class="overflow-x-auto px-5 py-5.5 font-mono text-[13.5px] leading-[1.9] text-muted">## Reading list
+- <span class="font-medium text-ink">[Astro Docs — Build faster websites]</span>(<span class="text-accent">https://docs.astro.build/</span>)
+- <span class="font-medium text-ink">[Copy Title and Url as Markdown Style]</span>(<span class="text-accent">https://chrome.google.com/webstore/…</span>)</pre>
       </div>
     </div>
   </section>
 
   <!-- Features -->
-  <section class="border-b border-line bg-paper-deep/40">
-    <div class="mx-auto max-w-5xl px-5 py-16 sm:py-20">
-      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-        <span class="text-ink-faint">##</span> Features
-      </h2>
-      <div class="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+  <section id="features" class="border-y border-line bg-soft">
+    <div class="mx-auto max-w-5xl px-6 py-22">
+      <p class="text-[13px] font-semibold tracking-[0.08em] text-accent uppercase">Features</p>
+      <h2 class="mt-2.5 text-[32px] font-semibold tracking-[-0.025em]">Small tool, sharp edges</h2>
+      <p class="mt-2.5 max-w-[520px] text-muted">
+        Everything you need to move links from your browser to your notes — and nothing you
+        don't.
+      </p>
+      <div class="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {
           features.map((f) => (
-            <div class="group bg-paper p-6 transition-colors hover:bg-white">
-              <p class="text-xs font-semibold text-link">{f.n}</p>
-              <h3 class="mt-3 font-display text-lg font-semibold tracking-tight">{f.title}</h3>
-              <p class="mt-2 text-sm text-ink-soft">{f.body}</p>
+            <div class="rounded-xl border border-line bg-white p-6 transition-all hover:border-accent/35 hover:shadow-[0_4px_20px_-6px_rgba(14,17,22,0.08)]">
+              <span class="inline-flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-accent-soft font-mono text-sm font-medium text-accent">
+                {f.icon}
+              </span>
+              <h3 class="mt-3.5 text-[16.5px] font-semibold tracking-tight">{f.title}</h3>
+              <p class="mt-1.5 text-[14.5px] text-muted">{f.body}</p>
             </div>
           ))
         }
@@ -163,68 +130,59 @@ const steps = [
     </div>
   </section>
 
-  <!-- Screenshot + How to use -->
-  <section class="border-b border-line">
-    <div class="mx-auto max-w-5xl px-5 py-16 sm:py-20">
-      <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-        <span class="text-ink-faint">##</span> How to use
-      </h2>
-      <div class="mt-10 grid items-start gap-10 lg:grid-cols-2">
-        <ol class="space-y-8">
-          {
-            steps.map((s) => (
-              <li class="flex gap-5">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-mark font-display text-base font-semibold shadow-[2px_2px_0_0_var(--color-ink)]">
-                  {s.n}
-                </span>
-                <div>
-                  <h3 class="font-display text-lg font-semibold tracking-tight">{s.title}</h3>
-                  <p class="mt-1.5 text-sm text-ink-soft">{s.body}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ol>
-        <figure class="lg:justify-self-end">
-          <div class="rotate-1 rounded-lg border border-line bg-white p-3 shadow-[0_2px_24px_-8px_rgba(33,29,22,0.22)] transition-transform hover:rotate-0">
-            <Image
-              src={screenshot}
-              alt="The extension popup showing the copied title and URL of the current tab"
-              class="h-auto w-full rounded"
-              loading="eager"
-            />
-          </div>
-          <figcaption class="mt-3 text-center text-xs text-ink-faint">
-            The popup confirms exactly what was copied.
-          </figcaption>
-        </figure>
+  <!-- How it works -->
+  <section id="how">
+    <div class="mx-auto max-w-5xl px-6 py-22">
+      <p class="text-[13px] font-semibold tracking-[0.08em] text-accent uppercase">How it works</p>
+      <h2 class="mt-2.5 text-[32px] font-semibold tracking-[-0.025em]">Three steps, ten seconds</h2>
+      <div class="mt-11 grid gap-8 sm:grid-cols-3">
+        {
+          steps.map(([title, body], i) => (
+            <div>
+              <span class="font-mono text-[13px] font-medium text-accent">0{i + 1}</span>
+              <h3 class="mt-2 text-lg font-semibold">{title}</h3>
+              <p class="mt-1.5 text-[14.5px] text-muted">{body}</p>
+            </div>
+          ))
+        }
       </div>
+      <figure
+        class="mt-14 overflow-hidden rounded-xl border border-line shadow-[0_20px_60px_-20px_rgba(14,17,22,0.18)]"
+      >
+        <Image
+          src={screenshot}
+          alt="The extension popup showing the copied title and URL of the current tab"
+          class="block h-auto w-full"
+          loading="eager"
+        />
+      </figure>
     </div>
   </section>
 
   <!-- CTA -->
-  <section>
-    <div class="mx-auto max-w-5xl px-5 py-16 text-center sm:py-24">
-      <p class="text-sm text-ink-faint">[ Ready when you are ]</p>
-      <h2
-        class="mx-auto mt-4 max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-5xl"
-      >
-        Stop hand-writing <span class="italic text-link">[title](url)</span>.
-      </h2>
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+  <section class="border-t border-line bg-soft">
+    <div class="mx-auto max-w-5xl px-6 py-24 text-center">
+      <h2 class="text-4xl font-semibold tracking-[-0.025em]">Stop hand-writing links.</h2>
+      <p class="mx-auto mt-3 max-w-[520px] text-muted">
+        Install once, then it's just
+        <kbd class="rounded-md border border-b-2 border-line bg-white px-2 py-0.5 font-mono text-xs text-ink"
+          >Ctrl</kbd
+        > + <kbd
+          class="rounded-md border border-b-2 border-line bg-white px-2 py-0.5 font-mono text-xs text-ink"
+          >Shift</kbd
+        > + <kbd
+          class="rounded-md border border-b-2 border-line bg-white px-2 py-0.5 font-mono text-xs text-ink"
+          >C</kbd
+        >.
+      </p>
+      <div class="mt-8 flex justify-center">
         <a
           href={storeUrl}
           target="_blank"
           rel="noopener"
-          class="inline-flex items-center gap-2 border-2 border-ink bg-ink px-5 py-3 text-sm font-medium text-paper shadow-[4px_4px_0_0_var(--color-link)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-link)]"
+          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
-          Add to Chrome →
-        </a>
-        <a
-          href={`${base}/release-notes/`}
-          class="inline-flex items-center gap-2 border-2 border-ink bg-paper px-5 py-3 text-sm font-medium text-ink transition-colors hover:bg-paper-deep"
-        >
-          Release notes
+          Add to Chrome — free
         </a>
       </div>
     </div>

@@ -26,27 +26,25 @@ const formatDate = (date: Date) =>
   title="Release Notes — Copy Title and Url as Markdown Style"
   description="What changed in each version of the Copy Title and Url as Markdown Style extension."
 >
-  <main class="mx-auto max-w-3xl px-5 py-16 sm:py-20">
-    <p class="text-sm text-ink-faint">[ Changelog ]</p>
-    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-      <span class="text-ink-faint">#</span> Release Notes
-    </h1>
+  <main class="mx-auto max-w-3xl px-6 py-20">
+    <p class="text-[13px] font-semibold tracking-[0.08em] text-accent uppercase">Changelog</p>
+    <h1 class="mt-2.5 text-[40px] font-semibold tracking-[-0.03em]">Release Notes</h1>
 
-    <div class="mt-14 space-y-14">
+    <div class="mt-14 space-y-12">
       {
         releases.map(({ data, Content }) => (
-          <article class="relative border-l-2 border-line pl-7 sm:pl-9">
-            <span class="absolute top-1.5 -left-[7px] h-3 w-3 rounded-full border-2 border-ink bg-mark" />
+          <article class="relative border-l-2 border-line pl-8">
+            <span class="absolute top-2 -left-[5px] h-2 w-2 rounded-full bg-accent" />
             <header class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <h2 class="font-display text-2xl font-semibold tracking-tight">v{data.version}</h2>
+              <h2 class="text-2xl font-semibold tracking-tight">v{data.version}</h2>
               <time
                 datetime={data.date.toISOString().slice(0, 10)}
-                class="text-sm text-ink-faint"
+                class="text-sm text-faint"
               >
                 {formatDate(data.date)}
               </time>
             </header>
-            <div class="release-body mt-4 text-sm text-ink-soft [&_a]:text-link [&_a]:underline [&_a]:decoration-link/40 [&_a:hover]:decoration-link [&_code]:rounded [&_code]:bg-paper-deep [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-[0.9em] [&_code]:text-ink [&_h3]:mt-5 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:tracking-[0.14em] [&_h3]:uppercase [&_h3]:text-ink [&_h3:first-child]:mt-0 [&_ul]:mt-2 [&_ul]:space-y-1.5 [&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:text-ink-faint [&_li]:before:content-['–']">
+            <div class="mt-4 text-[14.5px] text-muted [&_a]:text-accent [&_a]:underline [&_a]:decoration-accent/30 [&_a:hover]:decoration-accent [&_code]:rounded-md [&_code]:border [&_code]:border-line [&_code]:bg-soft [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-ink [&_h3]:mt-5 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:tracking-[0.08em] [&_h3]:uppercase [&_h3]:text-ink [&_h3:first-child]:mt-0 [&_ul]:mt-2 [&_ul]:space-y-1.5 [&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:text-faint [&_li]:before:content-['–']">
               <Content />
             </div>
           </article>

@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-paper: #fbf8f1;
-  --color-paper-deep: #f3eee1;
-  --color-ink: #211d16;
-  --color-ink-soft: #6b6459;
-  --color-ink-faint: #a39b8b;
-  --color-line: #e4dccb;
-  --color-link: #2451c9;
-  --color-link-deep: #1a3da3;
-  --color-mark: #f5d76e;
+  --color-ink: #0e1116;
+  --color-ink-hover: #2a313c;
+  --color-muted: #5c6470;
+  --color-faint: #9aa2ae;
+  --color-line: #e8eaee;
+  --color-soft: #fafafa;
+  --color-accent: #0d9373;
+  --color-accent-soft: #e7f6f1;
 }
 
 html {
@@ -20,27 +19,15 @@ html {
 }
 
 body {
-  font-feature-settings: "ss01";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Paper grain */
-.grain::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Staggered load-in */
+/* Staggered load-in for the hero */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -49,38 +36,16 @@ body {
 }
 
 .rise {
-  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .rise-1 { animation-delay: 0.05s; }
-.rise-2 { animation-delay: 0.15s; }
-.rise-3 { animation-delay: 0.25s; }
-.rise-4 { animation-delay: 0.35s; }
-.rise-5 { animation-delay: 0.5s; }
-
-@keyframes blink {
-  0%, 45% { opacity: 1; }
-  50%, 95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.caret {
-  animation: blink 1.1s step-end infinite;
-}
-
-@keyframes copied-pop {
-  0%, 55% { opacity: 0; transform: translateY(4px) scale(0.96); }
-  65%, 90% { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.copied-badge {
-  animation: copied-pop 4s cubic-bezier(0.22, 1, 0.36, 1) 1s both;
-}
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.2s; }
+.rise-4 { animation-delay: 0.28s; }
+.rise-5 { animation-delay: 0.4s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise,
-  .caret,
-  .copied-badge {
+  .rise {
     animation: none;
   }
 }
