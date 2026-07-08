@@ -14,7 +14,7 @@ export default defineConfig({
     icons: {
       "128": "/icon128.png",
     },
-    permissions: ["activeTab", "clipboardWrite", "offscreen", "storage"],
+    permissions: ["activeTab", "clipboardWrite", "storage"],
     commands: {
       _execute_action: {
         suggested_key: {
