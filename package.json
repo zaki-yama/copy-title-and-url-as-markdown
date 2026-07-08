@@ -19,7 +19,9 @@
     "fmt": "oxfmt entrypoints/ src/ wxt.config.ts",
     "fmt:check": "oxfmt --check entrypoints/ src/ wxt.config.ts",
     "lint": "oxlint entrypoints/ src/",
-    "lint:fix": "oxlint --fix entrypoints/ src/"
+    "lint:fix": "oxlint --fix entrypoints/ src/",
+    "release": "npm run lint && npm run build && standard-version",
+    "release:dry-run": "standard-version --dry-run"
   },
   "repository": {
     "type": "git",
@@ -52,6 +54,7 @@
     "@wxt-dev/module-react": "^1.1.3",
     "oxfmt": "^0.47.0",
     "oxlint": "^1.50.0",
+    "standard-version": "9.5.0",
     "typescript": "5.9.3",
     "vite": "^8.0.0",
     "vitest": "4.0.18",
