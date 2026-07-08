@@ -1,0 +1,570 @@
+---
+import screenshot from "../../assets/screenshot.png";
+
+const storeUrl =
+  "https://chrome.google.com/webstore/detail/copy-title-and-url-as-mar/fpmbiocnfbjpajgeaicmnjnnokmkehil";
+const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
+
+const features = [
+  {
+    emoji: "⚡",
+    color: "#ffd60a",
+    title: "One-shortcut copy",
+    body: "Ctrl+Shift+C turns the tab into [title](url). Faster than you can say “backtick”.",
+  },
+  {
+    emoji: "🎛️",
+    color: "#8ecae6",
+    title: "Your own template",
+    body: "Mix ${title} and ${url} into any format — HTML, plain text, whatever you paste.",
+  },
+  {
+    emoji: "3️⃣",
+    color: "#ffb5a7",
+    title: "Three slots",
+    body: "Three templates, three shortcuts. Markdown for notes, HTML for docs, plain for chat.",
+  },
+  {
+    emoji: "🗂️",
+    color: "#b8f2c9",
+    title: "Grab every tab",
+    body: "Select multiple tabs, copy once, get a tidy list. Research dumps in one keystroke.",
+  },
+  {
+    emoji: "🕶️",
+    color: "#e0c3fc",
+    title: "Dark mode icon",
+    body: "Looks sharp on any toolbar, light or dark.",
+  },
+  {
+    emoji: "🔒",
+    color: "#ffd6e0",
+    title: "Zero tracking",
+    body: "No accounts, no analytics, no network. Your links are your business.",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design D — Pop brutalist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Spline+Sans+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style is:global>
+      :root {
+        --paper: #fdf6e3;
+        --ink: #14110c;
+        --blue: #2563eb;
+        --yellow: #ffd60a;
+        --pink: #ff5d8f;
+        --shadow: 5px 5px 0 0 var(--ink);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Spline Sans Mono", monospace;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 15.5px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      .display {
+        font-family: "Bricolage Grotesque", sans-serif;
+      }
+      .wrap {
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        border-bottom: 3px solid var(--ink);
+        background: var(--paper);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 62px;
+      }
+      .brand {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand .logo {
+        width: 30px;
+        height: 30px;
+        background: var(--yellow);
+        border: 2.5px solid var(--ink);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        box-shadow: 2px 2px 0 0 var(--ink);
+      }
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        font-size: 13.5px;
+        font-weight: 500;
+        align-items: center;
+      }
+      .nav-links a:not(.nav-cta):hover {
+        text-decoration: underline 2px;
+        text-underline-offset: 4px;
+      }
+      .nav-cta {
+        background: var(--blue);
+        color: #fff;
+        border: 2.5px solid var(--ink);
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-weight: 700;
+        box-shadow: 3px 3px 0 0 var(--ink);
+        transition: all 0.12s;
+      }
+      .nav-cta:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 0 var(--ink);
+      }
+
+      /* Marquee */
+      .marquee {
+        border-bottom: 3px solid var(--ink);
+        background: var(--yellow);
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 8px 0;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .marquee-inner {
+        display: inline-block;
+        animation: scroll 24s linear infinite;
+      }
+      @keyframes scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      .hero {
+        padding: 88px 0 72px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero .stamp {
+        position: absolute;
+        top: 60px;
+        right: 4%;
+        background: var(--pink);
+        color: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        padding: 14px 18px;
+        font-weight: 700;
+        font-size: 13px;
+        transform: rotate(8deg);
+        box-shadow: var(--shadow);
+      }
+      h1 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 800;
+        font-size: clamp(42px, 7.5vw, 76px);
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        max-width: 760px;
+      }
+      h1 mark {
+        background: var(--yellow);
+        padding: 0 10px;
+        border: 3px solid var(--ink);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: inline-block;
+        transform: rotate(-1.5deg);
+      }
+      .sub {
+        margin-top: 26px;
+        max-width: 520px;
+        font-size: 16px;
+      }
+      .sub code {
+        background: #fff;
+        border: 2px solid var(--ink);
+        border-radius: 6px;
+        padding: 1px 8px;
+        font-size: 0.9em;
+        font-weight: 700;
+      }
+      .cta-row {
+        margin-top: 36px;
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .btn {
+        font-family: "Bricolage Grotesque", sans-serif;
+        display: inline-block;
+        padding: 15px 26px;
+        border: 3px solid var(--ink);
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 800;
+        box-shadow: var(--shadow);
+        transition: all 0.12s;
+      }
+      .btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 0 var(--ink);
+      }
+      .btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 0 var(--ink);
+      }
+      .btn-blue {
+        background: var(--blue);
+        color: #fff;
+      }
+      .btn-white {
+        background: #fff;
+      }
+
+      /* Clipboard card */
+      .clip {
+        margin-top: 64px;
+        max-width: 680px;
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 16px;
+        box-shadow: 8px 8px 0 0 var(--ink);
+        transform: rotate(-0.6deg);
+        position: relative;
+      }
+      .clip-tape {
+        position: absolute;
+        top: -14px;
+        left: 44px;
+        width: 90px;
+        height: 26px;
+        background: rgba(255, 214, 10, 0.85);
+        border: 2px solid var(--ink);
+        transform: rotate(-4deg);
+      }
+      .clip-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid var(--ink);
+        padding: 12px 18px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .clip-bar .ok {
+        background: #b8f2c9;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        padding: 2px 12px;
+      }
+      .clip pre {
+        padding: 22px 20px;
+        font-size: 13.5px;
+        line-height: 2;
+        overflow-x: auto;
+      }
+      .clip .b {
+        font-weight: 700;
+      }
+      .clip .u {
+        color: var(--blue);
+        text-decoration: underline 2px;
+        text-underline-offset: 3px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+      .sec-head {
+        display: inline-block;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 30px;
+        font-weight: 800;
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 12px;
+        padding: 8px 22px;
+        box-shadow: var(--shadow);
+        transform: rotate(-1deg);
+      }
+      .features {
+        background: var(--blue);
+        border-top: 3px solid var(--ink);
+        border-bottom: 3px solid var(--ink);
+      }
+      .features .sec-head {
+        transform: rotate(1deg);
+      }
+      .grid {
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 22px;
+      }
+      .card {
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+        transition: transform 0.12s;
+      }
+      .card:hover {
+        transform: translate(-2px, -2px) rotate(-0.5deg);
+      }
+      .card .emoji {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        border: 2.5px solid var(--ink);
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        font-size: 19px;
+      }
+      .card h3 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        margin-top: 14px;
+        font-size: 19px;
+        font-weight: 800;
+      }
+      .card p {
+        margin-top: 6px;
+        font-size: 13.5px;
+      }
+
+      .how .steps {
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 26px;
+        counter-reset: step;
+      }
+      .how .step {
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        position: relative;
+        counter-increment: step;
+      }
+      .how .step::before {
+        content: counter(step);
+        position: absolute;
+        top: -18px;
+        left: -12px;
+        width: 40px;
+        height: 40px;
+        background: var(--pink);
+        color: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        transform: rotate(-6deg);
+      }
+      .how .step h3 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 19px;
+        font-weight: 800;
+      }
+      .how .step p {
+        margin-top: 8px;
+        font-size: 13.5px;
+      }
+      .shot {
+        margin-top: 52px;
+        border: 3px solid var(--ink);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 10px 10px 0 0 var(--ink);
+        transform: rotate(0.6deg);
+        background: #fff;
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .cta-end {
+        text-align: center;
+        background: var(--yellow);
+        border-top: 3px solid var(--ink);
+      }
+      .cta-end h2 {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: clamp(32px, 5vw, 52px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .cta-end .cta-row {
+        justify-content: center;
+      }
+
+      footer {
+        border-top: 3px solid var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+        padding: 26px 0;
+        font-size: 13px;
+        text-align: center;
+      }
+      footer a {
+        color: var(--yellow);
+        font-weight: 700;
+      }
+      kbd {
+        background: #fff;
+        border: 2px solid var(--ink);
+        border-bottom-width: 4px;
+        border-radius: 7px;
+        padding: 2px 9px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+    </style>
+
+    <header>
+      <div class="wrap nav">
+        <a href="#" class="brand"><span class="logo">📋</span> Copy as Markdown</a>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How to</a>
+          <a href={repoUrl}>GitHub</a>
+          <a href={storeUrl} class="nav-cta">Add to Chrome</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="marquee">
+      <div class="marquee-inner">
+        [title](url) ✳ one shortcut ✳ three formats ✳ every tab ✳ zero tracking ✳
+        [title](url) ✳ one shortcut ✳ three formats ✳ every tab ✳ zero tracking ✳
+        [title](url) ✳ one shortcut ✳ three formats ✳ every tab ✳ zero tracking ✳
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="wrap">
+        <span class="stamp">FREE!<br />Chrome &amp; Edge</span>
+        <h1>Links wanna be <mark>Markdown</mark>.</h1>
+        <p class="sub">
+          Hit <code>Ctrl+Shift+C</code> and the page you're on lands in your clipboard as
+          <code>[title](url)</code>. Notes, READMEs, issues — paste anywhere.
+        </p>
+        <div class="cta-row">
+          <a href={storeUrl} class="btn btn-blue">Add to Chrome — free →</a>
+          <a href={repoUrl} class="btn btn-white">Star on GitHub ★</a>
+        </div>
+
+        <div class="clip">
+          <span class="clip-tape"></span>
+          <div class="clip-bar">
+            <span>📋 your clipboard</span>
+            <span class="ok">✓ Copied!</span>
+          </div>
+          <pre>## Reading list
+- <span class="b">[Astro Docs — Build faster websites]</span>(<span class="u">https://docs.astro.build/</span>)
+- <span class="b">[Copy Title and Url as Markdown Style]</span>(<span class="u">https://chrome.google.com/…</span>)</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="wrap">
+        <span class="sec-head">What's in the box 📦</span>
+        <div class="grid">
+          {
+            features.map((f) => (
+              <div class="card">
+                <span class="emoji" style={`background:${f.color}`}>{f.emoji}</span>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <div class="wrap">
+        <span class="sec-head">How to use 🛠️</span>
+        <div class="steps">
+          <div class="step">
+            <h3>Install it</h3>
+            <p>Grab it free from the Chrome Web Store. Works on Chrome and Edge.</p>
+          </div>
+          <div class="step">
+            <h3>Smash the shortcut</h3>
+            <p>
+              <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> (or click the toolbar icon).
+              Boom — Markdown link in your clipboard.
+            </p>
+          </div>
+          <div class="step">
+            <h3>Make it weird</h3>
+            <p>Options page → write your own templates with {"${title}"} and {"${url}"}.</p>
+          </div>
+        </div>
+        <div class="shot">
+          <img src={screenshot.src} alt="Extension popup showing the copied title and URL" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-end">
+      <div class="wrap">
+        <h2>Your clipboard deserves better.</h2>
+        <div class="cta-row">
+          <a href={storeUrl} class="btn btn-blue">Add to Chrome — free →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        MIT License · Shingo Yamazaki · <a href={repoUrl}>github.com/zaki-yama</a>
+      </div>
+    </footer>
+  </body>
+</html>

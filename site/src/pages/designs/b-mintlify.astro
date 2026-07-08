@@ -1,0 +1,529 @@
+---
+import screenshot from "../../assets/screenshot.png";
+
+const storeUrl =
+  "https://chrome.google.com/webstore/detail/copy-title-and-url-as-mar/fpmbiocnfbjpajgeaicmnjnnokmkehil";
+const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
+
+const features = [
+  {
+    icon: "⌘",
+    title: "One shortcut",
+    body: "Press Ctrl+Shift+C and the current tab becomes [title](url) in your clipboard. No selecting, no retyping.",
+  },
+  {
+    icon: "{ }",
+    title: "Custom templates",
+    body: "Compose any format with ${title} and ${url} placeholders — Markdown, HTML, plain text, wiki syntax.",
+  },
+  {
+    icon: "≡",
+    title: "Three formats",
+    body: "Keep up to three templates, each bound to its own shortcut: Ctrl+Shift+C, +1, and +2.",
+  },
+  {
+    icon: "⧉",
+    title: "Multi-tab copy",
+    body: "Select multiple tabs and copy them all at once — one formatted line per tab.",
+  },
+  {
+    icon: "◐",
+    title: "Dark mode ready",
+    body: "The toolbar icon is designed to stay legible in both light and dark browser themes.",
+  },
+  {
+    icon: "○",
+    title: "Private by design",
+    body: "No accounts, no tracking, no network calls. It reads the active tab only when you copy.",
+  },
+];
+
+const steps = [
+  ["Install", "Add the extension to Chrome or Edge from the Chrome Web Store."],
+  ["Copy", "Click the toolbar icon or press Ctrl+Shift+C on any page."],
+  ["Customize", "Edit your format templates on the options page."],
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design B — Mintlify-style minimal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style is:global>
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #fafafa;
+        --ink: #0e1116;
+        --muted: #5c6470;
+        --faint: #9aa2ae;
+        --line: #e8eaee;
+        --accent: #0d9373;
+        --accent-soft: #e7f6f1;
+        --radius: 12px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Instrument Sans", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+      }
+      .wrap {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: -0.01em;
+      }
+      .brand img {
+        width: 26px;
+        height: 26px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        font-size: 14px;
+        color: var(--muted);
+        align-items: center;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-cta {
+        background: var(--ink);
+        color: #fff !important;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: background 0.15s;
+      }
+      .nav-cta:hover {
+        background: #2a313c;
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        text-align: center;
+        padding: 104px 0 88px;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -180px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 500px;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(13, 147, 115, 0.09),
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid rgba(13, 147, 115, 0.2);
+        padding: 5px 14px;
+        border-radius: 999px;
+      }
+      .hero h1 {
+        margin: 24px auto 0;
+        max-width: 680px;
+        font-size: clamp(38px, 6vw, 58px);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .hero .sub {
+        margin: 20px auto 0;
+        max-width: 540px;
+        font-size: 18px;
+        color: var(--muted);
+      }
+      .hero .sub code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.85em;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 2px 7px;
+      }
+      .cta-row {
+        margin-top: 36px;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.15s;
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: #fff;
+        box-shadow: 0 1px 2px rgba(14, 17, 22, 0.2);
+      }
+      .btn-primary:hover {
+        background: #2a313c;
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        border: 1px solid var(--line);
+        color: var(--ink);
+        background: #fff;
+      }
+      .btn-ghost:hover {
+        background: var(--bg-soft);
+      }
+
+      /* Code demo */
+      .demo {
+        margin: 64px auto 0;
+        max-width: 640px;
+        text-align: left;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        box-shadow:
+          0 1px 2px rgba(14, 17, 22, 0.04),
+          0 12px 40px -12px rgba(14, 17, 22, 0.12);
+        overflow: hidden;
+      }
+      .demo-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg-soft);
+        font-size: 12.5px;
+        color: var(--faint);
+      }
+      .demo-bar .copied {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 12px;
+      }
+      .demo pre {
+        padding: 22px 20px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13.5px;
+        line-height: 1.9;
+        overflow-x: auto;
+        color: var(--muted);
+      }
+      .demo .t {
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .demo .u {
+        color: var(--accent);
+      }
+
+      /* Sections */
+      section {
+        padding: 88px 0;
+      }
+      .section-soft {
+        background: var(--bg-soft);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .kicker {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+      h2 {
+        margin-top: 10px;
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+      .section-sub {
+        margin-top: 10px;
+        color: var(--muted);
+        max-width: 520px;
+      }
+
+      .grid {
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        transition: all 0.15s;
+      }
+      .card:hover {
+        border-color: rgba(13, 147, 115, 0.35);
+        box-shadow: 0 4px 20px -6px rgba(14, 17, 22, 0.08);
+      }
+      .card .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .card h3 {
+        margin-top: 14px;
+        font-size: 16.5px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        margin-top: 6px;
+        font-size: 14.5px;
+        color: var(--muted);
+      }
+
+      /* Steps */
+      .steps {
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+      }
+      .step .num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .step h3 {
+        margin-top: 8px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .step p {
+        margin-top: 6px;
+        font-size: 14.5px;
+        color: var(--muted);
+      }
+      .shot {
+        margin-top: 56px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 20px 60px -20px rgba(14, 17, 22, 0.18);
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* CTA */
+      .cta-end {
+        text-align: center;
+        padding: 96px 0;
+      }
+      .cta-end h2 {
+        font-size: 36px;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 0;
+        font-size: 13.5px;
+        color: var(--faint);
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+      }
+      footer a {
+        color: var(--muted);
+      }
+      footer a:hover {
+        color: var(--ink);
+      }
+      kbd {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        background: var(--bg-soft);
+        border: 1px solid var(--line);
+        border-bottom-width: 2px;
+        border-radius: 6px;
+        padding: 2px 7px;
+        color: var(--ink);
+      }
+    </style>
+
+    <header>
+      <div class="wrap nav">
+        <a href="#" class="brand">
+          <span style="display:inline-flex;width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;align-items:center;justify-content:center;font-size:13px;font-weight:700;">[↗</span>
+          Copy as Markdown
+        </a>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href={repoUrl}>GitHub</a>
+          <a href={storeUrl} class="nav-cta">Add to Chrome</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap">
+        <span class="pill">✦ Free Chrome &amp; Edge extension</span>
+        <h1>The fastest way to copy a page as a <em>Markdown link</em></h1>
+        <p class="sub">
+          Turn the current tab into <code>[title](url)</code> with a single keyboard
+          shortcut. Built for people who live in Markdown.
+        </p>
+        <div class="cta-row">
+          <a href={storeUrl} class="btn btn-primary">Add to Chrome — free</a>
+          <a href={repoUrl} class="btn btn-ghost">View on GitHub</a>
+        </div>
+
+        <div class="demo">
+          <div class="demo-bar">
+            <span>clipboard</span>
+            <span class="copied">✓ Copied</span>
+          </div>
+          <pre>## Reading list
+- <span class="t">[Astro Docs — Build faster websites]</span>(<span class="u">https://docs.astro.build/</span>)
+- <span class="t">[Copy Title and Url as Markdown Style]</span>(<span class="u">https://chrome.google.com/webstore/…</span>)</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section-soft">
+      <div class="wrap">
+        <p class="kicker">Features</p>
+        <h2>Small tool, sharp edges</h2>
+        <p class="section-sub">
+          Everything you need to move links from your browser to your notes — and
+          nothing you don't.
+        </p>
+        <div class="grid">
+          {
+            features.map((f) => (
+              <div class="card">
+                <span class="icon">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <p class="kicker">How it works</p>
+        <h2>Three steps, ten seconds</h2>
+        <div class="steps">
+          {
+            steps.map(([title, body], i) => (
+              <div class="step">
+                <span class="num">0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            ))
+          }
+        </div>
+        <div class="shot">
+          <img src={screenshot.src} alt="Extension popup showing the copied title and URL" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-end section-soft">
+      <div class="wrap">
+        <h2>Stop hand-writing links.</h2>
+        <p class="section-sub" style="margin-left:auto;margin-right:auto;">
+          Install once, then it's just <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.
+        </p>
+        <div class="cta-row">
+          <a href={storeUrl} class="btn btn-primary">Add to Chrome — free</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>MIT License · Shingo Yamazaki</span>
+      <a href={repoUrl}>GitHub</a>
+      <a href="#">Release notes</a>
+    </footer>
+  </body>
+</html>
