@@ -15,8 +15,7 @@ async function main() {
   // When opened via a keyboard shortcut, the background script records
   // which optional format to use. Consume it (and reset) so a normal
   // toolbar-icon click falls back to the main format.
-  const { [PENDING_FORMAT_KEY]: pendingKey } =
-    await chrome.storage.session.get(PENDING_FORMAT_KEY);
+  const { [PENDING_FORMAT_KEY]: pendingKey } = await chrome.storage.session.get(PENDING_FORMAT_KEY);
   if (pendingKey) {
     await chrome.storage.session.remove(PENDING_FORMAT_KEY);
   }
