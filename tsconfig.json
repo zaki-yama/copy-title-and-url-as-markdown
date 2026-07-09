@@ -4,5 +4,5 @@
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx"
   },
-  "exclude": [".output", "vitest.config.ts"]
+  "exclude": [".output", "vitest.config.ts", "site"]
 }
