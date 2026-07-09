@@ -1,0 +1,18 @@
+{
+  "name": "copy-title-and-url-as-markdown-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "sharp": "^0.35.3",
+    "tailwindcss": "^4.0.0"
+  }
+}

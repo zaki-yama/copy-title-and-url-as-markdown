@@ -2,6 +2,8 @@
 
 Quickly copy the title & url of current tab as Markdown style (`[title](url)`).
 
+Website: https://zaki-yama.github.io/copy-title-and-url-as-markdown/
+
 ![screenshot](./images/screenshot.png)
 
 ## Installation & Usage

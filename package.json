@@ -19,7 +19,8 @@
     "fmt": "oxfmt entrypoints/ src/ wxt.config.ts",
     "fmt:check": "oxfmt --check entrypoints/ src/ wxt.config.ts",
     "lint": "oxlint entrypoints/ src/",
-    "lint:fix": "oxlint --fix entrypoints/ src/"
+    "lint:fix": "oxlint --fix entrypoints/ src/",
+    "scaffold:release-notes": "node scripts/scaffold-release-notes.mjs"
   },
   "repository": {
     "type": "git",

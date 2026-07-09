@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const entries = (await getCollection("releases")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const releases = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { data: entry.data, Content };
+  }),
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<Layout
+  title="Release Notes — Copy Title and Url as Markdown Style"
+  description="What changed in each version of the Copy Title and Url as Markdown Style extension."
+>
+  <main class="mx-auto max-w-3xl px-6 py-20">
+    <p class="text-[13px] font-semibold tracking-[0.08em] text-accent uppercase">Changelog</p>
+    <h1 class="mt-2.5 text-[40px] font-semibold tracking-[-0.03em]">Release Notes</h1>
+
+    <div class="mt-14 space-y-12">
+      {
+        releases.map(({ data, Content }) => (
+          <article class="relative border-l-2 border-line pl-8">
+            <span class="absolute top-2 -left-[5px] h-2 w-2 rounded-full bg-accent" />
+            <header class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <h2 class="text-2xl font-semibold tracking-tight">v{data.version}</h2>
+              <time
+                datetime={data.date.toISOString().slice(0, 10)}
+                class="text-sm text-faint"
+              >
+                {formatDate(data.date)}
+              </time>
+            </header>
+            <div class="mt-4 text-[14.5px] text-muted [&_a]:text-accent [&_a]:underline [&_a]:decoration-accent/30 [&_a:hover]:decoration-accent [&_code]:rounded-md [&_code]:border [&_code]:border-line [&_code]:bg-soft [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-ink [&_h3]:mt-5 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:tracking-[0.08em] [&_h3]:uppercase [&_h3]:text-ink [&_h3:first-child]:mt-0 [&_ul]:mt-2 [&_ul]:space-y-1.5 [&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:text-faint [&_li]:before:content-['–']">
+              <Content />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

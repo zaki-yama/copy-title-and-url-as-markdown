@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Copy the title and URL of the current tab as a Markdown link — in one shortcut.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
+---
+
+<html lang="en" class="bg-white text-ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href={`${base}/icon128.png`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="font-sans text-base leading-relaxed">
+    <header class="sticky top-0 z-10 border-b border-line bg-white/85 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-6">
+        <a href={`${base}/`} class="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight">
+          <img src={`${base}/icon128.png`} alt="" width="26" height="26" class="h-[26px] w-[26px]" />
+          <span class="hidden sm:inline">Copy Title and Url as Markdown Style</span>
+          <span class="sm:hidden">Copy as Markdown</span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm text-muted">
+          <a href={`${base}/release-notes/`} class="transition-colors hover:text-ink">
+            Release Notes
+          </a>
+          <a href={repoUrl} target="_blank" rel="noopener" class="transition-colors hover:text-ink">
+            GitHub
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="border-t border-line">
+      <div
+        class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-7 text-[13.5px] text-faint"
+      >
+        <span>MIT License · Shingo Yamazaki</span>
+        <a href={repoUrl} target="_blank" rel="noopener" class="text-muted transition-colors hover:text-ink">
+          GitHub
+        </a>
+        <a href={`${base}/release-notes/`} class="text-muted transition-colors hover:text-ink">
+          Release notes
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
