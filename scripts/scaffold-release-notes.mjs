@@ -1,6 +1,7 @@
 // Generates a release-notes template for the product site
 // (site/src/content/releases/v<version>.md) from the current
-// package.json version. Runs automatically after `pnpm release`.
+// package.json version. Run manually (`pnpm scaffold:release-notes`)
+// after merging the release-please release PR — see HOW_TO_RELEASE.md.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
