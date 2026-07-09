@@ -1,69 +1,27 @@
-import { INITIAL_OPTION_VALUES } from "../src/constant";
-import type { CopyToClipboardMessage } from "../src/messages";
+import { PENDING_FORMAT_KEY } from "../src/constant";
 import type { OptionsType } from "../src/options/Options";
-import { buildTemplate, escapeBrackets } from "../src/util";
-
-const OFFSCREEN_URL = "/offscreen.html";
-
-// The service worker has no DOM and Chrome doesn't expose
-// navigator.clipboard to extension service workers, so the actual
-// clipboard write happens in an offscreen document.
-// https://developer.chrome.com/docs/extensions/reference/api/offscreen
-async function copyViaOffscreen(text: string) {
-  const contexts = await browser.runtime.getContexts({
-    contextTypes: ["OFFSCREEN_DOCUMENT"],
-    documentUrls: [browser.runtime.getURL(OFFSCREEN_URL)],
-  });
-  if (contexts.length === 0) {
-    await browser.offscreen.createDocument({
-      url: OFFSCREEN_URL,
-      reasons: ["CLIPBOARD"],
-      justification:
-        "Write the formatted tab title and URL to the clipboard when a keyboard shortcut is pressed.",
-    });
-  }
-
-  const message: CopyToClipboardMessage = {
-    target: "offscreen",
-    type: "copy-to-clipboard",
-    text,
-  };
-  await browser.runtime.sendMessage(message);
-}
 
 export default defineBackground(() => {
-  browser.commands.onCommand.addListener(async (command, tab) => {
+  browser.commands.onCommand.addListener(async (command) => {
     console.log("Command:", command);
 
-    // Fall back to a query in case the tab argument is missing. Don't
-    // use `currentWindow: true` here: when a DevTools window has focus
-    // it matches that window, which has no tabs.
-    const activeTab =
-      tab ?? (await browser.tabs.query({ active: true, lastFocusedWindow: true }))[0];
-    if (!activeTab) {
-      console.warn("No active tab found for command:", command);
-      return;
-    }
-
-    // All commands are like `copy_as_format_*` (*: 1 or 2 or 3)
+    // All commands are like `copy_as_format_*` (*: 1 or 2)
     const formatIndex = command.slice(-1);
-    console.log("format: ", formatIndex);
-
     const key = `optionalFormat${formatIndex}` as keyof OptionsType;
-    const options = (await browser.storage.local.get(INITIAL_OPTION_VALUES)) as OptionsType;
 
-    const title = activeTab.title || "";
-    const url = activeTab.url || "";
+    // Tell the popup which format to copy with, then open it. The popup
+    // performs the actual clipboard copy on load (see
+    // entrypoints/popup/main.tsx) and shows the confirmation UI.
+    await browser.storage.session.set({ [PENDING_FORMAT_KEY]: key });
 
-    console.log(url, title);
-    console.log(options);
-
-    await copyViaOffscreen(buildTemplate(options[key], title, escapeBrackets(url)));
-
-    browser.action.setBadgeText({ text: formatIndex });
-    setTimeout(() => {
-      browser.action.setBadgeText({ text: "" });
-    }, 1000);
+    try {
+      await browser.action.openPopup();
+    } catch (e) {
+      // openPopup can reject (e.g. no active browser window). Drop the
+      // pending format so a later toolbar-icon click isn't affected.
+      console.warn("Failed to open popup:", e);
+      await browser.storage.session.remove(PENDING_FORMAT_KEY);
+    }
 
     console.log("done!");
   });
