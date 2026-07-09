@@ -7,4 +7,5 @@ export const INITIAL_OPTION_VALUES: OptionsType = {
   format: DEFAULT_FORMAT,
   optionalFormat1: "",
   optionalFormat2: "",
+  theme: "system",
 };
