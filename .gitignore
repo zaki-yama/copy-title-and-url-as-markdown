@@ -16,6 +16,10 @@ dist-ssr
 build
 screenshots
 
+# publish-browser-extension credentials
+.env.submit
+.env.submit.backup-*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

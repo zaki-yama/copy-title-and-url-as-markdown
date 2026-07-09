@@ -1,6 +1,6 @@
 {
   "name": "copy-title-and-url-as-markdown",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Quickly copy the title & url of current tab as Markdown style (`[title](url)`)",
   "private": true,
   "packageManager": "pnpm@10.34.3",
@@ -20,8 +20,7 @@
     "fmt:check": "oxfmt --check entrypoints/ src/ wxt.config.ts",
     "lint": "oxlint entrypoints/ src/",
     "lint:fix": "oxlint --fix entrypoints/ src/",
-    "release": "npm run lint && npm run build && standard-version && node scripts/scaffold-release-notes.mjs",
-    "release:dry-run": "standard-version --dry-run"
+    "scaffold:release-notes": "node scripts/scaffold-release-notes.mjs"
   },
   "repository": {
     "type": "git",
@@ -52,12 +51,11 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@wxt-dev/module-react": "^1.1.3",
-    "oxfmt": "^0.47.0",
+    "oxfmt": "^0.58.0",
     "oxlint": "^1.50.0",
-    "standard-version": "9.5.0",
     "typescript": "5.9.3",
     "vite": "^8.0.0",
-    "vitest": "4.0.18",
+    "vitest": "4.1.0",
     "wxt": "^0.20.18"
   }
 }

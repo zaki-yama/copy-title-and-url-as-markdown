@@ -32,6 +32,10 @@ pnpm zip           # Chrome/Edge
 pnpm zip:firefox   # Firefox
 ```
 
+## Development Workflow
+
+Non-trivial changes (anything beyond a one-line fix) must go through a feature branch and Pull Request — do not commit/push directly to `main`, even for the repo owner's own changes. Create a branch, commit there, and open a PR (e.g. via `gh pr create`) for review before merging.
+
 ## Architecture
 
 ### Framework: WXT
