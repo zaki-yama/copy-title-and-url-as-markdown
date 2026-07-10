@@ -1,7 +1,7 @@
-import { INITIAL_OPTION_VALUES } from "../src/constant";
-import type { CopyToClipboardMessage } from "../src/messages";
-import type { OptionsType } from "../src/options/Options";
-import { buildTemplate, escapeBrackets } from "../src/util";
+import { INITIAL_OPTION_VALUES } from "../components/constant";
+import type { CopyToClipboardMessage } from "../components/messages";
+import type { OptionsType } from "../components/options/Options";
+import { buildTemplate, escapeBrackets } from "../components/util";
 
 const OFFSCREEN_URL = "/offscreen.html";
 

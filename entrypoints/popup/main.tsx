@@ -1,9 +1,9 @@
-import "../../src/globals.css";
+import "../../components/globals.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Popup } from "../../src/popup/Popup";
-import { escapeBrackets, copyToClipboard } from "../../src/util";
-import { DEFAULT_FORMAT } from "../../src/constant";
+import { Popup } from "../../components/popup/Popup";
+import { escapeBrackets, copyToClipboard } from "../../components/util";
+import { DEFAULT_FORMAT } from "../../components/constant";
 
 const queryInfo = {
   active: true,

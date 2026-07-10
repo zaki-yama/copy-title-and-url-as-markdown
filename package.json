@@ -16,10 +16,10 @@
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "typecheck": "tsc --noEmit",
-    "fmt": "oxfmt entrypoints/ src/ wxt.config.ts",
-    "fmt:check": "oxfmt --check entrypoints/ src/ wxt.config.ts",
-    "lint": "oxlint entrypoints/ src/",
-    "lint:fix": "oxlint --fix entrypoints/ src/",
+    "fmt": "oxfmt entrypoints/ components/ wxt.config.ts",
+    "fmt:check": "oxfmt --check entrypoints/ components/ wxt.config.ts",
+    "lint": "oxlint entrypoints/ components/",
+    "lint:fix": "oxlint --fix entrypoints/ components/",
     "scaffold:release-notes": "node scripts/scaffold-release-notes.mjs"
   },
   "repository": {

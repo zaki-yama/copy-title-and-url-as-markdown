@@ -1,4 +1,4 @@
-import type { CopyToClipboardMessage } from "../../src/messages";
+import type { CopyToClipboardMessage } from "../../components/messages";
 
 // Offscreen documents are never focused, so the async Clipboard API
 // (navigator.clipboard) is not usable here; execCommand("copy") works
