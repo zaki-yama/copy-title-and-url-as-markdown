@@ -22,7 +22,7 @@ pnpm build:firefox
 pnpm test
 
 # Run a single test file
-pnpm test src/util.test.ts
+pnpm test components/util.test.ts
 
 # Lint (runs ESLint on entrypoints/**)
 pnpm lint
@@ -50,14 +50,14 @@ WXT convention — each subdirectory/file here becomes a distinct extension page
 - `entrypoints/popup/` — Rendered when the user clicks the toolbar icon. Immediately copies to clipboard on load and renders the `<Popup>` component showing title/URL.
 - `entrypoints/options/` — Options page rendered via `chrome.runtime.openOptionsPage`. Allows users to customize the copy format template.
 
-### Source (`src/`)
+### Source (`components/`)
 
 Shared code used by entrypoints:
 
-- `src/util.ts` — Core logic: `buildTemplate` (applies `${title}`/`${url}` substitution), `copyToClipboard` (uses `document.execCommand('copy')`), `escapeBrackets` (percent-encodes `()[]` in URLs), `escapeTabsAndNewLines`/`unescapeTabsAndNewLines` (for Options UI display).
-- `src/constant.ts` — Default format string (`[${title}](${url})`) and `INITIAL_OPTION_VALUES`.
-- `src/popup/Popup.tsx` — Presentational component showing title and URL using Salesforce Lightning Design System.
-- `src/options/Options.tsx` — Form for configuring up to 3 format templates stored in `chrome.storage.local`.
+- `components/util.ts` — Core logic: `buildTemplate` (applies `${title}`/`${url}` substitution), `copyToClipboard` (uses `document.execCommand('copy')`), `escapeBrackets` (percent-encodes `()[]` in URLs), `escapeTabsAndNewLines`/`unescapeTabsAndNewLines` (for Options UI display).
+- `components/constant.ts` — Default format string (`[${title}](${url})`) and `INITIAL_OPTION_VALUES`.
+- `components/popup/Popup.tsx` — Presentational component showing title and URL using Salesforce Lightning Design System.
+- `components/options/Options.tsx` — Form for configuring up to 3 format templates stored in `chrome.storage.local`.
 
 ### Key Design Points
 
@@ -71,7 +71,7 @@ The project uses pnpm (`packageManager: pnpm@10.30.3`).
 
 ### Tests
 
-Tests are in `src/util.test.ts` using Vitest. Only `src/util.ts` functions are tested (pure functions with no browser API dependencies).
+Tests are in `components/util.test.ts` using Vitest. Only `components/util.ts` functions are tested (pure functions with no browser API dependencies).
 
 ### i18n
 
