@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import ChromeIcon from "../components/icons/ChromeIcon.astro";
+import EdgeIcon from "../components/icons/EdgeIcon.astro";
 import screenshot from "../assets/screenshot.png";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -75,16 +77,18 @@ const steps = [
           href={storeUrl}
           target="_blank"
           rel="noopener"
-          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
+          class="flex items-center gap-2 rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
+          <ChromeIcon />
           Add to Chrome
         </a>
         <a
           href={edgeStoreUrl}
           target="_blank"
           rel="noopener"
-          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
+          class="flex items-center gap-2 rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
+          <EdgeIcon />
           Add to Edge
         </a>
         <a
@@ -190,16 +194,18 @@ const steps = [
           href={storeUrl}
           target="_blank"
           rel="noopener"
-          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
+          class="flex items-center gap-2 rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
+          <ChromeIcon />
           Add to Chrome
         </a>
         <a
           href={edgeStoreUrl}
           target="_blank"
           rel="noopener"
-          class="rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
+          class="flex items-center gap-2 rounded-[10px] bg-ink px-5.5 py-3 text-[15px] font-medium text-white shadow-sm transition-all hover:-translate-y-px hover:bg-ink-hover"
         >
+          <EdgeIcon />
           Add to Edge
         </a>
       </div>
