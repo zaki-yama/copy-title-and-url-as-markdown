@@ -13,6 +13,8 @@ const {
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
+
+const GA_MEASUREMENT_ID = "G-GT7XLL9FH2";
 ---
 
 <html lang="en" class="bg-white text-ink">
@@ -28,6 +30,22 @@ const repoUrl = "https://github.com/zaki-yama/copy-title-and-url-as-markdown";
       rel="stylesheet"
     />
     <title>{title}</title>
+    {
+      import.meta.env.PROD && (
+        <>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+          <script
+            is:inline
+            set:html={`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}
+          />
+        </>
+      )
+    }
   </head>
   <body class="font-sans text-base leading-relaxed">
     <header class="sticky top-0 z-10 border-b border-line bg-white/85 backdrop-blur-md">
