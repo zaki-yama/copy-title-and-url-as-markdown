@@ -8,7 +8,8 @@ Website: https://zaki-yama.github.io/copy-title-and-url-as-markdown/
 
 ## Installation & Usage
 
-Chrome Web Store: https://chrome.google.com/webstore/detail/copy-title-and-url-as-mar/fpmbiocnfbjpajgeaicmnjnnokmkehil
+<a href="https://chrome.google.com/webstore/detail/copy-title-and-url-as-mar/fpmbiocnfbjpajgeaicmnjnnokmkehil"><img src="./images/chrome-button.svg" height="44" alt="Add to Chrome"></a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/copy-title-and-url-as-mar/cepmaeppcipafbfjonahpohfmolliblp"><img src="./images/edge-button.svg" height="44" alt="Add to Edge"></a>
 
 日本語の説明はこちら。  
 [ページのタイトルと URL を Markdown 形式でコピーする Chrome 拡張作った - dackdive's blog](http://dackdive.hateblo.jp/entry/2015/12/27/000000)
