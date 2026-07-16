@@ -1,0 +1,122 @@
+<!doctype html>
+<!--
+  REVIEW-ONLY PROTOTYPE — not part of the build. Delete before merging.
+  Preview of the popup designs discussed for showing "which format was
+  copied". Open directly in a browser (uses Tailwind Play CDN).
+
+  Decision: Variant A (header row) was chosen. For the main (non-optional)
+  format, no label is shown — see "Implemented" section at the bottom.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup design variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-8 font-sans">
+    <h1 class="text-xl font-bold mb-1">Popup — "which format was copied" variants</h1>
+    <p class="text-sm text-gray-600 mb-6">
+      Each card is the popup at its real width (400px). Example: copied via
+      shortcut using <code>Optional Format #1</code>.
+    </p>
+
+    <div class="flex flex-wrap gap-8 items-start">
+      <!-- ============ Variant A: Header row (CHOSEN) ============ -->
+      <section>
+        <div class="text-sm font-semibold text-green-700 mb-2">A. Header row ✅ 採用（⭐⭐⭐⭐⭐）</div>
+        <div class="bg-white rounded-lg shadow border-2 border-green-400 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+              <span class="text-sm font-medium">Copied as Optional Format #1</span>
+            </div>
+            <div class="text-sm font-semibold">Example Page Title — A Very Long Title That Wraps</div>
+            <div class="text-xs break-all text-gray-500">https://example.com/foo/bar?query=value</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Variant B: Badge / pill ============ -->
+      <section>
+        <div class="text-sm font-semibold text-gray-700 mb-2">B. Badge（ピル）（⭐⭐⭐⭐）</div>
+        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <div class="flex justify-center">
+              <span class="rounded-full bg-green-100 text-green-800 px-2.5 py-0.5 text-xs font-medium">Optional Format #1</span>
+            </div>
+            <div class="text-sm font-semibold">Example Page Title — A Very Long Title That Wraps</div>
+            <div class="text-xs break-all text-gray-500">https://example.com/foo/bar?query=value</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Variant C: Copied result ============ -->
+      <section>
+        <div class="text-sm font-semibold text-gray-700 mb-2">C. コピー結果を表示（⭐⭐⭐⭐）</div>
+        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+              <span class="text-sm font-medium">Copied as Optional Format #1</span>
+            </div>
+            <pre class="bg-gray-100 rounded p-2 text-xs font-mono whitespace-pre-wrap break-all text-gray-800">[Example Page Title — A Very Long Title That Wraps](https://example.com/foo/bar?query=value)</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Variant D: Template pattern ============ -->
+      <section>
+        <div class="text-sm font-semibold text-gray-700 mb-2">D. テンプレートパターンを表示（⭐⭐）</div>
+        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+              <span class="text-sm font-medium">Copied as Optional Format #1</span>
+            </div>
+            <div class="text-xs text-gray-500 font-mono break-all">Format: [${title}](${url})</div>
+            <div class="text-sm font-semibold">Example Page Title — A Very Long Title That Wraps</div>
+            <div class="text-xs break-all text-gray-500">https://example.com/foo/bar?query=value</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <hr class="my-8 border-gray-300" />
+
+    <h2 class="text-base font-semibold mb-3">Implemented (Variant A)</h2>
+    <div class="flex flex-wrap gap-8 items-start">
+      <!-- Optional format: header row with label -->
+      <section>
+        <div class="text-sm font-semibold text-gray-700 mb-2">Optional Format (Ctrl+Shift+1/2)</div>
+        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500 shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+              <span class="text-sm font-medium">Copied as Optional Format #1</span>
+            </div>
+            <div class="text-sm font-semibold">Example Page Title — A Very Long Title That Wraps</div>
+            <div class="text-xs break-all text-gray-500">https://example.com/foo/bar?query=value</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main format: icon only, no label -->
+      <section>
+        <div class="text-sm font-semibold text-gray-700 mb-2">Main format (icon click / Ctrl+Shift+C) — no label</div>
+        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div class="flex flex-col gap-2 p-4 w-[400px]">
+            <div class="flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <div class="text-sm font-semibold">Example Page Title — A Very Long Title That Wraps</div>
+            <div class="text-xs break-all text-gray-500">https://example.com/foo/bar?query=value</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
