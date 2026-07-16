@@ -11,6 +11,14 @@ const queryInfo = {
   currentWindow: true,
 };
 
+// Human-readable labels shown in the popup, matching the Options screen.
+// `null` means the main format, for which no label is shown.
+const FORMAT_LABELS: Record<keyof OptionsType, string | null> = {
+  format: null,
+  optionalFormat1: "Optional Format #1",
+  optionalFormat2: "Optional Format #2",
+};
+
 async function main() {
   // When opened via a keyboard shortcut, the background script records
   // which optional format to use. Consume it (and reset) so a normal
@@ -21,18 +29,21 @@ async function main() {
   }
 
   const options = (await chrome.storage.local.get(INITIAL_OPTION_VALUES)) as OptionsType;
-  const formatKey = (pendingKey as keyof OptionsType) || "format";
-  // Fall back to the main format when the optional format is unset.
-  const format = options[formatKey] || options.format;
+
+  // Use the requested optional format only when it's actually configured;
+  // otherwise fall back to (and label as) the main format.
+  const requestedKey = pendingKey as keyof OptionsType | undefined;
+  const formatKey: keyof OptionsType =
+    requestedKey && options[requestedKey] ? requestedKey : "format";
 
   const [tab] = await chrome.tabs.query(queryInfo);
   const title = tab?.title || "";
   const url = tab?.url || "";
-  copyToClipboard(format, title, escapeBrackets(url));
+  copyToClipboard(options[formatKey], title, escapeBrackets(url));
 
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <Popup title={title} url={escapeBrackets(url)} />
+      <Popup title={title} url={escapeBrackets(url)} formatLabel={FORMAT_LABELS[formatKey]} />
     </React.StrictMode>,
   );
 }
