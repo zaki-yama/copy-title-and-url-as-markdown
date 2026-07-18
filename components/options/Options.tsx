@@ -20,30 +20,28 @@ export const Options: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    chrome.storage.local.get(INITIAL_OPTION_VALUES, (savedOptions) => {
+    const loadOptions = async () => {
+      const savedOptions = (await browser.storage.local.get(INITIAL_OPTION_VALUES)) as OptionsType;
       setOptions({
         format: escapeTabsAndNewLines(savedOptions.format),
         optionalFormat1: escapeTabsAndNewLines(savedOptions.optionalFormat1),
         optionalFormat2: escapeTabsAndNewLines(savedOptions.optionalFormat2),
       });
-    });
+    };
+    loadOptions();
   }, []);
 
   const handleChange = (key: keyof OptionsType, value: string) => {
     setOptions({ ...options, [key]: value });
   };
 
-  const onSave = () => {
-    chrome.storage.local.set(
-      {
-        format: unescapeTabsAndNewLines(options.format),
-        optionalFormat1: unescapeTabsAndNewLines(options.optionalFormat1),
-        optionalFormat2: unescapeTabsAndNewLines(options.optionalFormat2),
-      },
-      () => {
-        setShowToast(true);
-      },
-    );
+  const onSave = async () => {
+    await browser.storage.local.set({
+      format: unescapeTabsAndNewLines(options.format),
+      optionalFormat1: unescapeTabsAndNewLines(options.optionalFormat1),
+      optionalFormat2: unescapeTabsAndNewLines(options.optionalFormat2),
+    });
+    setShowToast(true);
   };
 
   return (

@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "@ladle/react": "^5.1.1",
-    "@types/chrome": "0.0.332",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@wxt-dev/module-react": "^1.1.3",
