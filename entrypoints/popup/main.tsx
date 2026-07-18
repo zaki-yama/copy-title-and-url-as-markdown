@@ -10,17 +10,21 @@ const queryInfo = {
   currentWindow: true,
 };
 
-chrome.tabs.query(queryInfo, function (tabs) {
-  chrome.storage.local.get({ format: DEFAULT_FORMAT }, function (options) {
-    const tab = tabs[0];
-    const title = tab.title || "";
-    const url = tab.url || "";
-    copyToClipboard(options.format, title, escapeBrackets(url));
+async function main() {
+  const tabs = await browser.tabs.query(queryInfo);
+  const options = (await browser.storage.local.get({ format: DEFAULT_FORMAT })) as {
+    format: string;
+  };
+  const tab = tabs[0];
+  const title = tab.title || "";
+  const url = tab.url || "";
+  copyToClipboard(options.format, title, escapeBrackets(url));
 
-    ReactDOM.createRoot(document.getElementById("root")!).render(
-      <React.StrictMode>
-        <Popup title={title} url={escapeBrackets(url)} />
-      </React.StrictMode>,
-    );
-  });
-});
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <Popup title={title} url={escapeBrackets(url)} />
+    </React.StrictMode>,
+  );
+}
+
+main();
