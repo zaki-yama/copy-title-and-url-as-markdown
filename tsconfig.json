@@ -4,5 +4,8 @@
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx"
   },
-  "exclude": [".output", "vitest.config.ts", "site"]
+  // *.stories.tsx: importing @ladle/react pulls its shipped ui.tsx source into the
+  // program, which fails type-checking under TypeScript 7 (its @ts-ignore comments
+  // no longer suppress the errors). Remove once Ladle supports TS 7.
+  "exclude": [".output", "vitest.config.ts", "site", "**/*.stories.tsx"]
 }
