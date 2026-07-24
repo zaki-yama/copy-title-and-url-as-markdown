@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@radix-ui/react-label':
         specifier: ^2.1.8
-        version: 2.1.13(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)
+        version: 2.1.14(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)
       '@radix-ui/react-slot':
         specifier: ^1.2.4
-        version: 1.3.1(@types/react@19.2.17)(react@19.2.8)
+        version: 1.3.2(@types/react@19.2.17)(react@19.2.8)
       '@tailwindcss/vite':
         specifier: ^4.2.1
         version: 4.3.3(vite@8.1.5(@types/node@26.1.1)(esbuild@0.27.7)(jiti@2.7.0)(terser@5.46.0))
@@ -910,8 +910,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@radix-ui/react-label@2.1.13':
-    resolution: {integrity: sha512-kj7BXyM4uG0dyeoEdVmPQAOFN291+iJOtiGTvkXe1ijJWLQbAHpFNkopvqquaMVn+zjqTZRhnefESAinMErHKg==}
+  '@radix-ui/react-label@2.1.14':
+    resolution: {integrity: sha512-sm0XafqY3QtR9HGAGSo7okarO3wahvIY//IFzqRL3Vpy2K+2yb2BVIZcdJXHP60tpr3tFYZN+2Kyvby/ESA5Bg==}
     peerDependencies:
       '@types/react': '*'
       '@types/react-dom': '*'
@@ -923,8 +923,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@radix-ui/react-primitive@2.1.8':
-    resolution: {integrity: sha512-DOlK1BdcIeYYUcFkSYFka4v1h95XTov93b0jCgW1EEiZuIhdwHY2NlE1teLIh+p0uBsuZI5A+voay+iVWpprfA==}
+  '@radix-ui/react-primitive@2.1.9':
+    resolution: {integrity: sha512-aX5c84AYUD0EIodbQfpujB5XI0CbEaQ5U9du/wntNQK451i5iCJlE2JN6IN1LgQ3SnoBbnW/Jv1Z4rUowZV+hg==}
     peerDependencies:
       '@types/react': '*'
       '@types/react-dom': '*'
@@ -936,8 +936,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@radix-ui/react-slot@1.3.1':
-    resolution: {integrity: sha512-Bu/aAQHFFh6/QAvXAeUMurJ9fbW0JUIqlojU/yBXZ7cAVqy75Y7JYYyuCr9zLNF0p4WWoJYV54CTUIf4l7FzTw==}
+  '@radix-ui/react-slot@1.3.2':
+    resolution: {integrity: sha512-nLBh0hpzgQA16ioKAWTSQvGjRj7QcI3pTpngtYZ12b4RP9N8eGSj7ziceHyHe04zrd0bAcLyMijO0ws0DLmDWw==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -4801,25 +4801,25 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.17
 
-  '@radix-ui/react-label@2.1.13(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)':
+  '@radix-ui/react-label@2.1.14(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@radix-ui/react-primitive': 2.1.8(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)
+      '@radix-ui/react-primitive': 2.1.9(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.7(react@19.2.8)
     optionalDependencies:
       '@types/react': 19.2.17
       '@types/react-dom': 19.2.3(@types/react@19.2.17)
 
-  '@radix-ui/react-primitive@2.1.8(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)':
+  '@radix-ui/react-primitive@2.1.9(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@radix-ui/react-slot': 1.3.1(@types/react@19.2.17)(react@19.2.8)
+      '@radix-ui/react-slot': 1.3.2(@types/react@19.2.17)(react@19.2.8)
       react: 19.2.8
       react-dom: 19.2.7(react@19.2.8)
     optionalDependencies:
       '@types/react': 19.2.17
       '@types/react-dom': 19.2.3(@types/react@19.2.17)
 
-  '@radix-ui/react-slot@1.3.1(@types/react@19.2.17)(react@19.2.8)':
+  '@radix-ui/react-slot@1.3.2(@types/react@19.2.17)(react@19.2.8)':
     dependencies:
       '@radix-ui/primitive': 1.1.7
       '@radix-ui/react-compose-refs': 1.1.4(@types/react@19.2.17)(react@19.2.8)
