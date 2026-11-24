@@ -16,8 +16,8 @@ async function main() {
     format: string;
   };
   const tab = tabs[0];
-  const title = tab.title || "";
-  const url = tab.url || "";
+  const title = tab?.title || "";
+  const url = tab?.url || "";
   copyToClipboard(options.format, title, escapeBrackets(url));
 
   ReactDOM.createRoot(document.getElementById("root")!).render(
