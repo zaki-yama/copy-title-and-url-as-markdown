@@ -4,6 +4,7 @@
     ":automergePatch",
     ":automergeBranch"
   ],
+  "minimumReleaseAge": "1 day",
   "packageRules": [
     {
       "matchPackageNames": ["pnpm"],
